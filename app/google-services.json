@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "644585760299",
+    "project_id": "doancarsale",
+    "storage_bucket": "doancarsale.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:644585760299:android:769aec6cab0d6acf3b6c6e",
+        "android_client_info": {
+          "package_name": "com.example.carsale"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "644585760299-vi0uvmd7g3d03lbl8r1o4sal2gc4crtg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.carsale",
+            "certificate_hash": "f161b731350c4cd92cc436b3ec49764309a8a36e"
+          }
+        },
+        {
+          "client_id": "644585760299-5ck19vuo4c6vj8sbfi4fuq3891u66o20.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7O0urcS8vC0ri-3erJbY1zW7GgQiyKAA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "644585760299-5ck19vuo4c6vj8sbfi4fuq3891u66o20.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
