@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "644585760299",
+    "firebase_url": "https://doancarsale-default-rtdb.firebaseio.com",
     "project_id": "doancarsale",
     "storage_bucket": "doancarsale.firebasestorage.app"
   },
