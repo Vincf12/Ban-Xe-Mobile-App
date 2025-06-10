@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.CarSale.Splash" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Màu nền splash -->
+        <item name="android:windowBackground">@color/white</item>
+
+        <!-- Biểu tượng app sẽ hiển thị ở giữa -->
+        <item name="android:windowSplashScreenAnimatedIcon">
+            @drawable/outline_shopping_bag_speed_24
+        </item>
+        <!-- Nền phía sau biểu tượng -->
+        <item name="android:windowSplashScreenBackground">@color/white</item>
+
+        <!-- Hiệu ứng icon fade out -->
+        <item name="android:windowSplashScreenIconBackgroundColor">@null</item>
+    </style>
+</resources>

@@ -1,0 +1,15 @@
+<!-- res/layout/activity_quan_ly_san_pham.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:tooltipText=".MainActivity">
+    <TextView
+        android:id="@+id/textView"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Hello, Android!" />
+
+</LinearLayout>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="background_color">#CCFFFF</color>
+    <!-- Màu chính -->
+    <color name="primary">#2E86C1</color>
+    <color name="primary_dark">#333333</color>
+    <color name="primary_light">#85C1E9</color>
+    <color name="primary_variant">#1565C0</color>
+
+    <!-- Màu phụ -->
+    <color name="secondary">#FF6B35</color>
+    <color name="secondary_dark">#E55100</color>
+    <color name="secondary_light">#FFB74D</color>
+
+    <!-- Màu nền -->
+    <color name="background_primary">#FFFFFF</color>
+    <color name="background_secondary">#F8F9FA</color>
+    <color name="surface">#FFFFFF</color>
+
+    <!-- Màu text -->
+    <color name="text_primary">#212529</color>
+    <color name="text_secondary">#6C757D</color>
+    <color name="text_hint">#ADB5BD</color>
+    <color name="text_white">#FFFFFF</color>
+
+    <!-- Màu trạng thái -->
+    <color name="success">#28A745</color>
+    <color name="warning">#FFC107</color>
+    <color name="error">#DC3545</color>
+    <color name="info">#17A2B8</color>
+
+    <!-- Màu đường viền và phân cách -->
+    <color name="divider">#E9ECEF</color>
+    <color name="border">#DEE2E6</color>
+    <color name="border_focused">#2E86C1</color>
+
+    <!-- Màu shadow và overlay -->
+    <color name="shadow">#1A000000</color>
+    <color name="overlay">#80000000</color>
+    <color name="overlay_light">#40000000</color>
+
+    <!-- Màu cho buttons -->
+    <color name="button_primary">#2E86C1</color>
+    <color name="button_primary_pressed">#1B4F72</color>
+    <color name="button_secondary">#6C757D</color>
+    <color name="button_outline">#FFFFFF</color>
+    <color name="button_outline_border">#DEE2E6</color>
+
+    <!-- Màu cho cards và containers -->
+    <color name="card_background">#FFFFFF</color>
+    <color name="card_shadow">#10000000</color>
+
+    <!-- Màu gradient -->
+    <color name="gradient_start">#EBF4FF</color>
+    <color name="gradient_end">#FFFFFF</color>
+
+    <!-- Màu cho xe (categories) -->
+    <color name="car_sedan">#3498DB</color>
+    <color name="car_suv">#E74C3C</color>
+    <color name="car_truck">#F39C12</color>
+    <color name="car_motorcycle">#9B59B6</color>
+    <color name="car_luxury">#F1C40F</color>
+
+    <!-- Màu trạng thái xe -->
+    <color name="car_new">#27AE60</color>
+    <color name="car_used">#F39C12</color>
+    <color name="car_sold">#95A5A6</color>
+
+    <!-- Màu Material Design chuẩn -->
+    <color name="material_blue_600">#1E88E5</color>
+    <color name="material_blue_700">#1976D2</color>
+    <color name="material_grey_50">#FAFAFA</color>
+    <color name="material_grey_100">#F5F5F5</color>
+    <color name="material_grey_300">#E0E0E0</color>
+    <color name="material_grey_600">#757575</color>
+    <color name="material_grey_800">#424242</color>
+
+    <!-- Màu trong suốt -->
+    <color name="transparent">#00000000</color>
+    <color name="semi_transparent">#80FFFFFF</color>
+
+</resources>
