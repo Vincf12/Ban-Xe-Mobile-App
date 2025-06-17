@@ -1,0 +1,214 @@
+[
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\layout_fragment_admin.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\layout\\fragment_admin.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\layout_activity_dang_ky.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\layout\\activity_dang_ky.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\drawable_rounded_bg.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\drawable\\rounded_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\anim_slide_in_left.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\anim\\slide_in_left.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\drawable_menu_background.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\drawable\\menu_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.carsale.app-debug-51:/layout_activity_main.xml.flat",
+        "source": "com.example.carsale.app-main-53:/layout/activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\anim_slide_up.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\anim\\slide_up.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\drawable_ic_logo.png.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\drawable\\ic_logo.png"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\drawable_outline_lock_24.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\drawable\\outline_lock_24.xml"
+    },
+    {
+        "merged": "com.example.carsale.app-debug-51:/layout_fragment_home.xml.flat",
+        "source": "com.example.carsale.app-main-53:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\menu_menu.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\menu\\menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\anim_slide_out_left.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\anim\\slide_out_left.xml"
+    },
+    {
+        "merged": "com.example.carsale.app-debug-51:/menu_menu_admin.xml.flat",
+        "source": "com.example.carsale.app-main-53:/menu/menu_admin.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\anim_slide_out_right.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\anim\\slide_out_right.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\drawable\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\drawable_bottom_nav_color.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\drawable\\bottom_nav_color.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\drawable_background_dangky.png.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\drawable\\background_dangky.png"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\drawable_splash_background.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\drawable\\splash_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\anim_bounce_in.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\anim\\bounce_in.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\drawable_gradient_background.png.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\drawable\\gradient_background.png"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\drawable_baseline_home_24.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\drawable\\baseline_home_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\drawable_ic_email.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\drawable\\ic_email.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\layout_lottie_animation_view.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\layout\\lottie_animation_view.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\drawable_outline_shopping_bag_speed_24.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\drawable\\outline_shopping_bag_speed_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\drawable_ic_google.png.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\drawable\\ic_google.png"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\anim_fade_out.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\anim\\fade_out.xml"
+    },
+    {
+        "merged": "com.example.carsale.app-debug-51:/layout_fragment_admin.xml.flat",
+        "source": "com.example.carsale.app-main-53:/layout/fragment_admin.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\anim_fade_in.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\anim\\fade_in.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\anim_scale_in.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\anim\\scale_in.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\drawable_button_animator.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\drawable\\button_animator.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\color_nav_item_color.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\color\\nav_item_color.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\layout_activity_dang_nhap.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\layout\\activity_dang_nhap.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\anim_scale_out.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\anim\\scale_out.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\drawable_outline_person_24.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\drawable\\outline_person_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\drawable_icons_facebook.png.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\drawable\\icons_facebook.png"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\anim_slide_in_right.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\anim\\slide_in_right.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-51:\\drawable_icons_google.png.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\drawable\\icons_google.png"
+    }
+]

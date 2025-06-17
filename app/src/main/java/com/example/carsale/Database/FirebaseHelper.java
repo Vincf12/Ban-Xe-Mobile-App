@@ -46,6 +46,12 @@ public class FirebaseHelper {
         void onError(String error);
     }
 
+    public interface AuthUserCallback {
+        void onSuccess(User user);
+        void onError(String error);
+    }
+
+
     public void registerUser(String username, String email, String password, AuthCallback callback) {
         // Tạo user với Firebase Auth
         mAuth.createUserWithEmailAndPassword(email, password)
@@ -108,7 +114,7 @@ public class FirebaseHelper {
         return mGoogleSignInClient;
     }
 
-    public void handleGoogleSignInResult(Task<GoogleSignInAccount> completedTask, AuthCallback callback) {
+    public void handleGoogleSignInResult(Task<GoogleSignInAccount> completedTask, AuthUserCallback callback) {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
             if (account != null) {
@@ -119,29 +125,30 @@ public class FirebaseHelper {
         }
     }
 
-    private void firebaseAuthWithGoogle(String idToken, AuthCallback callback) {
+    private void firebaseAuthWithGoogle(String idToken, AuthUserCallback callback) {
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         FirebaseUser user = mAuth.getCurrentUser();
                         if (user != null) {
-                            saveUserToFirestore(user, callback);
+                            saveUserToFirestore(user, callback); // đúng kiểu
                         }
                     } else {
                         callback.onError("Xác thực Google thất bại");
                     }
                 });
     }
+
     // Đăng nhập bằng Facebook
-    public void handleFacebookAccessToken(AccessToken token, AuthCallback callback) {
+    public void handleFacebookAccessToken(AccessToken token, AuthUserCallback callback) {
         AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         FirebaseUser user = mAuth.getCurrentUser();
                         if (user != null) {
-                            saveUserToFirestore(user, callback);
+                            saveUserToFirestore(user, callback); // đúng kiểu
                         }
                     } else {
                         callback.onError("Xác thực Facebook thất bại");
@@ -149,28 +156,35 @@ public class FirebaseHelper {
                 });
     }
 
+
     // Lưu thông tin user vào Firestore
-    private void saveUserToFirestore(FirebaseUser firebaseUser, AuthCallback callback) {
+    private void saveUserToFirestore(FirebaseUser firebaseUser, AuthUserCallback callback) {
         String uid = firebaseUser.getUid();
 
         // Kiểm tra user đã tồn tại chưa
         db.collection("users").document(uid).get()
                 .addOnSuccessListener(documentSnapshot -> {
-                    if (!documentSnapshot.exists()) {
-                        // Tạo user mới
+                    if (documentSnapshot.exists()) {
+                        // Nếu user đã tồn tại, đọc từ Firestore
+                        User user = documentSnapshot.toObject(User.class);
+                        if (user != null) {
+                            callback.onSuccess(user);
+                        } else {
+                            callback.onError("Lỗi đọc dữ liệu người dùng");
+                        }
+                    } else {
+                        // Tạo user mới nếu chưa tồn tại
                         User user = new User();
                         user.setId(uid);
-                        user.setUsername(firebaseUser.getDisplayName() != null ?
-                                firebaseUser.getDisplayName() : "User");
+                        user.setUsername(firebaseUser.getDisplayName() != null ? firebaseUser.getDisplayName() : "User");
                         user.setEmail(firebaseUser.getEmail());
                         user.setCreatedAt(System.currentTimeMillis());
                         user.setActive(true);
+                        user.setAdmin(false); // mặc định không phải admin
 
                         db.collection("users").document(uid).set(user)
-                                .addOnSuccessListener(aVoid -> callback.onSuccess("Đăng nhập thành công!"))
+                                .addOnSuccessListener(aVoid -> callback.onSuccess(user))
                                 .addOnFailureListener(e -> callback.onError("Lỗi lưu dữ liệu: " + e.getMessage()));
-                    } else {
-                        callback.onSuccess("Đăng nhập thành công!");
                     }
                 })
                 .addOnFailureListener(e -> callback.onError("Lỗi kiểm tra dữ liệu: " + e.getMessage()));

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.CarSale.Splash" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        
+        <item name="android:windowBackground">@color/white</item>
+
+        
+        <item name="android:windowSplashScreenAnimatedIcon">
+            @drawable/outline_shopping_bag_speed_24
+        </item>
+        
+        <item name="android:windowSplashScreenBackground">@color/white</item>
+
+        
+        <item name="android:windowSplashScreenIconBackgroundColor">@null</item>
+    </style>
+</resources>

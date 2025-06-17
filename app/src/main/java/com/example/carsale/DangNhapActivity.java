@@ -21,6 +21,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.carsale.Database.FirebaseHelper;
+import com.example.carsale.Model.User;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -120,12 +121,19 @@ public class DangNhapActivity extends AppCompatActivity {
                     public void onSuccess(LoginResult loginResult) {
                         progressDialog.show();
                         firebaseHelper.handleFacebookAccessToken(loginResult.getAccessToken(),
-                                new FirebaseHelper.AuthCallback() {
+                                new FirebaseHelper.AuthUserCallback() {
                                     @Override
-                                    public void onSuccess(String message) {
+                                    public void onSuccess(User user) {
                                         progressDialog.dismiss();
-                                        Toast.makeText(DangNhapActivity.this, message, Toast.LENGTH_SHORT).show();
-                                        navigateToMainActivity();
+                                        Toast.makeText(DangNhapActivity.this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
+
+                                        if (user.isAdmin()) {
+                                            // Nếu là admin → sang trang quản trị
+                                            startActivity(new Intent(DangNhapActivity.this, AdminFragment.class));
+                                        } else {
+                                            // Nếu là user thường → sang giao diện chính
+                                            navigateToMainActivity();
+                                        }
                                     }
 
                                     @Override
@@ -138,16 +146,16 @@ public class DangNhapActivity extends AppCompatActivity {
 
                     @Override
                     public void onCancel() {
-                        Toast.makeText(DangNhapActivity.this, "Đăng nhập Facebook bị hủy", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DangNhapActivity.this, "Đăng nhập Facebook đã hủy", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
-                    public void onError(FacebookException exception) {
-                        Toast.makeText(DangNhapActivity.this, "Lỗi Facebook: " + exception.getMessage(),
-                                Toast.LENGTH_LONG).show();
+                    public void onError(FacebookException error) {
+                        Toast.makeText(DangNhapActivity.this, "Lỗi Facebook: " + error.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 });
     }
+
 
     private void setupClickListeners() {
         // Đăng nhập bằng email/password
@@ -250,14 +258,18 @@ public class DangNhapActivity extends AppCompatActivity {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             progressDialog.show();
 
-            firebaseHelper.handleGoogleSignInResult(task, new FirebaseHelper.AuthCallback() {
+            firebaseHelper.handleGoogleSignInResult(task, new FirebaseHelper.AuthUserCallback() {
                 @Override
-                public void onSuccess(String message) {
+                public void onSuccess(User user) {
                     progressDialog.dismiss();
-                    Toast.makeText(DangNhapActivity.this, message, Toast.LENGTH_SHORT).show();
-                    navigateToMainActivity();
+                    Toast.makeText(DangNhapActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+                    // Kiểm tra quyền admin
+                    if (user.isAdmin()) {
+                        startActivity(new Intent(DangNhapActivity.this, AdminFragment.class));
+                    } else {
+                        navigateToMainActivity();
+                    }
                 }
-
                 @Override
                 public void onError(String error) {
                     progressDialog.dismiss();

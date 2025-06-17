@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-50:\\layout\\activity_dang_nhap.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\layout\\activity_dang_nhap.xml"
+    },
+    {
+        "merged": "com.example.carsale.app-mergeDebugResources-50:/layout/fragment_home.xml",
+        "source": "com.example.carsale.app-main-53:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-50:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "com.example.carsale.app-mergeDebugResources-50:/layout/activity_main.xml",
+        "source": "com.example.carsale.app-main-53:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.carsale.app-mergeDebugResources-50:/layout/fragment_admin.xml",
+        "source": "com.example.carsale.app-main-53:/layout/fragment_admin.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-50:\\layout\\fragment_admin.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\layout\\fragment_admin.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-50:\\layout\\lottie_animation_view.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\layout\\lottie_animation_view.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-50:\\layout\\activity_dang_ky.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\layout\\activity_dang_ky.xml"
+    }
+]

@@ -78,7 +78,24 @@
     <color name="material_grey_800">#424242</color>
 
     <!-- Màu trong suốt -->
-    <color name="transparent">#00000000</color>
     <color name="semi_transparent">#80FFFFFF</color>
+
+    <!-- Màu cho menu được chọn -->
+    <color name="selected_color">#2196F3</color>
+
+    <!-- Màu mặc định -->
+    <color name="default_color">#757575</color>
+
+    <!-- Màu nền khi ấn -->
+    <color name="pressed_background">#BBDEFB</color>
+
+    <!-- Màu nền khi được chọn -->
+    <color name="selected_background">#E3F2FD</color>
+
+    <!-- Màu nền ripple -->
+    <color name="ripple_color">#E3F2FD</color>
+
+    <!-- Các màu khác -->
+    <color name="transparent">#00000000</color>
 
 </resources>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.CarSale.Splash" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Theme.CarSale.Splash" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Màu nền splash -->
         <item name="android:windowBackground">@color/white</item>
 

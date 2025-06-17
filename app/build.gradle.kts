@@ -52,13 +52,13 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:33.14.0"))
     implementation("com.google.firebase:firebase-analytics")
     // Firebase Authentication
-    implementation ("com.google.firebase:firebase-auth")
+    implementation ("com.google.firebase:firebase-auth:22.0.0")
     // Firebase Firestore
     implementation ("com.google.firebase:firebase-firestore")
     // Firebase Realtime Database (tùy chọn)
     implementation ("com.google.firebase:firebase-database")
     // Material Design
-    implementation ("com.google.android.material:material:1.9.0")
+    implementation ("com.google.android.material:material:1.11.0")
     // Google Sign-In
     implementation ("com.google.android.gms:play-services-auth:21.0.0")
     // Facebook SDK
@@ -67,6 +67,6 @@ dependencies {
     implementation ("androidx.core:core-splashscreen:1.0.1")
     // LottieFile
     implementation ("com.airbnb.android:lottie:6.1.0")
-
-    implementation ("com.google.android.material:material:1.11.0")
+    implementation ("com.google.android.gms:play-services-safetynet:18.1.0") // Hoặc phiên bản mới nhất
+    implementation ("com.google.firebase:firebase-core:21.1.1")
 }

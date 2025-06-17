@@ -1,6 +1,7 @@
 package com.example.carsale.Model;
 
 public class User {
+    private boolean isAdmin;
     private String id;
     private String username;
     private String email;
@@ -19,6 +20,12 @@ public class User {
     }
 
     // Getters và Setters
+    public boolean isAdmin(){
+        return isAdmin;
+    }
+    public void setAdmin(boolean admin){
+        isAdmin = admin;
+    }
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
 
