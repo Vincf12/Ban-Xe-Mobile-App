@@ -69,4 +69,5 @@ dependencies {
     implementation ("com.airbnb.android:lottie:6.1.0")
     implementation ("com.google.android.gms:play-services-safetynet:18.1.0") // Hoặc phiên bản mới nhất
     implementation ("com.google.firebase:firebase-core:21.1.1")
+    implementation ("androidx.viewpager2:viewpager2:1.0.0")
 }

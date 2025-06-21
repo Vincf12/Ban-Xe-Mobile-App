@@ -4,25 +4,56 @@ package com.example.carsale.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
+import androidx.viewbinding.ViewBindings;
+import androidx.viewpager2.widget.ViewPager2;
 import com.example.carsale.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
+import java.lang.String;
 
 public final class FragmentHomeBinding implements ViewBinding {
   @NonNull
-  private final FrameLayout rootView;
+  private final LinearLayout rootView;
 
-  private FragmentHomeBinding(@NonNull FrameLayout rootView) {
+  @NonNull
+  public final ViewPager2 bannerViewPager;
+
+  @NonNull
+  public final LinearLayout brandsHeaderLayout;
+
+  @NonNull
+  public final RecyclerView brandsLayout;
+
+  @NonNull
+  public final LinearLayout headerLayout;
+
+  @NonNull
+  public final RecyclerView listingsLayout;
+
+  @NonNull
+  public final LinearLayout searchLayout;
+
+  private FragmentHomeBinding(@NonNull LinearLayout rootView, @NonNull ViewPager2 bannerViewPager,
+      @NonNull LinearLayout brandsHeaderLayout, @NonNull RecyclerView brandsLayout,
+      @NonNull LinearLayout headerLayout, @NonNull RecyclerView listingsLayout,
+      @NonNull LinearLayout searchLayout) {
     this.rootView = rootView;
+    this.bannerViewPager = bannerViewPager;
+    this.brandsHeaderLayout = brandsHeaderLayout;
+    this.brandsLayout = brandsLayout;
+    this.headerLayout = headerLayout;
+    this.listingsLayout = listingsLayout;
+    this.searchLayout = searchLayout;
   }
 
   @Override
   @NonNull
-  public FrameLayout getRoot() {
+  public LinearLayout getRoot() {
     return rootView;
   }
 
@@ -43,10 +74,50 @@ public final class FragmentHomeBinding implements ViewBinding {
 
   @NonNull
   public static FragmentHomeBinding bind(@NonNull View rootView) {
-    if (rootView == null) {
-      throw new NullPointerException("rootView");
-    }
+    // The body of this method is generated in a way you would not otherwise write.
+    // This is done to optimize the compiled bytecode for size and performance.
+    int id;
+    missingId: {
+      id = R.id.bannerViewPager;
+      ViewPager2 bannerViewPager = ViewBindings.findChildViewById(rootView, id);
+      if (bannerViewPager == null) {
+        break missingId;
+      }
 
-    return new FragmentHomeBinding((FrameLayout) rootView);
+      id = R.id.brands_header_layout;
+      LinearLayout brandsHeaderLayout = ViewBindings.findChildViewById(rootView, id);
+      if (brandsHeaderLayout == null) {
+        break missingId;
+      }
+
+      id = R.id.brands_layout;
+      RecyclerView brandsLayout = ViewBindings.findChildViewById(rootView, id);
+      if (brandsLayout == null) {
+        break missingId;
+      }
+
+      id = R.id.header_layout;
+      LinearLayout headerLayout = ViewBindings.findChildViewById(rootView, id);
+      if (headerLayout == null) {
+        break missingId;
+      }
+
+      id = R.id.listings_layout;
+      RecyclerView listingsLayout = ViewBindings.findChildViewById(rootView, id);
+      if (listingsLayout == null) {
+        break missingId;
+      }
+
+      id = R.id.search_layout;
+      LinearLayout searchLayout = ViewBindings.findChildViewById(rootView, id);
+      if (searchLayout == null) {
+        break missingId;
+      }
+
+      return new FragmentHomeBinding((LinearLayout) rootView, bannerViewPager, brandsHeaderLayout,
+          brandsLayout, headerLayout, listingsLayout, searchLayout);
+    }
+    String missingId = rootView.getResources().getResourceName(id);
+    throw new NullPointerException("Missing required view with ID: ".concat(missingId));
   }
 }

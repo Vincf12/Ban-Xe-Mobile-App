@@ -24,13 +24,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         setupBottomNavigation();
-
-
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.nav_host_fragment, new HomeFragment())
-                    .commit();
-        }
     }
 
     private void setupBottomNavigation() {

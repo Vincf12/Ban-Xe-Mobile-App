@@ -70,6 +70,8 @@ color transparent
 color warning
 color white
 drawable background_dangky
+drawable background_home
+drawable banner_background
 drawable baseline_home_24
 drawable bottom_nav_color
 drawable button_animator
@@ -79,6 +81,8 @@ drawable ic_google
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_logo
+drawable ic_notification
+drawable ic_search
 drawable icons_facebook
 drawable icons_google
 drawable outline_lock_24
@@ -86,7 +90,13 @@ drawable outline_person_24
 drawable outline_shopping_bag_speed_24
 drawable rounded_bg
 drawable splash_background
+id adminButtons
+id bannerViewPager
 id bottom_navigation
+id brands_header_layout
+id brands_layout
+id btnDelete
+id btnEdit
 id btn_facebook_login
 id btn_google_login
 id btn_login
@@ -97,7 +107,8 @@ id et_password
 id et_user
 id ft_login
 id ft_sign_up
-id lottieView
+id header_layout
+id listings_layout
 id main
 id nav_account
 id nav_account_admin
@@ -107,6 +118,7 @@ id nav_home_admin
 id nav_host_fragment
 id nav_settings
 id nav_settings_admin
+id search_layout
 id tb_login
 id tb_signup
 id tv_forgot_password
@@ -114,12 +126,14 @@ id tv_login
 id tv_register
 id tvlogin
 id tvsignup
+id txtMakeModel
+id txtPrice
 layout activity_dang_ky
 layout activity_dang_nhap
 layout activity_main
+layout car_item
 layout fragment_admin
 layout fragment_home
-layout lottie_animation_view
 menu menu
 menu menu_admin
 mipmap ic_launcher

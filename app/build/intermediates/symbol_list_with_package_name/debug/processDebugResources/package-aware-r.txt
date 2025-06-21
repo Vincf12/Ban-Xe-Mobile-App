@@ -3167,6 +3167,8 @@ drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
 drawable background_dangky
+drawable background_home
+drawable banner_background
 drawable baseline_home_24
 drawable bottom_nav_color
 drawable btn_checkbox_checked_mtrl
@@ -3248,9 +3250,11 @@ drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_notification
 drawable ic_other_sign_in
 drawable ic_passkey
 drawable ic_password
+drawable ic_search
 drawable ic_search_black_24
 drawable icon_background
 drawable icons_facebook
@@ -3411,6 +3415,7 @@ id activity_chooser_view_content
 id add
 id adjust_height
 id adjust_width
+id adminButtons
 id alertTitle
 id aligned
 id all
@@ -3429,6 +3434,7 @@ id autoCompleteToEnd
 id autoCompleteToStart
 id automatic
 id axisRelative
+id bannerViewPager
 id barrier
 id baseline
 id beginOnFirstDraw
@@ -3443,11 +3449,15 @@ id bounceBoth
 id bounceEnd
 id bounceStart
 id box_count
+id brands_header_layout
+id brands_layout
 id browser_actions_header_text
 id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
+id btnDelete
+id btnEdit
 id btn_facebook_login
 id btn_google_login
 id btn_login
@@ -3587,6 +3597,7 @@ id group_divider
 id grouping
 id groups
 id hardware
+id header_layout
 id header_title
 id hide_ime_id
 id hideable
@@ -3625,7 +3636,7 @@ id line3
 id linear
 id listMode
 id list_item
-id lottieView
+id listings_layout
 id lottie_layer_name
 id m3_side_sheet
 id main
@@ -3785,6 +3796,7 @@ id search_button
 id search_close_btn
 id search_edit_frame
 id search_go_btn
+id search_layout
 id search_mag_icon
 id search_plate
 id search_src_text
@@ -3890,6 +3902,8 @@ id tv_login
 id tv_register
 id tvlogin
 id tvsignup
+id txtMakeModel
+id txtPrice
 id unchecked
 id uniform
 id unknown
@@ -4038,6 +4052,7 @@ layout activity_dang_nhap
 layout activity_main
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
+layout car_item
 layout com_facebook_activity_layout
 layout com_facebook_device_auth_dialog_fragment
 layout com_facebook_login_fragment
@@ -4063,7 +4078,6 @@ layout fragment_admin
 layout fragment_home
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
-layout lottie_animation_view
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title

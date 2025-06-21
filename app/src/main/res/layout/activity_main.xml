@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background_home"
+    >
 
     <!-- Nội dung chính -->
     <FrameLayout
@@ -18,7 +20,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/white"
+        android:background="@android:color/transparent"
+        android:elevation="0dp"
         app:itemBackground="@android:color/transparent"
         app:itemIconTint="@color/nav_item_color"
         app:itemTextColor="@color/nav_item_color"
