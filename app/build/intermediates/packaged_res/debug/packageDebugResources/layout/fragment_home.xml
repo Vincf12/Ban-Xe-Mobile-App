@@ -5,7 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="10dp"
-    android:background="@drawable/background_home">
+    android:background="@drawable/background_home"
+    android:fitsSystemWindows="false">
 
     <!-- Header Section -->
     <LinearLayout
@@ -63,12 +64,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/transparent"
-            android:hint="Tìm kiếm xe mới nhất"
             android:drawableStart="@drawable/ic_search"
+            android:hint="Tìm kiếm xe mới nhất"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:textColorHint="@color/default_color"
-            />
+            android:textColorHint="@color/default_color" />
     </LinearLayout>
     <!-- Promotion Banner -->
     <androidx.viewpager2.widget.ViewPager2

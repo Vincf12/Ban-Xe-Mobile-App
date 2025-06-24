@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:spacing="8dp">
+
+        <!-- Tên xe -->
+        <EditText
+            android:id="@+id/etCarModel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tên xe (VD: Camry 2022)"
+            android:inputType="text" />
+
+        <!-- Hãng xe -->
+        <EditText
+            android:id="@+id/etCarMake"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Hãng xe (VD: Toyota)"
+            android:inputType="text" />
+
+        <!-- Năm sản xuất -->
+        <EditText
+            android:id="@+id/etYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Năm sản xuất (VD: 2022)"
+            android:inputType="number" />
+
+        <!-- Giá bán -->
+        <EditText
+            android:id="@+id/etPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Giá bán (VD: 850000000)"
+            android:inputType="numberDecimal" />
+
+        <!-- Tình trạng -->
+        <Spinner
+            android:id="@+id/spinnerCondition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Loại xe -->
+        <Spinner
+            android:id="@+id/spinnerCarType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Hộp số -->
+        <Spinner
+            android:id="@+id/spinnerTransmission"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Nhiên liệu -->
+        <Spinner
+            android:id="@+id/spinnerFuelType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Dung tích động cơ -->
+        <EditText
+            android:id="@+id/etEngineCapacity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Dung tích động cơ (VD: 2.0L)"
+            android:inputType="text" />
+
+        <!-- Địa điểm -->
+        <EditText
+            android:id="@+id/etLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Địa điểm bán (VD: TP.HCM)"
+            android:inputType="text" />
+
+        <!-- Mô tả -->
+        <EditText
+            android:id="@+id/etDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mô tả chi tiết"
+            android:minLines="4"
+            android:gravity="top"
+            android:inputType="textMultiLine" />
+
+        <!-- Ảnh xe -->
+        <Button
+            android:id="@+id/btnSelectImages"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chọn ảnh xe" />
+
+        <!-- Danh sách ảnh chọn -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="8dp">
+
+            <LinearLayout
+                android:id="@+id/layoutImagePreview"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" />
+        </HorizontalScrollView>
+
+        <!-- Nút lưu -->
+        <Button
+            android:id="@+id/btnSaveCar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lưu thông tin xe"
+            android:layout_marginTop="16dp" />
+    </LinearLayout>
+</ScrollView>

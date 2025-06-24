@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/car_new"
+    android:orientation="vertical"
+    android:background="@drawable/background_home"
     tools:context=".AdminFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/nav_admin"
+    <Button
+        android:id="@+id/btnAddCar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:layout_marginTop="20dp"
+        android:drawableStart="@drawable/baseline_add_24"
+        android:text="Thêm xe mới" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewCars"
         android:layout_width="match_parent"
-        android:gravity="center"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-</FrameLayout>
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+</LinearLayout>

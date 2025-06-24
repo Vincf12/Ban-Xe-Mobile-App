@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.carsale.app-mergeDebugResources-49:/values-watch-v20/values-watch-v20.xml",
+            "outputFile": "com.example.carsale.app-mergeDebugResources-50:/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\nguye\\.gradle\\caches\\8.11.1\\transforms\\cf53db2dc27db47cadac06d645a0860b\\transformed\\core-splashscreen-1.0.1\\res\\values-watch-v20\\values-watch-v20.xml",
+                    "source": "C:\\Users\\nguye\\.gradle\\caches\\8.11.1\\transforms\\fd1e3fe6c1d40354a910c788511af39c\\transformed\\core-splashscreen-1.0.1\\res\\values-watch-v20\\values-watch-v20.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\nguye\\.gradle\\caches\\8.11.1\\transforms\\de96a0e34655da647c16dd951be0a15f\\transformed\\play-services-auth-21.0.0\\res\\values-watch-v20\\values.xml",
+                    "source": "C:\\Users\\nguye\\.gradle\\caches\\8.11.1\\transforms\\2455dc439f5b5218bf1d5fe6f5ba0761\\transformed\\play-services-auth-21.0.0\\res\\values-watch-v20\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11",
                         "startColumns": "0,0,0,0,0,0,0,0",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\nguye\\.gradle\\caches\\8.11.1\\transforms\\81e9dce05e1af82fc4ef6fb5873cd412\\transformed\\appcompat-1.7.0\\res\\values-watch-v20\\values-watch-v20.xml",
+                    "source": "C:\\Users\\nguye\\.gradle\\caches\\8.11.1\\transforms\\d5e67320d359cf32f4de5bcfee5811ce\\transformed\\appcompat-1.7.0\\res\\values-watch-v20\\values-watch-v20.xml",
                     "from": {
                         "startLines": "2,5,8",
                         "startColumns": "4,4,4",

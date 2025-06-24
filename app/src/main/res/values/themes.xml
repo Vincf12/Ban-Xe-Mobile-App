@@ -5,23 +5,10 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.CarSale" parent="Base.Theme.CarSale" />
-    <!-- Theme chỉ dùng cho Splash Screen -->
-    <style name="Theme.MyApp.Splash" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Màu nền splash -->
-        <item name="android:windowBackground">@color/white</item>
+    <style name="Theme.CarSale" parent="Theme.MaterialComponents.DayNight.NoActionBar" >
 
-        <!-- Biểu tượng app sẽ hiển thị ở giữa -->
-        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
-
-        <!-- Nền phía sau biểu tượng -->
-        <item name="android:windowSplashScreenBackground">@color/white</item>
-
-        <!-- Hiệu ứng icon fade out -->
-        <item name="android:windowSplashScreenIconBackgroundColor">@color/white</item>
-
-        <!-- Thời gian hiển thị splash (tuỳ chỉnh trong code nếu cần delay) -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">true</item>
     </style>
-
 
 </resources>

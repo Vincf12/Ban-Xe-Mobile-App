@@ -3169,6 +3169,7 @@ drawable avd_show_password
 drawable background_dangky
 drawable background_home
 drawable banner_background
+drawable baseline_add_24
 drawable baseline_home_24
 drawable bottom_nav_color
 drawable btn_checkbox_checked_mtrl
@@ -3220,6 +3221,8 @@ drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
 drawable compat_splash_screen
 drawable compat_splash_screen_no_icon_background
+drawable dang_ky
+drawable dang_nhap
 drawable design_fab_background
 drawable design_ic_visibility
 drawable design_ic_visibility_off
@@ -3237,7 +3240,10 @@ drawable ic_call_decline
 drawable ic_call_decline_low
 drawable ic_clear_black_24
 drawable ic_clock_black_24dp
+drawable ic_delete
+drawable ic_door
 drawable ic_email
+drawable ic_engine
 drawable ic_google
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
@@ -3256,6 +3262,7 @@ drawable ic_passkey
 drawable ic_password
 drawable ic_search
 drawable ic_search_black_24
+drawable ic_transmission
 drawable icon_background
 drawable icons_facebook
 drawable icons_google
@@ -3336,6 +3343,7 @@ drawable outline_lock_24
 drawable outline_person_24
 drawable outline_shopping_bag_speed_24
 drawable rounded_bg
+drawable rounded_image
 drawable splash_background
 drawable test_level_drawable
 drawable tooltip_frame_dark
@@ -3415,7 +3423,6 @@ id activity_chooser_view_content
 id add
 id adjust_height
 id adjust_width
-id adminButtons
 id alertTitle
 id aligned
 id all
@@ -3456,8 +3463,11 @@ id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
-id btnDelete
+id btDelete
+id btnAddCar
 id btnEdit
+id btnSaveCar
+id btnSelectImages
 id btn_facebook_login
 id btn_google_login
 id btn_login
@@ -3562,6 +3572,13 @@ id end_padder
 id enterAlways
 id enterAlwaysCollapsed
 id escape
+id etCarMake
+id etCarModel
+id etDescription
+id etEngineCapacity
+id etLocation
+id etPrice
+id etYear
 id et_Rtpassword
 id et_email
 id et_password
@@ -3590,6 +3607,7 @@ id ft_sign_up
 id fullscreen_header
 id ghost_view
 id ghost_view_holder
+id glide_custom_view_target_tag
 id gone
 id graph
 id graph_wrap
@@ -3613,6 +3631,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imgCar
 id immediateStop
 id included
 id indeterminate
@@ -3627,6 +3646,7 @@ id jumpToStart
 id labeled
 id large
 id layout
+id layoutImagePreview
 id left
 id leftToRight
 id legacy
@@ -3640,6 +3660,7 @@ id listings_layout
 id lottie_layer_name
 id m3_side_sheet
 id main
+id main_root
 id marquee
 id masked
 id match_constraint
@@ -3702,7 +3723,6 @@ id mtrl_view_tag_bottom_padding
 id multiply
 id nav_account
 id nav_account_admin
-id nav_admin
 id nav_home
 id nav_home_admin
 id nav_host_fragment
@@ -3770,6 +3790,7 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
+id recyclerViewCars
 id report_drawn
 id restart
 id reverse
@@ -3823,6 +3844,10 @@ id software
 id south
 id spacer
 id special_effects_controller_view_tag
+id spinnerCarType
+id spinnerCondition
+id spinnerFuelType
+id spinnerTransmission
 id splashscreen_icon_view
 id spline
 id split_action_bar
@@ -3902,8 +3927,11 @@ id tv_login
 id tv_register
 id tvlogin
 id tvsignup
-id txtMakeModel
-id txtPrice
+id txtCarName
+id txtCarPrice
+id txtDoors
+id txtFuel
+id txtTransmission
 id unchecked
 id uniform
 id unknown
@@ -4047,12 +4075,12 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_add_edit_car
 layout activity_dang_ky
 layout activity_dang_nhap
 layout activity_main
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
-layout car_item
 layout com_facebook_activity_layout
 layout com_facebook_device_auth_dialog_fragment
 layout com_facebook_login_fragment
@@ -4078,6 +4106,7 @@ layout fragment_admin
 layout fragment_home
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
+layout item_car
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
@@ -5033,7 +5062,6 @@ style Theme_MaterialComponents_Light_NoActionBar
 style Theme_MaterialComponents_Light_NoActionBar_Bridge
 style Theme_MaterialComponents_NoActionBar
 style Theme_MaterialComponents_NoActionBar_Bridge
-style Theme_MyApp_Splash
 style Theme_PlayCore_Transparent
 style Theme_SplashScreen
 style Theme_SplashScreen_Common

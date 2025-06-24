@@ -1,30 +1,38 @@
 [
     {
-        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-50:\\layout\\activity_dang_nhap.xml",
-        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\layout\\activity_dang_nhap.xml"
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-51:\\layout\\car_item.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\layout\\car_item.xml"
     },
     {
-        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-50:\\layout\\fragment_home.xml",
-        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\layout\\fragment_home.xml"
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-51:\\layout\\fragment_home.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\layout\\fragment_home.xml"
     },
     {
-        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-50:\\layout\\activity_main.xml",
-        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\layout\\activity_main.xml"
+        "merged": "com.example.carsale.app-mergeDebugResources-51:/layout/item_car.xml",
+        "source": "com.example.carsale.app-main-54:/layout/item_car.xml"
     },
     {
-        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-50:\\layout\\fragment_admin.xml",
-        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\layout\\fragment_admin.xml"
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-51:\\layout\\item_car.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\layout\\item_car.xml"
     },
     {
-        "merged": "com.example.carsale.app-mergeDebugResources-50:/layout/car_item.xml",
-        "source": "com.example.carsale.app-main-53:/layout/car_item.xml"
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-51:\\layout\\activity_add_edit_car.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\layout\\activity_add_edit_car.xml"
     },
     {
-        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-50:\\layout\\lottie_animation_view.xml",
-        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\layout\\lottie_animation_view.xml"
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-51:\\layout\\activity_dang_ky.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\layout\\activity_dang_ky.xml"
     },
     {
-        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-50:\\layout\\activity_dang_ky.xml",
-        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-53:\\layout\\activity_dang_ky.xml"
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-51:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-51:\\layout\\fragment_admin.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\layout\\fragment_admin.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-51:\\layout\\activity_dang_nhap.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\layout\\activity_dang_nhap.xml"
     }
 ]

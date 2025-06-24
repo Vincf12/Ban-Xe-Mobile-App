@@ -45,6 +45,7 @@ dependencies {
     implementation(libs.annotation)
     implementation(libs.lifecycle.livedata.ktx)
     implementation(libs.lifecycle.viewmodel.ktx)
+    implementation(libs.firebase.firestore)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
@@ -54,7 +55,7 @@ dependencies {
     // Firebase Authentication
     implementation ("com.google.firebase:firebase-auth:22.0.0")
     // Firebase Firestore
-    implementation ("com.google.firebase:firebase-firestore")
+    implementation ("com.google.firebase:firebase-storage:21.0.2")
     // Firebase Realtime Database (tùy chọn)
     implementation ("com.google.firebase:firebase-database")
     // Material Design
@@ -70,4 +71,7 @@ dependencies {
     implementation ("com.google.android.gms:play-services-safetynet:18.1.0") // Hoặc phiên bản mới nhất
     implementation ("com.google.firebase:firebase-core:21.1.1")
     implementation ("androidx.viewpager2:viewpager2:1.0.0")
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.16.0")
+    implementation ("com.google.firebase:firebase-appcheck-playintegrity:17.1.0")
 }

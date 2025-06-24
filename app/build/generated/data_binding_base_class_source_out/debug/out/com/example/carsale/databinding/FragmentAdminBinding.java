@@ -4,10 +4,11 @@ package com.example.carsale.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.TextView;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.carsale.R;
@@ -17,19 +18,24 @@ import java.lang.String;
 
 public final class FragmentAdminBinding implements ViewBinding {
   @NonNull
-  private final FrameLayout rootView;
+  private final LinearLayout rootView;
 
   @NonNull
-  public final TextView navAdmin;
+  public final Button btnAddCar;
 
-  private FragmentAdminBinding(@NonNull FrameLayout rootView, @NonNull TextView navAdmin) {
+  @NonNull
+  public final RecyclerView recyclerViewCars;
+
+  private FragmentAdminBinding(@NonNull LinearLayout rootView, @NonNull Button btnAddCar,
+      @NonNull RecyclerView recyclerViewCars) {
     this.rootView = rootView;
-    this.navAdmin = navAdmin;
+    this.btnAddCar = btnAddCar;
+    this.recyclerViewCars = recyclerViewCars;
   }
 
   @Override
   @NonNull
-  public FrameLayout getRoot() {
+  public LinearLayout getRoot() {
     return rootView;
   }
 
@@ -54,13 +60,19 @@ public final class FragmentAdminBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.nav_admin;
-      TextView navAdmin = ViewBindings.findChildViewById(rootView, id);
-      if (navAdmin == null) {
+      id = R.id.btnAddCar;
+      Button btnAddCar = ViewBindings.findChildViewById(rootView, id);
+      if (btnAddCar == null) {
         break missingId;
       }
 
-      return new FragmentAdminBinding((FrameLayout) rootView, navAdmin);
+      id = R.id.recyclerViewCars;
+      RecyclerView recyclerViewCars = ViewBindings.findChildViewById(rootView, id);
+      if (recyclerViewCars == null) {
+        break missingId;
+      }
+
+      return new FragmentAdminBinding((LinearLayout) rootView, btnAddCar, recyclerViewCars);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

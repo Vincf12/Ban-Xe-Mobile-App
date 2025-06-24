@@ -1,5 +1,7 @@
 package com.example.carsale.Database;
 
+import android.util.Log;
+
 import com.example.carsale.Model.Car;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -151,7 +153,7 @@ public class CarHelper {
      * @param carId ID của xe cần xóa
      * @param callback Callback để xử lý kết quả
      */
-    public void deleteCar(String carId, CarCallback callback) {
+    public void deleteCar(String carId, List<String> imagePaths, CarCallback callback) {
         if (carId == null || carId.isEmpty()) {
             callback.onError("ID xe không hợp lệ");
             return;
@@ -160,7 +162,22 @@ public class CarHelper {
         db.collection(COLLECTION_CARS)
                 .document(carId)
                 .delete()
-                .addOnSuccessListener(aVoid -> callback.onSuccess("Xóa xe thành công!"))
+                .addOnSuccessListener(aVoid -> {
+                    // Xóa các file ảnh cục bộ
+                    if (imagePaths != null) {
+                        for (String path : imagePaths) {
+                            java.io.File file = new java.io.File(path);
+                            if (file.exists()) {
+                                if (file.delete()) {
+                                    Log.d("CarHelper", "Xóa file ảnh thành công: " + path);
+                                } else {
+                                    Log.w("CarHelper", "Không thể xóa file ảnh: " + path);
+                                }
+                            }
+                        }
+                    }
+                    callback.onSuccess("Xóa xe thành công!");
+                })
                 .addOnFailureListener(e -> callback.onError("Lỗi xóa xe: " + e.getMessage()));
     }
 

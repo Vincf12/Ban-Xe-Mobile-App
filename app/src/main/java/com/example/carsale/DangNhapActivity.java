@@ -82,6 +82,7 @@ public class DangNhapActivity extends AppCompatActivity {
         tb_login.startAnimation(animation1);
         ft_sign_up.startAnimation(animation1);
 
+
         initViews();
         initFirebase();
         initFacebook();
