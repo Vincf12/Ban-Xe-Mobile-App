@@ -5,7 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,16 +23,29 @@ public final class FragmentAdminBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
+  public final LinearLayout adminContainer;
+
+  @NonNull
   public final Button btnAddCar;
+
+  @NonNull
+  public final ImageButton btnAddCarMake;
 
   @NonNull
   public final RecyclerView recyclerViewCars;
 
-  private FragmentAdminBinding(@NonNull LinearLayout rootView, @NonNull Button btnAddCar,
-      @NonNull RecyclerView recyclerViewCars) {
+  @NonNull
+  public final Spinner spinnerCarMake;
+
+  private FragmentAdminBinding(@NonNull LinearLayout rootView, @NonNull LinearLayout adminContainer,
+      @NonNull Button btnAddCar, @NonNull ImageButton btnAddCarMake,
+      @NonNull RecyclerView recyclerViewCars, @NonNull Spinner spinnerCarMake) {
     this.rootView = rootView;
+    this.adminContainer = adminContainer;
     this.btnAddCar = btnAddCar;
+    this.btnAddCarMake = btnAddCarMake;
     this.recyclerViewCars = recyclerViewCars;
+    this.spinnerCarMake = spinnerCarMake;
   }
 
   @Override
@@ -60,9 +75,17 @@ public final class FragmentAdminBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      LinearLayout adminContainer = (LinearLayout) rootView;
+
       id = R.id.btnAddCar;
       Button btnAddCar = ViewBindings.findChildViewById(rootView, id);
       if (btnAddCar == null) {
+        break missingId;
+      }
+
+      id = R.id.btnAddCarMake;
+      ImageButton btnAddCarMake = ViewBindings.findChildViewById(rootView, id);
+      if (btnAddCarMake == null) {
         break missingId;
       }
 
@@ -72,7 +95,14 @@ public final class FragmentAdminBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentAdminBinding((LinearLayout) rootView, btnAddCar, recyclerViewCars);
+      id = R.id.spinnerCarMake;
+      Spinner spinnerCarMake = ViewBindings.findChildViewById(rootView, id);
+      if (spinnerCarMake == null) {
+        break missingId;
+      }
+
+      return new FragmentAdminBinding((LinearLayout) rootView, adminContainer, btnAddCar,
+          btnAddCarMake, recyclerViewCars, spinnerCarMake);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -164,6 +164,10 @@
         "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\drawable\\dang_nhap.jpg"
     },
     {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-52:\\layout_item_car_make.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\layout\\item_car_make.xml"
+    },
+    {
         "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-52:\\color_nav_item_color.xml.flat",
         "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\color\\nav_item_color.xml"
     },
@@ -190,6 +194,10 @@
     {
         "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-52:\\drawable_icons_facebook.png.flat",
         "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\drawable\\icons_facebook.png"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-52:\\layout_activity_add_brand.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\layout\\activity_add_brand.xml"
     },
     {
         "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-52:\\xml_data_extraction_rules.xml.flat",
@@ -220,20 +228,28 @@
         "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\mipmap-mdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.carsale.app-debug-52:/layout_item_car.xml.flat",
-        "source": "com.example.carsale.app-main-54:/layout/item_car.xml"
-    },
-    {
         "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-52:\\drawable_ic_search.xml.flat",
         "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\drawable\\ic_search.xml"
+    },
+    {
+        "merged": "com.example.carsale.app-debug-52:/layout_item_car_make.xml.flat",
+        "source": "com.example.carsale.app-main-54:/layout/item_car_make.xml"
     },
     {
         "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-52:\\menu_menu_admin.xml.flat",
         "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\menu\\menu_admin.xml"
     },
     {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-52:\\drawable_circle_shape.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\drawable\\circle_shape.xml"
+    },
+    {
         "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-52:\\drawable_ic_launcher_foreground.xml.flat",
         "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\drawable\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-52:\\drawable_bg_card_gradient.xml.flat",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\drawable\\bg_card_gradient.xml"
     },
     {
         "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-debug-52:\\drawable_ic_google.png.flat",

@@ -1,23 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/adminContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="12dp"
     android:background="@drawable/background_home"
     tools:context=".AdminFragment">
 
+    <!-- Spinner chọn hãng + nút thêm hãng -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="12dp">
+
+        <Spinner
+            android:id="@+id/spinnerCarMake"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dropdown" />
+
+        <ImageButton
+            android:id="@+id/btnAddCarMake"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:src="@android:drawable/ic_input_add"
+            android:contentDescription="Thêm hãng xe"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="8dp" />
+    </LinearLayout>
+
+    <!-- Nút thêm xe -->
     <Button
         android:id="@+id/btnAddCar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         android:drawableStart="@drawable/baseline_add_24"
         android:text="Thêm xe mới" />
+
+    <!-- Danh sách xe -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewCars"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:layout_marginTop="8dp" />
+
 </LinearLayout>

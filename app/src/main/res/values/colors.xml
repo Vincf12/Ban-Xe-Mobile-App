@@ -97,5 +97,5 @@
 
     <!-- Các màu khác -->
     <color name="transparent">#00000000</color>
-
+    <color name="mint_green">#DFF7EF</color>
 </resources>

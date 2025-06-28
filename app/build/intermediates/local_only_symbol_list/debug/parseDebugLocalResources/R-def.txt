@@ -44,6 +44,7 @@ color material_grey_300
 color material_grey_50
 color material_grey_600
 color material_grey_800
+color mint_green
 color nav_item_color
 color overlay
 color overlay_light
@@ -76,6 +77,7 @@ drawable baseline_add_24
 drawable baseline_home_24
 drawable bottom_nav_color
 drawable button_animator
+drawable circle_shape
 drawable dang_ky
 drawable dang_nhap
 drawable gradient_background
@@ -98,20 +100,24 @@ drawable outline_shopping_bag_speed_24
 drawable rounded_bg
 drawable rounded_image
 drawable splash_background
+id adminContainer
 id bannerViewPager
 id bottom_navigation
 id brands_header_layout
 id brands_layout
 id btDelete
 id btnAddCar
+id btnAddCarMake
 id btnEdit
 id btnSaveCar
+id btnSaveMake
 id btnSelectImages
+id btnSelectLogo
 id btn_facebook_login
 id btn_google_login
 id btn_login
 id btn_signup
-id etCarMake
+id etCarMakeName
 id etCarModel
 id etDescription
 id etEngineCapacity
@@ -126,8 +132,10 @@ id ft_login
 id ft_sign_up
 id header_layout
 id imgCar
+id imgLogoPreview
 id layoutImagePreview
 id listings_layout
+id logoImageView
 id main
 id main_root
 id nav_account
@@ -139,6 +147,7 @@ id nav_settings
 id nav_settings_admin
 id recyclerViewCars
 id search_layout
+id spinnerCarMake
 id spinnerCarType
 id spinnerCondition
 id spinnerFuelType
@@ -155,6 +164,7 @@ id txtCarPrice
 id txtDoors
 id txtFuel
 id txtTransmission
+layout activity_add_brand
 layout activity_add_edit_car
 layout activity_dang_ky
 layout activity_dang_nhap
@@ -162,6 +172,7 @@ layout activity_main
 layout fragment_admin
 layout fragment_home
 layout item_car
+layout item_car_make
 menu menu
 menu menu_admin
 mipmap ic_launcher

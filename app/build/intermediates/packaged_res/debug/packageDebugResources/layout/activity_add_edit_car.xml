@@ -20,14 +20,6 @@
             android:hint="Tên xe (VD: Camry 2022)"
             android:inputType="text" />
 
-        <!-- Hãng xe -->
-        <EditText
-            android:id="@+id/etCarMake"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Hãng xe (VD: Toyota)"
-            android:inputType="text" />
-
         <!-- Năm sản xuất -->
         <EditText
             android:id="@+id/etYear"
@@ -44,6 +36,12 @@
             android:hint="Giá bán (VD: 850000000)"
             android:inputType="numberDecimal" />
 
+        <!-- Hãng xe -->
+        <Spinner
+            android:id="@+id/spinnerCarMake"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
         <!-- Tình trạng -->
         <Spinner
             android:id="@+id/spinnerCondition"

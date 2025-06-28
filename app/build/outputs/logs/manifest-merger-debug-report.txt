@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:2:1-46:12
-INJECTED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:2:1-46:12
-INJECTED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:2:1-46:12
-INJECTED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:2:1-46:12
+ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:2:1-49:12
+INJECTED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:2:1-49:12
+INJECTED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:2:1-49:12
+INJECTED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:2:1-49:12
 MERGED from [androidx.databinding:viewbinding:8.10.0] C:\Users\nguye\.gradle\caches\8.11.1\transforms\4f989a45c5caf5d5a86ee6c9b4c1b3a8\transformed\viewbinding-8.10.0\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\nguye\.gradle\caches\8.11.1\transforms\bfb33d8507ccc757b9521984cbb3f77e\transformed\material-1.12.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.2.1] C:\Users\nguye\.gradle\caches\8.11.1\transforms\9b2dbe61113db8206e798c46b00e226e\transformed\constraintlayout-2.2.1\AndroidManifest.xml:2:1-9:12
@@ -179,8 +179,8 @@ ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:8:5-80
 	android:name
 		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:8:22-77
 application
-ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:10:5-44:19
-INJECTED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:10:5-44:19
+ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:10:5-47:19
+INJECTED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:10:5-47:19
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\nguye\.gradle\caches\8.11.1\transforms\bfb33d8507ccc757b9521984cbb3f77e\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\nguye\.gradle\caches\8.11.1\transforms\bfb33d8507ccc757b9521984cbb3f77e\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.2.1] C:\Users\nguye\.gradle\caches\8.11.1\transforms\9b2dbe61113db8206e798c46b00e226e\transformed\constraintlayout-2.2.1\AndroidManifest.xml:7:5-20
@@ -293,50 +293,56 @@ MERGED from [com.google.android.play:core-common:2.0.3] C:\Users\nguye\.gradle\c
 		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:18:9-52
 	android:dataExtractionRules
 		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:12:9-65
+activity#com.example.carsale.AddBrandActivity
+ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:20:9-22:40
+	android:exported
+		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:22:13-37
+	android:name
+		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:21:13-45
 meta-data#com.facebook.sdk.ApplicationId
-ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:21:9-23:55
+ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:24:9-26:55
 	android:value
-		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:23:13-52
+		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:26:13-52
 	android:name
-		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:22:13-58
+		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:25:13-58
 meta-data#com.facebook.sdk.ClientToken
-ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:24:9-26:64
+ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:27:9-29:64
 	android:value
-		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:26:13-61
+		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:29:13-61
 	android:name
-		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:25:13-56
+		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:28:13-56
 activity#com.example.carsale.DangKyActivity
-ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:28:9-31:20
+ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:31:9-33:48
 	android:exported
-		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:30:13-36
+		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:33:13-36
 	android:name
-		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:29:13-43
+		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:32:13-43
 activity#com.example.carsale.DangNhapActivity
-ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:32:9-39:20
+ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:34:9-42:20
 	android:exported
-		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:34:13-36
+		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:36:13-36
 	android:name
-		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:33:13-45
+		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:35:13-45
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:35:13-38:29
+ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:37:13-41:29
 action#android.intent.action.MAIN
-ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:36:17-69
+ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:38:17-69
 	android:name
-		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:36:25-66
+		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:38:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:37:17-77
+ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:40:17-77
 	android:name
-		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:37:27-74
+		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:40:27-74
 activity#com.example.carsale.AddEditCarActivity
-ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:40:9-56
+ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:43:9-56
 	android:name
-		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:40:19-53
+		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:43:19-53
 activity#com.example.carsale.MainActivity
-ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:41:9-43:39
+ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:44:9-46:39
 	android:exported
-		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:43:13-36
+		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:46:13-36
 	android:name
-		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:42:13-41
+		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:45:13-41
 uses-sdk
 INJECTED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml

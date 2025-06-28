@@ -8,8 +8,8 @@
         "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\layout\\fragment_home.xml"
     },
     {
-        "merged": "com.example.carsale.app-mergeDebugResources-51:/layout/item_car.xml",
-        "source": "com.example.carsale.app-main-54:/layout/item_car.xml"
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-51:\\layout\\item_car_make.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\layout\\item_car_make.xml"
     },
     {
         "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-51:\\layout\\item_car.xml",
@@ -24,8 +24,16 @@
         "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\layout\\activity_dang_ky.xml"
     },
     {
+        "merged": "com.example.carsale.app-mergeDebugResources-51:/layout/item_car_make.xml",
+        "source": "com.example.carsale.app-main-54:/layout/item_car_make.xml"
+    },
+    {
         "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-51:\\layout\\activity_main.xml",
         "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-51:\\layout\\activity_add_brand.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\layout\\activity_add_brand.xml"
     },
     {
         "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-51:\\layout\\fragment_admin.xml",

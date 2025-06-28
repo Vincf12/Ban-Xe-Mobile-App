@@ -14,6 +14,8 @@ import androidx.core.content.ContextCompat;
 
 import com.example.carsale.Database.CarHelper;
 import com.example.carsale.Model.Car;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -30,8 +32,8 @@ public class AddEditCarActivity extends AppCompatActivity {
 
     private static final int PICK_IMAGES_REQUEST = 1;
 
-    private EditText etCarModel, etCarMake, etYear, etPrice, etEngineCapacity, etLocation, etDescription;
-    private Spinner spinnerCondition, spinnerCarType, spinnerTransmission, spinnerFuelType;
+    private EditText etCarModel, etYear, etPrice, etEngineCapacity, etLocation, etDescription;
+    private Spinner spinnerCondition, spinnerCarType, spinnerTransmission, spinnerFuelType, spinnerCarMake;
     private Button btnSelectImages, btnSaveCar;
     private LinearLayout layoutImagePreview;
 
@@ -40,6 +42,9 @@ public class AddEditCarActivity extends AppCompatActivity {
     private List<Uri> selectedImageUris = new ArrayList<>();
     private List<String> uploadedImageUrls = new ArrayList<>();
 
+    private List<String> carMakes = new ArrayList<>();
+    private ArrayAdapter<String> carMakeAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,11 +52,12 @@ public class AddEditCarActivity extends AppCompatActivity {
 
         initViews();
         setupSpinners();
+        loadCarMakesFromFirestore();
+
         car = (Car) getIntent().getSerializableExtra("car");
 
         if (car != null) {
             etCarModel.setText(car.getModel());
-            etCarMake.setText(car.getMake());
             etYear.setText(String.valueOf(car.getYear()));
             etPrice.setText(String.valueOf(car.getPrice()));
             etEngineCapacity.setText(car.getEngineCapacity());
@@ -87,13 +93,13 @@ public class AddEditCarActivity extends AppCompatActivity {
 
     private void initViews() {
         etCarModel = findViewById(R.id.etCarModel);
-        etCarMake = findViewById(R.id.etCarMake);
         etYear = findViewById(R.id.etYear);
         etPrice = findViewById(R.id.etPrice);
         etEngineCapacity = findViewById(R.id.etEngineCapacity);
         etLocation = findViewById(R.id.etLocation);
         etDescription = findViewById(R.id.etDescription);
 
+        spinnerCarMake = findViewById(R.id.spinnerCarMake);
         spinnerCondition = findViewById(R.id.spinnerCondition);
         spinnerCarType = findViewById(R.id.spinnerCarType);
         spinnerTransmission = findViewById(R.id.spinnerTransmission);
@@ -113,6 +119,10 @@ public class AddEditCarActivity extends AppCompatActivity {
                 android.R.layout.simple_spinner_dropdown_item, new String[]{"Tự động", "Số sàn"}));
         spinnerFuelType.setAdapter(new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_dropdown_item, new String[]{"Xăng", "Dầu", "Điện", "Hybrid"}));
+
+        // Adapter rỗng cho hãng xe
+        carMakeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, carMakes);
+        spinnerCarMake.setAdapter(carMakeAdapter);
     }
 
     private void openImagePicker() {
@@ -227,7 +237,7 @@ public class AddEditCarActivity extends AppCompatActivity {
 
     private void saveCarToFirestore() {
         String model = etCarModel.getText().toString().trim();
-        String make = etCarMake.getText().toString().trim();
+        String make = spinnerCarMake.getSelectedItem().toString();
         String yearStr = etYear.getText().toString().trim();
         String priceStr = etPrice.getText().toString().trim();
 
@@ -290,5 +300,28 @@ public class AddEditCarActivity extends AppCompatActivity {
                 }
             });
         }
+    }
+    private void loadCarMakesFromFirestore() {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("car_makes")
+                .get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    carMakes.clear();
+                    for (QueryDocumentSnapshot doc : queryDocumentSnapshots) {
+                        String name = doc.getString("name");
+                        if (name != null) {
+                            carMakes.add(name);
+                        }
+                    }
+                    carMakeAdapter.notifyDataSetChanged();
+
+                    // Nếu đang sửa, gán lại hãng đã chọn
+                    if (car != null) {
+                        int index = getSpinnerIndex(spinnerCarMake, car.getMake());
+                        spinnerCarMake.setSelection(index);
+                    }
+                })
+                .addOnFailureListener(e ->
+                        Toast.makeText(this, "Lỗi tải hãng xe: " + e.getMessage(), Toast.LENGTH_SHORT).show());
     }
 }

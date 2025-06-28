@@ -10,6 +10,9 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.carsale.AdminFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.appcheck.FirebaseAppCheck;
+import com.google.firebase.appcheck.playintegrity.PlayIntegrityAppCheckProviderFactory;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -23,6 +26,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setupBottomNavigation();
+
+        FirebaseApp.initializeApp(this);
+
+        FirebaseAppCheck firebaseAppCheck = FirebaseAppCheck.getInstance();
+        firebaseAppCheck.installAppCheckProviderFactory(
+                PlayIntegrityAppCheckProviderFactory.getInstance()
+        );
     }
 
     private void setupBottomNavigation() {
@@ -88,14 +98,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadHomeFragment() {
+        HomeFragment fragment = new HomeFragment();
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("isAdmin", isAdmin);
+        bundle.putString("userId", FirebaseAuth.getInstance().getCurrentUser().getUid());
+        fragment.setArguments(bundle);
+
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.nav_host_fragment, new HomeFragment())
+                .replace(R.id.nav_host_fragment, fragment)
                 .commit();
     }
 
     private void loadAdminFragment() {
+        AdminFragment fragment = new AdminFragment();
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("isAdmin", isAdmin);
+        bundle.putString("userId", FirebaseAuth.getInstance().getCurrentUser().getUid());
+        fragment.setArguments(bundle);
+
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.nav_host_fragment, new AdminFragment())
+                .replace(R.id.nav_host_fragment, fragment)
                 .commit();
     }
 

@@ -34,6 +34,7 @@
     <color name="material_grey_50">#FAFAFA</color>
     <color name="material_grey_600">#757575</color>
     <color name="material_grey_800">#424242</color>
+    <color name="mint_green">#DFF7EF</color>
     <color name="overlay">#80000000</color>
     <color name="overlay_light">#40000000</color>
     <color name="pressed_background">#BBDEFB</color>

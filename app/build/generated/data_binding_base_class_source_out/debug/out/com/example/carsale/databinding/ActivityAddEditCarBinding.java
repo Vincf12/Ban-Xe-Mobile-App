@@ -29,9 +29,6 @@ public final class ActivityAddEditCarBinding implements ViewBinding {
   public final Button btnSelectImages;
 
   @NonNull
-  public final EditText etCarMake;
-
-  @NonNull
   public final EditText etCarModel;
 
   @NonNull
@@ -53,6 +50,9 @@ public final class ActivityAddEditCarBinding implements ViewBinding {
   public final LinearLayout layoutImagePreview;
 
   @NonNull
+  public final Spinner spinnerCarMake;
+
+  @NonNull
   public final Spinner spinnerCarType;
 
   @NonNull
@@ -65,16 +65,15 @@ public final class ActivityAddEditCarBinding implements ViewBinding {
   public final Spinner spinnerTransmission;
 
   private ActivityAddEditCarBinding(@NonNull ScrollView rootView, @NonNull Button btnSaveCar,
-      @NonNull Button btnSelectImages, @NonNull EditText etCarMake, @NonNull EditText etCarModel,
+      @NonNull Button btnSelectImages, @NonNull EditText etCarModel,
       @NonNull EditText etDescription, @NonNull EditText etEngineCapacity,
       @NonNull EditText etLocation, @NonNull EditText etPrice, @NonNull EditText etYear,
-      @NonNull LinearLayout layoutImagePreview, @NonNull Spinner spinnerCarType,
-      @NonNull Spinner spinnerCondition, @NonNull Spinner spinnerFuelType,
-      @NonNull Spinner spinnerTransmission) {
+      @NonNull LinearLayout layoutImagePreview, @NonNull Spinner spinnerCarMake,
+      @NonNull Spinner spinnerCarType, @NonNull Spinner spinnerCondition,
+      @NonNull Spinner spinnerFuelType, @NonNull Spinner spinnerTransmission) {
     this.rootView = rootView;
     this.btnSaveCar = btnSaveCar;
     this.btnSelectImages = btnSelectImages;
-    this.etCarMake = etCarMake;
     this.etCarModel = etCarModel;
     this.etDescription = etDescription;
     this.etEngineCapacity = etEngineCapacity;
@@ -82,6 +81,7 @@ public final class ActivityAddEditCarBinding implements ViewBinding {
     this.etPrice = etPrice;
     this.etYear = etYear;
     this.layoutImagePreview = layoutImagePreview;
+    this.spinnerCarMake = spinnerCarMake;
     this.spinnerCarType = spinnerCarType;
     this.spinnerCondition = spinnerCondition;
     this.spinnerFuelType = spinnerFuelType;
@@ -127,12 +127,6 @@ public final class ActivityAddEditCarBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.etCarMake;
-      EditText etCarMake = ViewBindings.findChildViewById(rootView, id);
-      if (etCarMake == null) {
-        break missingId;
-      }
-
       id = R.id.etCarModel;
       EditText etCarModel = ViewBindings.findChildViewById(rootView, id);
       if (etCarModel == null) {
@@ -175,6 +169,12 @@ public final class ActivityAddEditCarBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.spinnerCarMake;
+      Spinner spinnerCarMake = ViewBindings.findChildViewById(rootView, id);
+      if (spinnerCarMake == null) {
+        break missingId;
+      }
+
       id = R.id.spinnerCarType;
       Spinner spinnerCarType = ViewBindings.findChildViewById(rootView, id);
       if (spinnerCarType == null) {
@@ -200,8 +200,8 @@ public final class ActivityAddEditCarBinding implements ViewBinding {
       }
 
       return new ActivityAddEditCarBinding((ScrollView) rootView, btnSaveCar, btnSelectImages,
-          etCarMake, etCarModel, etDescription, etEngineCapacity, etLocation, etPrice, etYear,
-          layoutImagePreview, spinnerCarType, spinnerCondition, spinnerFuelType,
+          etCarModel, etDescription, etEngineCapacity, etLocation, etPrice, etYear,
+          layoutImagePreview, spinnerCarMake, spinnerCarType, spinnerCondition, spinnerFuelType,
           spinnerTransmission);
     }
     String missingId = rootView.getResources().getResourceName(id);

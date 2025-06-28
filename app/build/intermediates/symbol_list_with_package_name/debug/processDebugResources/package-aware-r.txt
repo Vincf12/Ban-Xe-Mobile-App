@@ -2148,6 +2148,7 @@ color material_timepicker_button_stroke
 color material_timepicker_clock_text_color
 color material_timepicker_clockface
 color material_timepicker_modebutton_tint
+color mint_green
 color mtrl_btn_bg_color_selector
 color mtrl_btn_ripple_color
 color mtrl_btn_stroke_color_selector
@@ -3181,6 +3182,7 @@ drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
 drawable button_animator
+drawable circle_shape
 drawable com_facebook_auth_dialog_background
 drawable com_facebook_auth_dialog_cancel_background
 drawable com_facebook_auth_dialog_header_background
@@ -3423,6 +3425,7 @@ id activity_chooser_view_content
 id add
 id adjust_height
 id adjust_width
+id adminContainer
 id alertTitle
 id aligned
 id all
@@ -3465,9 +3468,12 @@ id browser_actions_menu_items
 id browser_actions_menu_view
 id btDelete
 id btnAddCar
+id btnAddCarMake
 id btnEdit
 id btnSaveCar
+id btnSaveMake
 id btnSelectImages
+id btnSelectLogo
 id btn_facebook_login
 id btn_google_login
 id btn_login
@@ -3572,7 +3578,7 @@ id end_padder
 id enterAlways
 id enterAlwaysCollapsed
 id escape
-id etCarMake
+id etCarMakeName
 id etCarModel
 id etDescription
 id etEngineCapacity
@@ -3632,6 +3638,7 @@ id ignore
 id ignoreRequest
 id image
 id imgCar
+id imgLogoPreview
 id immediateStop
 id included
 id indeterminate
@@ -3657,6 +3664,7 @@ id linear
 id listMode
 id list_item
 id listings_layout
+id logoImageView
 id lottie_layer_name
 id m3_side_sheet
 id main
@@ -3844,6 +3852,7 @@ id software
 id south
 id spacer
 id special_effects_controller_view_tag
+id spinnerCarMake
 id spinnerCarType
 id spinnerCondition
 id spinnerFuelType
@@ -4075,6 +4084,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_add_brand
 layout activity_add_edit_car
 layout activity_dang_ky
 layout activity_dang_nhap
@@ -4107,6 +4117,7 @@ layout fragment_home
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
 layout item_car
+layout item_car_make
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title

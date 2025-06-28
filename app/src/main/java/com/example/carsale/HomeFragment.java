@@ -1,64 +1,133 @@
 package com.example.carsale;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HomeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.carsale.Adapter.CarAdapter;
+import com.example.carsale.Adapter.CarMakeAdapter;
+import com.example.carsale.Database.CarHelper;
+import com.example.carsale.Model.Car;
+import com.example.carsale.Model.CarMake;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class HomeFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private RecyclerView recyclerViewBrands;
+    private RecyclerView recyclerViewCars;
+    private CarMakeAdapter carMakeAdapter;
+    private CarAdapter carAdapter;
+    private final List<CarMake> carMakeList = new ArrayList<>();
+    private final List<Car> carList = new ArrayList<>();
+    private final List<Car> cachedCars = new ArrayList<>();
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public HomeFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    public HomeFragment() {}
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initRecyclerViews(view);
+        loadCarMakes();
+        loadAndCacheCars();
+    }
+
+    private void initRecyclerViews(View view) {
+        Context context = getContext();
+
+        recyclerViewBrands = view.findViewById(R.id.brands_layout);
+        recyclerViewBrands.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
+        carMakeAdapter = new CarMakeAdapter(context, carMakeList, carMake -> filterCarsByMake(carMake.getName()));
+        recyclerViewBrands.setAdapter(carMakeAdapter);
+
+        recyclerViewCars = view.findViewById(R.id.listings_layout);
+        recyclerViewCars.setLayoutManager(new GridLayoutManager(context, 2));
+        carAdapter = new CarAdapter(context, carList, false, "", new CarAdapter.OnCarActionListener() {
+            @Override
+            public void onEdit(Car car) {
+                Intent intent = new Intent(getActivity(), AddEditCarActivity.class);
+                intent.putExtra("car", car);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onDelete(Car car) {
+                if (context != null) {
+                    Toast.makeText(context, "Bạn không có quyền xoá xe", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        recyclerViewCars.setAdapter(carAdapter);
+    }
+
+    private void loadCarMakes() {
+        FirebaseFirestore.getInstance()
+                .collection("car_makes")
+                .get()
+                .addOnSuccessListener(querySnapshot -> {
+                    carMakeList.clear();
+                    for (QueryDocumentSnapshot doc : querySnapshot) {
+                        CarMake make = doc.toObject(CarMake.class);
+                        carMakeList.add(make);
+                    }
+                    carMakeAdapter.notifyDataSetChanged();
+                })
+                .addOnFailureListener(e -> {
+                    Context context = getContext();
+                    if (context != null) {
+                        Toast.makeText(context, "Lỗi tải hãng xe: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    private void loadAndCacheCars() {
+        CarHelper.getInstance().getAllCars(new CarHelper.CarsListCallback() {
+            @Override
+            public void onSuccess(List<Car> cars) {
+                cachedCars.clear();
+                cachedCars.addAll(cars);
+                filterCarsByMake(null); // Load tất cả xe ban đầu
+            }
+
+            @Override
+            public void onError(String error) {
+                Context context = getContext();
+                if (context != null) {
+                    Toast.makeText(context, "Lỗi tải xe: " + error, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    private void filterCarsByMake(@Nullable String make) {
+        carList.clear();
+        for (Car car : cachedCars) {
+            if ("available".equalsIgnoreCase(car.getStatus())) {
+                if (make == null || make.equalsIgnoreCase(car.getMake())) {
+                    carList.add(car);
+                }
+            }
+        }
+        carAdapter.notifyDataSetChanged();
     }
 }

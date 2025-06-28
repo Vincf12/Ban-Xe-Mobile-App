@@ -21,15 +21,20 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
     private final List<Car> carList;
     private final OnCarActionListener listener;
 
+    private final boolean isAdmin;
+    private final String currentUserId;
+
     public interface OnCarActionListener {
         void onEdit(Car car);
         void onDelete(Car car);
     }
 
-    public CarAdapter(Context context, List<Car> carList, OnCarActionListener listener) {
+    public CarAdapter(Context context, List<Car> carList,boolean isAdmin, String currentUserId, OnCarActionListener listener) {
         this.context = context;
         this.carList = carList;
         this.listener = listener;
+        this.isAdmin = isAdmin;
+        this.currentUserId = currentUserId;
     }
 
     @NonNull
@@ -44,8 +49,16 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
         Car car = carList.get(position);
         holder.txtCarName.setText(car.getMake() + " " + car.getModel());
         holder.txtCarPrice.setText(String.format("%,.0f USD", car.getPrice()));
-        holder.txtFuelType.setText(car.getFuelType());
+        holder.txtFuelType.setText(car.getEngineCapacity());
         holder.txtTransmission.setText(car.getTransmission());
+
+        if (isAdmin || car.getUserId().equals(currentUserId)) {
+            holder.btnEdit.setVisibility(View.VISIBLE);
+            holder.btnDelete.setVisibility(View.VISIBLE);
+        } else {
+            holder.btnEdit.setVisibility(View.GONE);
+            holder.btnDelete.setVisibility(View.GONE);
+        }
 
         // Hiển thị ảnh cục bộ
         if (car.getImageUrls() != null && !car.getImageUrls().isEmpty()) {

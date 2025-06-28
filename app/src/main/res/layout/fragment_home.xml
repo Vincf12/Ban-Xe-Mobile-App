@@ -81,7 +81,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
         android:text="Thương hiệu phổ biến"
         android:textColor="@android:color/white"
         android:textSize="16sp"
@@ -91,7 +90,6 @@
         android:id="@+id/brands_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
         android:scrollbars="horizontal"
         android:overScrollMode="never"
         >
@@ -127,10 +125,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listings_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:scrollbars="vertical"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         >
 
     </androidx.recyclerview.widget.RecyclerView>
