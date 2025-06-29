@@ -3264,6 +3264,7 @@ int drawable ic_password 0x7f0700d8
 int drawable ic_search 0x7f0700d9
 int drawable ic_search_black_24 0x7f0700da
 int drawable ic_transmission 0x7f0700db
+int drawable ic_upload_24 0x7f070131
 int drawable icon_background 0x7f0700dc
 int drawable icons_facebook 0x7f0700dd
 int drawable icons_google 0x7f0700de

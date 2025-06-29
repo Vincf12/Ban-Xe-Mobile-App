@@ -20,7 +20,6 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
     private final Context context;
     private final List<Car> carList;
     private final OnCarActionListener listener;
-
     private final boolean isAdmin;
     private final String currentUserId;
 
@@ -29,51 +28,62 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
         void onDelete(Car car);
     }
 
-    public CarAdapter(Context context, List<Car> carList,boolean isAdmin, String currentUserId, OnCarActionListener listener) {
+    public CarAdapter(Context context, List<Car> carList, boolean isAdmin, String currentUserId, OnCarActionListener listener) {
         this.context = context;
         this.carList = carList;
         this.listener = listener;
         this.isAdmin = isAdmin;
         this.currentUserId = currentUserId;
+        setHasStableIds(true); // Tối ưu hiệu suất nếu có thể
     }
 
     @NonNull
     @Override
     public CarViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_car, parent, false);
+        // Dùng LayoutInflater từ parent.getContext() để tránh memory leak
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_car, parent, false);
         return new CarViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CarViewHolder holder, int position) {
-        Car car = carList.get(position);
+        final Car car = carList.get(position);
         holder.txtCarName.setText(car.getMake() + " " + car.getModel());
         holder.txtCarPrice.setText(String.format("%,.0f USD", car.getPrice()));
         holder.txtFuelType.setText(car.getEngineCapacity());
         holder.txtTransmission.setText(car.getTransmission());
 
-        if (isAdmin || car.getUserId().equals(currentUserId)) {
-            holder.btnEdit.setVisibility(View.VISIBLE);
-            holder.btnDelete.setVisibility(View.VISIBLE);
-        } else {
-            holder.btnEdit.setVisibility(View.GONE);
-            holder.btnDelete.setVisibility(View.GONE);
-        }
+        boolean canEdit = isAdmin || (car.getUserId() != null && car.getUserId().equals(currentUserId));
+        holder.btnEdit.setVisibility(canEdit ? View.VISIBLE : View.GONE);
+        holder.btnDelete.setVisibility(canEdit ? View.VISIBLE : View.GONE);
 
-        // Hiển thị ảnh cục bộ
+        // Dùng Glide/Picasso nếu có, nếu không fallback ImageUtils (nên dùng thư viện ảnh cho mượt)
         if (car.getImageUrls() != null && !car.getImageUrls().isEmpty()) {
-            ImageUtils.displayImage(context, car.getImageUrls().get(0), holder.imgCar);
+            ImageUtils.displayImage(holder.imgCar.getContext(), car.getImageUrls().get(0), holder.imgCar);
         } else {
-            holder.imgCar.setImageResource(android.R.drawable.ic_dialog_alert); // Hình mặc định khi lỗi
+            holder.imgCar.setImageResource(android.R.drawable.ic_dialog_alert);
         }
 
-        holder.btnEdit.setOnClickListener(v -> listener.onEdit(car));
-        holder.btnDelete.setOnClickListener(v -> listener.onDelete(car));
+        // Tránh leak memory/lỗi double click bằng setOnClickListener mới mỗi lần bind
+        holder.btnEdit.setOnClickListener(v -> {
+            if (listener != null) listener.onEdit(car);
+        });
+        holder.btnDelete.setOnClickListener(v -> {
+            if (listener != null) listener.onDelete(car);
+        });
     }
 
     @Override
     public int getItemCount() {
         return carList.size();
+    }
+
+    // Nếu có trường id duy nhất, override getItemId để RecyclerView tối ưu
+    @Override
+    public long getItemId(int position) {
+        Car car = carList.get(position);
+        // Nếu Car có id (String), hash nó. Nếu không, fallback về position.
+        return car.getId() != null ? car.getId().hashCode() : position;
     }
 
     public static class CarViewHolder extends RecyclerView.ViewHolder {

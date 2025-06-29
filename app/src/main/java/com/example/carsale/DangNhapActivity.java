@@ -5,7 +5,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -15,10 +14,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
 import androidx.core.splashscreen.SplashScreen;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.carsale.Database.FirebaseHelper;
 import com.example.carsale.Model.User;
@@ -52,19 +48,19 @@ public class DangNhapActivity extends AppCompatActivity {
 
     // Progress Dialog
     private ProgressDialog progressDialog;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // Splash Screen
         SplashScreen splashScreen = SplashScreen.installSplashScreen(this);
-        //Animation
         splashScreen.setOnExitAnimationListener(splashViewProvider -> {
             View splash = splashViewProvider.getView();
             splash.animate()
                     .alpha(0f)
                     .scaleX(1.2f)
                     .scaleY(1.2f)
-                    .setDuration(500)
+                    .setDuration(400)
                     .withEndAction(splashViewProvider::remove)
                     .start();
         });
@@ -73,17 +69,14 @@ public class DangNhapActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_dang_nhap);
 
-        tvlogin = findViewById(R.id.tvlogin);
-        tb_login = findViewById(R.id.tb_login);
-        ft_sign_up = findViewById(R.id.ft_sign_up);
-        Animation animation = AnimationUtils.loadAnimation(this, R.anim.bounce_in);
-        Animation animation1 = AnimationUtils.loadAnimation(this, R.anim.slide_up);
-        tvlogin.startAnimation(animation);
-        tb_login.startAnimation(animation1);
-        ft_sign_up.startAnimation(animation1);
-
-
+        // Chỉ load animation khi thực sự cần thiết để giảm tài nguyên cho máy ảo yếu
         initViews();
+        if (!isFinishing()) {
+            tvlogin.startAnimation(AnimationUtils.loadAnimation(this, R.anim.bounce_in));
+            tb_login.startAnimation(AnimationUtils.loadAnimation(this, R.anim.slide_up));
+            ft_sign_up.startAnimation(AnimationUtils.loadAnimation(this, R.anim.slide_up));
+        }
+
         initFirebase();
         initFacebook();
         setupClickListeners();
@@ -98,8 +91,10 @@ public class DangNhapActivity extends AppCompatActivity {
         tvRegister = findViewById(R.id.tv_register);
         btnGoogleLogin = findViewById(R.id.btn_google_login);
         btnFacebookLogin = findViewById(R.id.btn_facebook_login);
+        tvlogin = findViewById(R.id.tvlogin);
+        tb_login = findViewById(R.id.tb_login);
+        ft_sign_up = findViewById(R.id.ft_sign_up);
 
-        // Setup Progress Dialog
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Đang đăng nhập...");
         progressDialog.setCancelable(false);
@@ -111,45 +106,37 @@ public class DangNhapActivity extends AppCompatActivity {
     }
 
     private void initFacebook() {
-        // Initialize Facebook SDK
         FacebookSdk.sdkInitialize(getApplicationContext());
-
         callbackManager = CallbackManager.Factory.create();
 
         LoginManager.getInstance().registerCallback(callbackManager,
                 new FacebookCallback<LoginResult>() {
                     @Override
                     public void onSuccess(LoginResult loginResult) {
-                        progressDialog.show();
+                        showProgress();
                         firebaseHelper.handleFacebookAccessToken(loginResult.getAccessToken(),
                                 new FirebaseHelper.AuthUserCallback() {
                                     @Override
                                     public void onSuccess(User user) {
-                                        progressDialog.dismiss();
+                                        hideProgress();
                                         Toast.makeText(DangNhapActivity.this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
-
                                         if (user.isAdmin()) {
-                                            // Nếu là admin → sang trang quản trị
-                                            startActivity(new Intent(DangNhapActivity.this, AdminFragment.class));
+                                            startActivity(new Intent(DangNhapActivity.this, MainActivity.class)); // AdminFragment -> MainActivity
                                         } else {
-                                            // Nếu là user thường → sang giao diện chính
                                             navigateToMainActivity();
                                         }
                                     }
-
                                     @Override
                                     public void onError(String error) {
-                                        progressDialog.dismiss();
+                                        hideProgress();
                                         Toast.makeText(DangNhapActivity.this, error, Toast.LENGTH_LONG).show();
                                     }
                                 });
                     }
-
                     @Override
                     public void onCancel() {
                         Toast.makeText(DangNhapActivity.this, "Đăng nhập Facebook đã hủy", Toast.LENGTH_SHORT).show();
                     }
-
                     @Override
                     public void onError(FacebookException error) {
                         Toast.makeText(DangNhapActivity.this, "Lỗi Facebook: " + error.getMessage(), Toast.LENGTH_LONG).show();
@@ -157,25 +144,14 @@ public class DangNhapActivity extends AppCompatActivity {
                 });
     }
 
-
     private void setupClickListeners() {
-        // Đăng nhập bằng email/password
         btnLogin.setOnClickListener(v -> handleEmailLogin());
-
-        // Quên mật khẩu
         tvForgotPassword.setOnClickListener(v -> handleForgotPassword());
-
-        // Chuyển đến đăng ký
         tvRegister.setOnClickListener(v -> {
-            Intent intent = new Intent(DangNhapActivity.this, DangKyActivity.class);
-            startActivity(intent);
+            startActivity(new Intent(DangNhapActivity.this, DangKyActivity.class));
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         });
-
-        // Đăng nhập Google
         btnGoogleLogin.setOnClickListener(v -> handleGoogleSignIn());
-
-        // Đăng nhập Facebook
         btnFacebookLogin.setOnClickListener(v -> handleFacebookSignIn());
     }
 
@@ -188,26 +164,24 @@ public class DangNhapActivity extends AppCompatActivity {
             etEmail.requestFocus();
             return;
         }
-
         if (password.isEmpty()) {
             etPassword.setError("Vui lòng nhập mật khẩu");
             etPassword.requestFocus();
             return;
         }
 
-        progressDialog.show();
+        showProgress();
 
         firebaseHelper.loginWithEmail(email, password, new FirebaseHelper.AuthCallback() {
             @Override
             public void onSuccess(String message) {
-                progressDialog.dismiss();
+                hideProgress();
                 Toast.makeText(DangNhapActivity.this, message, Toast.LENGTH_SHORT).show();
                 navigateToMainActivity();
             }
-
             @Override
             public void onError(String error) {
-                progressDialog.dismiss();
+                hideProgress();
                 Toast.makeText(DangNhapActivity.this, error, Toast.LENGTH_LONG).show();
             }
         });
@@ -223,18 +197,17 @@ public class DangNhapActivity extends AppCompatActivity {
         }
 
         progressDialog.setMessage("Đang gửi email...");
-        progressDialog.show();
+        showProgress();
 
         firebaseHelper.resetPassword(email, new FirebaseHelper.AuthCallback() {
             @Override
             public void onSuccess(String message) {
-                progressDialog.dismiss();
+                hideProgress();
                 Toast.makeText(DangNhapActivity.this, message, Toast.LENGTH_LONG).show();
             }
-
             @Override
             public void onError(String error) {
-                progressDialog.dismiss();
+                hideProgress();
                 Toast.makeText(DangNhapActivity.this, error, Toast.LENGTH_LONG).show();
             }
         });
@@ -246,54 +219,59 @@ public class DangNhapActivity extends AppCompatActivity {
     }
 
     private void handleFacebookSignIn() {
-        LoginManager.getInstance().logInWithReadPermissions(this,
-                Arrays.asList("email", "public_profile"));
+        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("email", "public_profile"));
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        // Handle Google Sign In
+        // Google Sign In
         if (requestCode == RC_SIGN_IN) {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            progressDialog.show();
+            showProgress();
 
             firebaseHelper.handleGoogleSignInResult(task, new FirebaseHelper.AuthUserCallback() {
                 @Override
                 public void onSuccess(User user) {
-                    progressDialog.dismiss();
+                    hideProgress();
                     Toast.makeText(DangNhapActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
-                    // Kiểm tra quyền admin
                     if (user.isAdmin()) {
-                        startActivity(new Intent(DangNhapActivity.this, AdminFragment.class));
+                        startActivity(new Intent(DangNhapActivity.this, MainActivity.class)); // AdminFragment -> MainActivity
                     } else {
                         navigateToMainActivity();
                     }
                 }
                 @Override
                 public void onError(String error) {
-                    progressDialog.dismiss();
+                    hideProgress();
                     Toast.makeText(DangNhapActivity.this, error, Toast.LENGTH_LONG).show();
                 }
             });
         } else {
-            // Handle Facebook Sign In
+            // Facebook Sign In
             callbackManager.onActivityResult(requestCode, resultCode, data);
         }
     }
 
     private void checkIfUserLoggedIn() {
         FirebaseUser currentUser = firebaseHelper.getCurrentUser();
-        if (currentUser != null) {
-
-        }
+        // Nếu cần tự động vào MainActivity, thêm logic tại đây
     }
+
     private void navigateToMainActivity() {
         Intent intent = new Intent(DangNhapActivity.this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         overridePendingTransition(R.anim.scale_in, R.anim.scale_out);
         finish();
+    }
+
+    // Giảm lag UI: chỉ show/hide progress nếu activity còn sống
+    private void showProgress() {
+        if (!isFinishing() && !progressDialog.isShowing()) progressDialog.show();
+    }
+    private void hideProgress() {
+        if (!isFinishing() && progressDialog.isShowing()) progressDialog.dismiss();
     }
 }

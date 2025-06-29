@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <set xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Rút ngắn duration để animation vào nhanh hơn, mượt cho máy ảo yếu -->
     <translate
-        android:duration="300"
+        android:duration="180"
         android:fromXDelta="100%p"
         android:toXDelta="0%p"
         android:interpolator="@android:anim/decelerate_interpolator" />
     <alpha
-        android:duration="300"
+        android:duration="120"
         android:fromAlpha="0.0"
         android:toAlpha="1.0" />
 </set>

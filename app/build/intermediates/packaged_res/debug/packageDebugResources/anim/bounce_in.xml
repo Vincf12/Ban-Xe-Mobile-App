@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <set xmlns:android="http://schemas.android.com/apk/res/android"
-    android:interpolator="@android:anim/decelerate_interpolator"
     android:fillAfter="true">
 
-    <!-- Từ trên rơi xuống dưới (vượt quá một chút) -->
+    <!-- Rơi xuống nhanh, chỉ đi qua một chút vị trí gốc -->
     <translate
-        android:fromYDelta="-500%"
-        android:toYDelta="30"
-        android:duration="1000"
+        android:fromYDelta="-300%"
+        android:toYDelta="20"
+        android:duration="500"
         android:interpolator="@android:anim/accelerate_interpolator" />
 
-    <!-- Sau đó bật lên về vị trí gốc -->
+    <!-- Bật về vị trí gốc, nhanh và nhẹ -->
     <translate
-        android:startOffset="1000"
-        android:fromYDelta="30"
+        android:startOffset="500"
+        android:fromYDelta="20"
         android:toYDelta="0"
-        android:duration="400"
+        android:duration="280"
         android:interpolator="@android:anim/bounce_interpolator" />
 </set>

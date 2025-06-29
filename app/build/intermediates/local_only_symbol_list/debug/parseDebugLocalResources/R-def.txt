@@ -92,6 +92,7 @@ drawable ic_logo
 drawable ic_notification
 drawable ic_search
 drawable ic_transmission
+drawable ic_upload_24
 drawable icons_facebook
 drawable icons_google
 drawable outline_lock_24

@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,38 +16,52 @@ import com.example.carsale.R;
 import java.util.List;
 
 public class CarMakeAdapter extends RecyclerView.Adapter<CarMakeAdapter.ViewHolder> {
-    private Context context;
-    private List<CarMake> carMakeList;
-    private OnCarMakeClickListener listener;
+    private final List<CarMake> carMakeList;
+    private final OnCarMakeClickListener listener;
 
     public interface OnCarMakeClickListener {
         void onCarMakeClick(CarMake carMake);
     }
 
     public CarMakeAdapter(Context context, List<CarMake> carMakeList, OnCarMakeClickListener listener) {
-        this.context = context;
         this.carMakeList = carMakeList;
         this.listener = listener;
+        setHasStableIds(true);
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_car_make, parent, false);
+        // Luôn lấy context từ parent để tránh memory leak
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_car_make, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         CarMake carMake = carMakeList.get(position);
-        Glide.with(context).load(carMake.getLogoPath()).into(holder.logoImageView);
+        // Dùng Glide với context của imageView để tránh rò rỉ bộ nhớ
+        Glide.with(holder.logoImageView.getContext())
+                .load(carMake.getLogoPath())
+                .placeholder(R.drawable.ic_upload_24) // placeholder khi loading
+                .error(R.drawable.ic_launcher_background)      // icon khi ảnh lỗi
+                .into(holder.logoImageView);
 
-        holder.itemView.setOnClickListener(v -> listener.onCarMakeClick(carMake));
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) listener.onCarMakeClick(carMake);
+        });
     }
 
     @Override
     public int getItemCount() {
         return carMakeList.size();
+    }
+
+    @Override
+    public long getItemId(int position) {
+        // Nếu CarMake có trường id duy nhất, hash nó để tối ưu
+        CarMake carMake = carMakeList.get(position);
+        return carMake.getId() != null ? carMake.getId().hashCode() : position;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

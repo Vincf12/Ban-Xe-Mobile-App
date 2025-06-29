@@ -2,13 +2,10 @@ package com.example.carsale;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
-import com.example.carsale.AdminFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.appcheck.FirebaseAppCheck;
@@ -20,15 +17,22 @@ public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigationView;
     private boolean isAdmin = false;
+    private static final String ADMIN_EMAIL = "phungkhoa425@gmail.com";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initFirebase();
         setupBottomNavigation();
 
-        FirebaseApp.initializeApp(this);
+    }
 
+    private void initFirebase() {
+        // FirebaseApp.initializeApp chỉ cần gọi 1 lần duy nhất cho toàn app (nếu chưa được gọi ở Application)
+        if (FirebaseApp.getApps(this).isEmpty()) {
+            FirebaseApp.initializeApp(this);
+        }
         FirebaseAppCheck firebaseAppCheck = FirebaseAppCheck.getInstance();
         firebaseAppCheck.installAppCheckProviderFactory(
                 PlayIntegrityAppCheckProviderFactory.getInstance()
@@ -39,53 +43,29 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        isAdmin = user != null && ADMIN_EMAIL.equals(user.getEmail());
 
-        if (user != null && user.getEmail().equals("phungkhoa425@gmail.com")) {
-            isAdmin = true;
-            bottomNavigationView.getMenu().clear();
+        bottomNavigationView.getMenu().clear();
+        if (isAdmin) {
             bottomNavigationView.inflateMenu(R.menu.menu_admin);
             bottomNavigationView.setSelectedItemId(R.id.nav_home_admin);
-            loadAdminFragment();
+            loadFragment(FragmentType.ADMIN);
         } else {
-            isAdmin = false;
-            bottomNavigationView.getMenu().clear();
             bottomNavigationView.inflateMenu(R.menu.menu);
             bottomNavigationView.setSelectedItemId(R.id.nav_home);
-            loadHomeFragment();
+            loadFragment(FragmentType.HOME);
         }
 
-        bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                int itemId = item.getItemId();
-
-                if (isAdmin) {
-                    if (itemId == R.id.nav_home_admin) {
-                        loadAdminFragment();
-                        return true;
-                    } else if (itemId == R.id.nav_settings_admin) {
-                        loadSettingsFragment();
-                        return true;
-                    } else if (itemId == R.id.nav_account_admin) {
-                        loadAccountFragment();
-                        return true;
-                    }
-                } else {
-                    if (itemId == R.id.nav_home) {
-                        loadHomeFragment();
-                        return true;
-                    } else if (itemId == R.id.nav_settings) {
-                        loadSettingsFragment();
-                        return true;
-                    } else if (itemId == R.id.nav_account) {
-                        loadAccountFragment();
-                        return true;
-                    }
-                }
-
-                return false;
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            FragmentType type = getFragmentTypeForMenuItem(item.getItemId());
+            if (type != null) {
+                loadFragment(type);
+                return true;
             }
+            return false;
         });
+
+        // Đảm bảo bottom nav không bị che khuất bởi thanh điều hướng/IME
         ViewCompat.setOnApplyWindowInsetsListener(bottomNavigationView, (v, insets) -> {
             v.setPadding(
                     v.getPaddingLeft(),
@@ -97,39 +77,52 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void loadHomeFragment() {
-        HomeFragment fragment = new HomeFragment();
-        Bundle bundle = new Bundle();
-        bundle.putBoolean("isAdmin", isAdmin);
-        bundle.putString("userId", FirebaseAuth.getInstance().getCurrentUser().getUid());
-        fragment.setArguments(bundle);
+    private enum FragmentType { HOME, ADMIN, SETTINGS, ACCOUNT }
 
+    private FragmentType getFragmentTypeForMenuItem(int itemId) {
+        if (isAdmin) {
+            if (itemId == R.id.nav_home_admin) return FragmentType.ADMIN;
+            if (itemId == R.id.nav_settings_admin) return FragmentType.SETTINGS;
+            if (itemId == R.id.nav_account_admin) return FragmentType.ACCOUNT;
+        } else {
+            if (itemId == R.id.nav_home) return FragmentType.HOME;
+            if (itemId == R.id.nav_settings) return FragmentType.SETTINGS;
+            if (itemId == R.id.nav_account) return FragmentType.ACCOUNT;
+        }
+        return null;
+    }
+
+    private void loadFragment(FragmentType type) {
+        switch (type) {
+            case HOME:
+                replaceFragment(new HomeFragment());
+                break;
+            case ADMIN:
+                replaceFragment(new AdminFragment());
+                break;
+            case SETTINGS:
+                // Nếu chưa cần, có thể bỏ comment sau khi tạo fragment
+                // replaceFragment(new SettingsFragment());
+                break;
+            case ACCOUNT:
+                // replaceFragment(new AccountFragment());
+                break;
+        }
+    }
+
+    private void replaceFragment(androidx.fragment.app.Fragment fragment) {
+        Bundle bundle = getBaseBundle();
+        fragment.setArguments(bundle);
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.nav_host_fragment, fragment)
-                .commit();
+                .commitAllowingStateLoss();
     }
 
-    private void loadAdminFragment() {
-        AdminFragment fragment = new AdminFragment();
+    private Bundle getBaseBundle() {
         Bundle bundle = new Bundle();
         bundle.putBoolean("isAdmin", isAdmin);
-        bundle.putString("userId", FirebaseAuth.getInstance().getCurrentUser().getUid());
-        fragment.setArguments(bundle);
-
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.nav_host_fragment, fragment)
-                .commit();
-    }
-
-    private void loadSettingsFragment() {
-        // getSupportFragmentManager().beginTransaction()
-        //         .replace(R.id.nav_host_fragment, new SettingsFragment())
-        //         .commit();
-    }
-
-    private void loadAccountFragment() {
-        // getSupportFragmentManager().beginTransaction()
-        //         .replace(R.id.nav_host_fragment, new AccountFragment())
-        //         .commit();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        bundle.putString("userId", user != null ? user.getUid() : null);
+        return bundle;
     }
 }

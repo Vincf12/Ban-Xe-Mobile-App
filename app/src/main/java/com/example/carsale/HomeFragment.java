@@ -35,6 +35,7 @@ public class HomeFragment extends Fragment {
     private final List<CarMake> carMakeList = new ArrayList<>();
     private final List<Car> carList = new ArrayList<>();
     private final List<Car> cachedCars = new ArrayList<>();
+    private boolean isCarsLoaded = false;
 
     public HomeFragment() {}
 
@@ -57,7 +58,7 @@ public class HomeFragment extends Fragment {
 
         recyclerViewBrands = view.findViewById(R.id.brands_layout);
         recyclerViewBrands.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
-        carMakeAdapter = new CarMakeAdapter(context, carMakeList, carMake -> filterCarsByMake(carMake.getName()));
+        carMakeAdapter = new CarMakeAdapter(context, carMakeList, carMake -> filterCarsByMake(carMake != null ? carMake.getName() : null));
         recyclerViewBrands.setAdapter(carMakeAdapter);
 
         recyclerViewCars = view.findViewById(R.id.listings_layout);
@@ -78,6 +79,10 @@ public class HomeFragment extends Fragment {
             }
         });
         recyclerViewCars.setAdapter(carAdapter);
+
+        // Tối ưu: setHasFixedSize(true) cho hiệu năng tốt hơn nếu item kích thước cố định
+        recyclerViewBrands.setHasFixedSize(true);
+        recyclerViewCars.setHasFixedSize(true);
     }
 
     private void loadCarMakes() {
@@ -92,29 +97,27 @@ public class HomeFragment extends Fragment {
                     }
                     carMakeAdapter.notifyDataSetChanged();
                 })
-                .addOnFailureListener(e -> {
-                    Context context = getContext();
-                    if (context != null) {
-                        Toast.makeText(context, "Lỗi tải hãng xe: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
+                .addOnFailureListener(e -> showToast("Lỗi tải hãng xe: " + e.getMessage()));
     }
 
     private void loadAndCacheCars() {
+        // Không tải lại nếu đã có dữ liệu (tối ưu khi back lại fragment)
+        if (isCarsLoaded) {
+            filterCarsByMake(null);
+            return;
+        }
         CarHelper.getInstance().getAllCars(new CarHelper.CarsListCallback() {
             @Override
             public void onSuccess(List<Car> cars) {
                 cachedCars.clear();
                 cachedCars.addAll(cars);
+                isCarsLoaded = true;
                 filterCarsByMake(null); // Load tất cả xe ban đầu
             }
 
             @Override
             public void onError(String error) {
-                Context context = getContext();
-                if (context != null) {
-                    Toast.makeText(context, "Lỗi tải xe: " + error, Toast.LENGTH_SHORT).show();
-                }
+                showToast("Lỗi tải xe: " + error);
             }
         });
     }
@@ -122,12 +125,18 @@ public class HomeFragment extends Fragment {
     private void filterCarsByMake(@Nullable String make) {
         carList.clear();
         for (Car car : cachedCars) {
-            if ("available".equalsIgnoreCase(car.getStatus())) {
-                if (make == null || make.equalsIgnoreCase(car.getMake())) {
-                    carList.add(car);
-                }
+            if ("available".equalsIgnoreCase(car.getStatus()) &&
+                    (make == null || make.equalsIgnoreCase(car.getMake()))) {
+                carList.add(car);
             }
         }
         carAdapter.notifyDataSetChanged();
+    }
+
+    private void showToast(String message) {
+        Context context = getContext();
+        if (context != null) {
+            Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+        }
     }
 }
