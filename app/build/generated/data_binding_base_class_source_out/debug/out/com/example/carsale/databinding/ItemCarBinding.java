@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -29,6 +30,9 @@ public final class ItemCarBinding implements ViewBinding {
   public final Button btnEdit;
 
   @NonNull
+  public final LinearLayout detail;
+
+  @NonNull
   public final ImageView imgCar;
 
   @NonNull
@@ -47,12 +51,13 @@ public final class ItemCarBinding implements ViewBinding {
   public final TextView txtTransmission;
 
   private ItemCarBinding(@NonNull CardView rootView, @NonNull ImageButton btDelete,
-      @NonNull Button btnEdit, @NonNull ImageView imgCar, @NonNull TextView txtCarName,
-      @NonNull TextView txtCarPrice, @NonNull TextView txtDoors, @NonNull TextView txtFuel,
-      @NonNull TextView txtTransmission) {
+      @NonNull Button btnEdit, @NonNull LinearLayout detail, @NonNull ImageView imgCar,
+      @NonNull TextView txtCarName, @NonNull TextView txtCarPrice, @NonNull TextView txtDoors,
+      @NonNull TextView txtFuel, @NonNull TextView txtTransmission) {
     this.rootView = rootView;
     this.btDelete = btDelete;
     this.btnEdit = btnEdit;
+    this.detail = detail;
     this.imgCar = imgCar;
     this.txtCarName = txtCarName;
     this.txtCarPrice = txtCarPrice;
@@ -100,6 +105,12 @@ public final class ItemCarBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.detail;
+      LinearLayout detail = ViewBindings.findChildViewById(rootView, id);
+      if (detail == null) {
+        break missingId;
+      }
+
       id = R.id.imgCar;
       ImageView imgCar = ViewBindings.findChildViewById(rootView, id);
       if (imgCar == null) {
@@ -136,7 +147,7 @@ public final class ItemCarBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemCarBinding((CardView) rootView, btDelete, btnEdit, imgCar, txtCarName,
+      return new ItemCarBinding((CardView) rootView, btDelete, btnEdit, detail, imgCar, txtCarName,
           txtCarPrice, txtDoors, txtFuel, txtTransmission);
     }
     String missingId = rootView.getResources().getResourceName(id);

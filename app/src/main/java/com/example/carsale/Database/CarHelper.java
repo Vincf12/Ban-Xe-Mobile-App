@@ -1,6 +1,7 @@
 package com.example.carsale.Database;
 
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.carsale.Model.Car;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -193,6 +194,7 @@ public class CarHelper {
                     List<Car> cars = new ArrayList<>();
                     for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
                         Car car = document.toObject(Car.class);
+                        car.setId(document.getId());
                         cars.add(car);
                     }
                     callback.onSuccess(cars);
@@ -238,12 +240,11 @@ public class CarHelper {
                     if (documentSnapshot.exists()) {
                         Car car = documentSnapshot.toObject(Car.class);
                         if (car != null) {
+                            car.setId(documentSnapshot.getId());
                             callback.onSuccess(car);
                         } else {
                             callback.onError("Lỗi đọc thông tin xe");
                         }
-                    } else {
-                        callback.onError("Xe không tồn tại");
                     }
                 })
                 .addOnFailureListener(e -> callback.onError("Lỗi lấy thông tin xe: " + e.getMessage()));

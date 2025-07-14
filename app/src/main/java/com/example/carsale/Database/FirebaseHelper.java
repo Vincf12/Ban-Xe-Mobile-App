@@ -51,6 +51,16 @@ public class FirebaseHelper {
         void onError(String error);
     }
 
+    public interface OnUserDataListener {
+        void onSuccess(User user);
+        void onFailure(String error);
+    }
+
+    public interface OnDataListener {
+        void onSuccess();
+        void onFailure(String error);
+    }
+
 
     public void registerUser(String username, String email, String password, AuthCallback callback) {
         // Tạo user với Firebase Auth
@@ -248,5 +258,30 @@ public class FirebaseHelper {
             }
         }
         return "Đăng nhập thất bại: " + (exception != null ? exception.getMessage() : "Lỗi không xác định");
+    }
+
+    // Lấy thông tin user theo ID
+    public void getUserById(String userId, OnUserDataListener listener) {
+        db.collection("users").document(userId).get()
+                .addOnSuccessListener(documentSnapshot -> {
+                    if (documentSnapshot.exists()) {
+                        User user = documentSnapshot.toObject(User.class);
+                        if (user != null) {
+                            listener.onSuccess(user);
+                        } else {
+                            listener.onFailure("Lỗi đọc dữ liệu người dùng");
+                        }
+                    } else {
+                        listener.onFailure("Không tìm thấy người dùng");
+                    }
+                })
+                .addOnFailureListener(e -> listener.onFailure("Lỗi: " + e.getMessage()));
+    }
+
+    // Cập nhật thông tin user
+    public void updateUser(User user, OnDataListener listener) {
+        db.collection("users").document(user.getId()).set(user)
+                .addOnSuccessListener(aVoid -> listener.onSuccess())
+                .addOnFailureListener(e -> listener.onFailure("Lỗi cập nhật: " + e.getMessage()));
     }
 }

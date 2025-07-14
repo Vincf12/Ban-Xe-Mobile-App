@@ -13,4 +13,10 @@
     <string name="fb_login_protocol_scheme">fb1241137784220628</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="navigation_drawer_open">Mở menu</string>
+    <string name="navigation_drawer_close">Đóng menu</string>
+    <string name="API_SECRET">mkbHquhvpuVeCN81ims5qsXLXzs</string>
+    <string name="prompt_district">Chọn Quận/Huyện</string>
+    <string name="prompt_ward">Chọn Phường/Xã</string>
+    <color name="price_color">#E91E63</color>
 </resources>

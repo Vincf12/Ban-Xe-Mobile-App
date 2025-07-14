@@ -32,6 +32,9 @@ public final class FragmentAdminBinding implements ViewBinding {
   public final ImageButton btnAddCarMake;
 
   @NonNull
+  public final ImageButton btnOpenDrawer;
+
+  @NonNull
   public final RecyclerView recyclerViewCars;
 
   @NonNull
@@ -39,11 +42,13 @@ public final class FragmentAdminBinding implements ViewBinding {
 
   private FragmentAdminBinding(@NonNull LinearLayout rootView, @NonNull LinearLayout adminContainer,
       @NonNull Button btnAddCar, @NonNull ImageButton btnAddCarMake,
-      @NonNull RecyclerView recyclerViewCars, @NonNull Spinner spinnerCarMake) {
+      @NonNull ImageButton btnOpenDrawer, @NonNull RecyclerView recyclerViewCars,
+      @NonNull Spinner spinnerCarMake) {
     this.rootView = rootView;
     this.adminContainer = adminContainer;
     this.btnAddCar = btnAddCar;
     this.btnAddCarMake = btnAddCarMake;
+    this.btnOpenDrawer = btnOpenDrawer;
     this.recyclerViewCars = recyclerViewCars;
     this.spinnerCarMake = spinnerCarMake;
   }
@@ -89,6 +94,12 @@ public final class FragmentAdminBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.btnOpenDrawer;
+      ImageButton btnOpenDrawer = ViewBindings.findChildViewById(rootView, id);
+      if (btnOpenDrawer == null) {
+        break missingId;
+      }
+
       id = R.id.recyclerViewCars;
       RecyclerView recyclerViewCars = ViewBindings.findChildViewById(rootView, id);
       if (recyclerViewCars == null) {
@@ -102,7 +113,7 @@ public final class FragmentAdminBinding implements ViewBinding {
       }
 
       return new FragmentAdminBinding((LinearLayout) rootView, adminContainer, btnAddCar,
-          btnAddCarMake, recyclerViewCars, spinnerCarMake);
+          btnAddCarMake, btnOpenDrawer, recyclerViewCars, spinnerCarMake);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

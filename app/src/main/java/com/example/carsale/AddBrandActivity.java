@@ -18,7 +18,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -31,7 +30,6 @@ public class AddBrandActivity extends AppCompatActivity {
     private Button btnSelectLogo, btnSaveMake;
 
     private Uri selectedLogoUri = null;
-    private String savedLogoPath = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,20 +42,7 @@ public class AddBrandActivity extends AppCompatActivity {
         btnSaveMake = findViewById(R.id.btnSaveMake);
 
         btnSelectLogo.setOnClickListener(v -> openImagePicker());
-
-        btnSaveMake.setOnClickListener(v -> {
-            String name = etCarMakeName.getText().toString().trim();
-            if (TextUtils.isEmpty(name)) {
-                Toast.makeText(this, "Vui lòng nhập tên hãng", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            if (selectedLogoUri == null) {
-                Toast.makeText(this, "Vui lòng chọn logo", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            saveLogoLocallyAndSaveMake(name);
-        });
+        btnSaveMake.setOnClickListener(v -> saveMake());
     }
 
     private void openImagePicker() {
@@ -76,42 +61,58 @@ public class AddBrandActivity extends AppCompatActivity {
         }
     }
 
-    private void saveLogoLocallyAndSaveMake(String name) {
+    private void saveMake() {
+        String name = etCarMakeName.getText().toString().trim();
+        if (TextUtils.isEmpty(name)) {
+            Toast.makeText(this, "Vui lòng nhập tên hãng", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (selectedLogoUri == null) {
+            Toast.makeText(this, "Vui lòng chọn logo", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        uploadLogoAndSaveMake(name);
+    }
+
+    private void uploadLogoAndSaveMake(String name) {
         try {
-            File dir = new File(getFilesDir(), "car_make_logos");
-            if (!dir.exists()) dir.mkdirs();
-
-            String fileName = UUID.randomUUID().toString() + ".jpg";
-            File file = new File(dir, fileName);
-
+            File file = new File(getCacheDir(), UUID.randomUUID().toString() + ".jpg");
             InputStream inputStream = getContentResolver().openInputStream(selectedLogoUri);
-            if (inputStream == null) throw new IOException("Không thể mở ảnh");
+            if (inputStream == null) throw new Exception("Không thể đọc ảnh");
 
             FileOutputStream outputStream = new FileOutputStream(file);
-            byte[] buffer = new byte[1024];
+            byte[] buffer = new byte[2048];
             int bytesRead;
-
             while ((bytesRead = inputStream.read(buffer)) != -1) {
                 outputStream.write(buffer, 0, bytesRead);
             }
-
             inputStream.close();
             outputStream.close();
 
-            savedLogoPath = file.getAbsolutePath();
-            saveToFirestore(name, savedLogoPath);
+            CloudinaryManager cloudinaryManager = new CloudinaryManager();
+            cloudinaryManager.uploadImage(file, new CloudinaryManager.UploadCallback() {
+                @Override
+                public void onSuccess(String secureUrl) {
+                    saveToFirestore(name, secureUrl);
+                }
 
-        } catch (IOException e) {
-            Toast.makeText(this, "Lỗi lưu ảnh cục bộ: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                @Override
+                public void onFailure(Exception e) {
+                    runOnUiThread(() -> Toast.makeText(AddBrandActivity.this, "Upload lỗi: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+                }
+            });
+
+        } catch (Exception e) {
+            Toast.makeText(this, "Lỗi: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void saveToFirestore(String name, String logoPath) {
+    private void saveToFirestore(String name, String logoUrl) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-
         Map<String, Object> make = new HashMap<>();
         make.put("name", name);
-        make.put("logoPath", logoPath);  // Đường dẫn local
+        make.put("logoPath", logoUrl); // ✅ Dùng logoPath để khớp với model
 
         db.collection("car_makes")
                 .add(make)

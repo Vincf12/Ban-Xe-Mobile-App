@@ -4,7 +4,9 @@ package com.example.carsale.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,7 +32,22 @@ public final class FragmentHomeBinding implements ViewBinding {
   public final RecyclerView brandsLayout;
 
   @NonNull
+  public final ImageView dot1;
+
+  @NonNull
+  public final ImageView dot2;
+
+  @NonNull
+  public final ImageView dot3;
+
+  @NonNull
+  public final ImageView dot4;
+
+  @NonNull
   public final LinearLayout headerLayout;
+
+  @NonNull
+  public final LinearLayout indicatorLayout;
 
   @NonNull
   public final RecyclerView listingsLayout;
@@ -38,17 +55,28 @@ public final class FragmentHomeBinding implements ViewBinding {
   @NonNull
   public final LinearLayout searchLayout;
 
+  @NonNull
+  public final Spinner spinnerCity;
+
   private FragmentHomeBinding(@NonNull LinearLayout rootView, @NonNull ViewPager2 bannerViewPager,
       @NonNull LinearLayout brandsHeaderLayout, @NonNull RecyclerView brandsLayout,
-      @NonNull LinearLayout headerLayout, @NonNull RecyclerView listingsLayout,
-      @NonNull LinearLayout searchLayout) {
+      @NonNull ImageView dot1, @NonNull ImageView dot2, @NonNull ImageView dot3,
+      @NonNull ImageView dot4, @NonNull LinearLayout headerLayout,
+      @NonNull LinearLayout indicatorLayout, @NonNull RecyclerView listingsLayout,
+      @NonNull LinearLayout searchLayout, @NonNull Spinner spinnerCity) {
     this.rootView = rootView;
     this.bannerViewPager = bannerViewPager;
     this.brandsHeaderLayout = brandsHeaderLayout;
     this.brandsLayout = brandsLayout;
+    this.dot1 = dot1;
+    this.dot2 = dot2;
+    this.dot3 = dot3;
+    this.dot4 = dot4;
     this.headerLayout = headerLayout;
+    this.indicatorLayout = indicatorLayout;
     this.listingsLayout = listingsLayout;
     this.searchLayout = searchLayout;
+    this.spinnerCity = spinnerCity;
   }
 
   @Override
@@ -96,9 +124,39 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.dot_1;
+      ImageView dot1 = ViewBindings.findChildViewById(rootView, id);
+      if (dot1 == null) {
+        break missingId;
+      }
+
+      id = R.id.dot_2;
+      ImageView dot2 = ViewBindings.findChildViewById(rootView, id);
+      if (dot2 == null) {
+        break missingId;
+      }
+
+      id = R.id.dot_3;
+      ImageView dot3 = ViewBindings.findChildViewById(rootView, id);
+      if (dot3 == null) {
+        break missingId;
+      }
+
+      id = R.id.dot_4;
+      ImageView dot4 = ViewBindings.findChildViewById(rootView, id);
+      if (dot4 == null) {
+        break missingId;
+      }
+
       id = R.id.header_layout;
       LinearLayout headerLayout = ViewBindings.findChildViewById(rootView, id);
       if (headerLayout == null) {
+        break missingId;
+      }
+
+      id = R.id.indicator_layout;
+      LinearLayout indicatorLayout = ViewBindings.findChildViewById(rootView, id);
+      if (indicatorLayout == null) {
         break missingId;
       }
 
@@ -114,8 +172,15 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.spinner_city;
+      Spinner spinnerCity = ViewBindings.findChildViewById(rootView, id);
+      if (spinnerCity == null) {
+        break missingId;
+      }
+
       return new FragmentHomeBinding((LinearLayout) rootView, bannerViewPager, brandsHeaderLayout,
-          brandsLayout, headerLayout, listingsLayout, searchLayout);
+          brandsLayout, dot1, dot2, dot3, dot4, headerLayout, indicatorLayout, listingsLayout,
+          searchLayout, spinnerCity);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

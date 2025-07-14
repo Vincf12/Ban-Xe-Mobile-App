@@ -7,21 +7,27 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.carsale.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
 
 public final class ActivityMainBinding implements ViewBinding {
   @NonNull
-  private final ConstraintLayout rootView;
+  private final DrawerLayout rootView;
 
   @NonNull
   public final BottomNavigationView bottomNavigation;
+
+  @NonNull
+  public final DrawerLayout drawerLayout;
 
   @NonNull
   public final ConstraintLayout mainRoot;
@@ -29,18 +35,32 @@ public final class ActivityMainBinding implements ViewBinding {
   @NonNull
   public final FrameLayout navHostFragment;
 
-  private ActivityMainBinding(@NonNull ConstraintLayout rootView,
-      @NonNull BottomNavigationView bottomNavigation, @NonNull ConstraintLayout mainRoot,
-      @NonNull FrameLayout navHostFragment) {
+  @NonNull
+  public final NavigationView navView;
+
+  @NonNull
+  public final FrameLayout progressBar;
+
+  @NonNull
+  public final Toolbar toolbar;
+
+  private ActivityMainBinding(@NonNull DrawerLayout rootView,
+      @NonNull BottomNavigationView bottomNavigation, @NonNull DrawerLayout drawerLayout,
+      @NonNull ConstraintLayout mainRoot, @NonNull FrameLayout navHostFragment,
+      @NonNull NavigationView navView, @NonNull FrameLayout progressBar, @NonNull Toolbar toolbar) {
     this.rootView = rootView;
     this.bottomNavigation = bottomNavigation;
+    this.drawerLayout = drawerLayout;
     this.mainRoot = mainRoot;
     this.navHostFragment = navHostFragment;
+    this.navView = navView;
+    this.progressBar = progressBar;
+    this.toolbar = toolbar;
   }
 
   @Override
   @NonNull
-  public ConstraintLayout getRoot() {
+  public DrawerLayout getRoot() {
     return rootView;
   }
 
@@ -71,7 +91,13 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      ConstraintLayout mainRoot = (ConstraintLayout) rootView;
+      DrawerLayout drawerLayout = (DrawerLayout) rootView;
+
+      id = R.id.main_root;
+      ConstraintLayout mainRoot = ViewBindings.findChildViewById(rootView, id);
+      if (mainRoot == null) {
+        break missingId;
+      }
 
       id = R.id.nav_host_fragment;
       FrameLayout navHostFragment = ViewBindings.findChildViewById(rootView, id);
@@ -79,8 +105,26 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityMainBinding((ConstraintLayout) rootView, bottomNavigation, mainRoot,
-          navHostFragment);
+      id = R.id.nav_view;
+      NavigationView navView = ViewBindings.findChildViewById(rootView, id);
+      if (navView == null) {
+        break missingId;
+      }
+
+      id = R.id.progress_bar;
+      FrameLayout progressBar = ViewBindings.findChildViewById(rootView, id);
+      if (progressBar == null) {
+        break missingId;
+      }
+
+      id = R.id.toolbar;
+      Toolbar toolbar = ViewBindings.findChildViewById(rootView, id);
+      if (toolbar == null) {
+        break missingId;
+      }
+
+      return new ActivityMainBinding((DrawerLayout) rootView, bottomNavigation, drawerLayout,
+          mainRoot, navHostFragment, navView, progressBar, toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

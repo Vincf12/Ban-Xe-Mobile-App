@@ -11,6 +11,12 @@
         android:iconTint="@color/text_hint"
         android:title="Settings" />
     <item
+        android:id="@+id/nav_pay"
+        android:icon="@drawable/outline_account_balance_wallet_24"
+        android:iconTint="@color/text_hint"
+        android:title="Pay"
+        />
+    <item
         android:id="@+id/nav_account_admin"
         android:icon="@drawable/outline_person_24"
         android:iconTint="@color/text_hint"

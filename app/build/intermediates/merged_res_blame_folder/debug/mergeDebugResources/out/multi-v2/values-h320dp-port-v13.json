@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.carsale.app-mergeDebugResources-50:/values-h320dp-port-v13/values-h320dp-port-v13.xml",
+            "outputFile": "com.example.carsale.app-mergeDebugResources-56:/values-h320dp-port-v13/values-h320dp-port-v13.xml",
             "map": [
                 {
                     "source": "C:\\Users\\nguye\\.gradle\\caches\\8.11.1\\transforms\\bfb33d8507ccc757b9521984cbb3f77e\\transformed\\material-1.12.0\\res\\values-h320dp-port-v13\\values-h320dp-port-v13.xml",

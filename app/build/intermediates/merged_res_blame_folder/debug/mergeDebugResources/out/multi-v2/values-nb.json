@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.carsale.app-mergeDebugResources-50:/values-nb/values-nb.xml",
+            "outputFile": "com.example.carsale.app-mergeDebugResources-56:/values-nb/values-nb.xml",
             "map": [
                 {
                     "source": "C:\\Users\\nguye\\.gradle\\caches\\8.11.1\\transforms\\18a817b82e58e30f292b97f831dc4c83\\transformed\\credentials-1.2.0-rc01\\res\\values-nb\\values-nb.xml",

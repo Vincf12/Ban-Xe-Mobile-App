@@ -5,7 +5,7 @@
         <item name="android:windowSplashScreenAnimatedIcon">@drawable/outline_shopping_bag_speed_24</item>
         <item name="android:windowSplashScreenBackground">@color/white</item>
         <item name="android:windowSplashScreenIconBackgroundColor">@null</item>
-
+        <item name="android:windowFullscreen">true</item>
         
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowLightStatusBar">false</item>

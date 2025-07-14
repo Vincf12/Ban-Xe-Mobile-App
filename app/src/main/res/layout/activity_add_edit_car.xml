@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
@@ -36,12 +37,29 @@
             android:hint="Giá bán (VD: 850000000)"
             android:inputType="numberDecimal" />
 
+        <!-- Giá đặt cọc -->
+        <EditText
+            android:id="@+id/etDepositPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Giá đặt cọc (VD: 50000000)"
+            android:inputType="numberDecimal" />
+
+        <!-- Số lượng -->
+        <EditText
+            android:id="@+id/etQuantity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Số lượng (VD: 1)"
+            android:inputType="number"
+            android:text="1" />
+
         <!-- Hãng xe -->
         <Spinner
             android:id="@+id/spinnerCarMake"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+            android:layout_height="wrap_content" />
+
         <!-- Tình trạng -->
         <Spinner
             android:id="@+id/spinnerCondition"
@@ -82,6 +100,13 @@
             android:hint="Địa điểm bán (VD: TP.HCM)"
             android:inputType="text" />
 
+        <EditText
+            android:id="@+id/etBH"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Thời gian bảo hành (VD: 8 Năm)"
+            android:inputType="text"
+            />
         <!-- Mô tả -->
         <EditText
             android:id="@+id/etDescription"
@@ -92,14 +117,116 @@
             android:gravity="top"
             android:inputType="textMultiLine" />
 
-        <!-- Ảnh xe -->
-        <Button
-            android:id="@+id/btnSelectImages"
+        <!-- Phần chọn màu -->
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Chọn ảnh xe" />
+            android:text="Chọn màu xe:"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp" />
 
-        <!-- Danh sách ảnh chọn -->
+        <!-- ChipGroup cho các màu -->
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupColors"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:singleSelection="false"
+            app:selectionRequired="false">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipWhite"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trắng"
+                android:checkable="true" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipBlack"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đen"
+                android:checkable="true" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipSilver"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bạc"
+                android:checkable="true" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipRed"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đỏ"
+                android:checkable="true" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipBlue"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Xanh dương"
+                android:checkable="true" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipGray"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Xám"
+                android:checkable="true" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipBrown"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nâu"
+                android:checkable="true" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipGreen"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Xanh lá"
+                android:checkable="true" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <!-- Container cho các màu đã chọn và ảnh -->
+        <LinearLayout
+            android:id="@+id/layoutSelectedColors"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp" />
+
+        <!-- Ảnh xe chung (không theo màu) -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ảnh xe chung:"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btnSelectColorImages"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chọn ảnh cho màu này"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Danh sách ảnh chung -->
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -118,6 +245,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Lưu thông tin xe"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp" />
+
     </LinearLayout>
 </ScrollView>

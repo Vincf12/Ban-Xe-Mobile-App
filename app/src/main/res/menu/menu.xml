@@ -6,10 +6,10 @@
         android:iconTint="@color/text_hint"
         android:title="Trang chủ" />
     <item
-        android:id="@+id/nav_settings"
-        android:icon="@drawable/baseline_home_24"
+        android:id="@+id/nav_search"
+        android:icon="@drawable/ic_search"
         android:iconTint="@color/text_hint"
-        android:title="Settings" />
+        android:title="Tìm kiếm" />
     <item
         android:id="@+id/nav_account"
         android:icon="@drawable/outline_person_24"

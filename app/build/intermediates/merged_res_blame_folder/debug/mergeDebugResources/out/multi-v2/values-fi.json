@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.carsale.app-mergeDebugResources-50:/values-fi/values-fi.xml",
+            "outputFile": "com.example.carsale.app-mergeDebugResources-56:/values-fi/values-fi.xml",
             "map": [
                 {
                     "source": "C:\\Users\\nguye\\.gradle\\caches\\8.11.1\\transforms\\ac144b4e9923d946e4a66f218da7214a\\transformed\\facebook-login-16.1.3\\res\\values-fi\\values-fi.xml",

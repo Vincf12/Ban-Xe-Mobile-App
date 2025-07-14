@@ -1,7 +1,9 @@
 package com.example.carsale.Model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Car implements Serializable {
     private String id;
@@ -14,13 +16,16 @@ public class Car implements Serializable {
     private String transmission;       // "Tự động", "Số sàn"
     private String fuelType;           // "Xăng", "Dầu", "Điện", "Hybrid"
     private String engineCapacity;     // Dung tích động cơ (VD: "2.0L")
-    private List<String> imageUrls;    // Danh sách URL ảnh
     private String description;        // Mô tả chi tiết
     private String location;           // Địa điểm bán (TP.HCM, Hà Nội…)
     private String status;             // available / sold / reserved
     private long createdAt;            // Thời gian tạo (timestamp)
     private long updatedAt;            // Thời gian cập nhật (timestamp)
     private String userId;             // ID người đăng (ẩn với user thường)
+    private double depositPrice;     // Giá đặt cọc
+    private int quantity;            // Số lượng xe
+    private Map<String, List<String>> colorImages; // Màu sắc và danh sách ảnh cho từng màu
+    private String etBH; // Thời gian bảo hành
 
     // Constructor mặc định bắt buộc cho Firestore
     public Car() {
@@ -29,8 +34,9 @@ public class Car implements Serializable {
     // Constructor đầy đủ (tuỳ chọn)
     public Car(String id, String make, String model, int year, double price, String condition,
                String carType, String transmission, String fuelType, String engineCapacity,
-               List<String> imageUrls, String description, String location, String status,
-               long createdAt, long updatedAt, String userId) {
+               String description, String location, String status,
+               long createdAt, long updatedAt, String userId,
+               double depositPrice, int quantity, Map<String, List<String>> colorImages, String etBH) {
         this.id = id;
         this.make = make;
         this.model = model;
@@ -41,13 +47,16 @@ public class Car implements Serializable {
         this.transmission = transmission;
         this.fuelType = fuelType;
         this.engineCapacity = engineCapacity;
-        this.imageUrls = imageUrls;
         this.description = description;
         this.location = location;
         this.status = status;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.userId = userId;
+        this.depositPrice = depositPrice;
+        this.quantity = quantity;
+        this.colorImages = colorImages;
+        this.etBH = etBH;
     }
 
     // Getters và Setters
@@ -131,14 +140,6 @@ public class Car implements Serializable {
         this.engineCapacity = engineCapacity;
     }
 
-    public List<String> getImageUrls() {
-        return imageUrls;
-    }
-
-    public void setImageUrls(List<String> imageUrls) {
-        this.imageUrls = imageUrls;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -185,5 +186,45 @@ public class Car implements Serializable {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public double getDepositPrice() {
+        return depositPrice;
+    }
+
+    public void setDepositPrice(double depositPrice) {
+        this.depositPrice = depositPrice;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public Map<String, List<String>> getColorImages() {
+        return colorImages;
+    }
+
+    public void setColorImages(Map<String, List<String>> colorImages) {
+        this.colorImages = colorImages;
+    }
+    public List<String> getAllImageUrls() {
+        List<String> allUrls = new ArrayList<>();
+        if (colorImages != null) {
+            for (List<String> images : colorImages.values()) {
+                allUrls.addAll(images);
+            }
+        }
+        return allUrls;
+    }
+
+    public String getEtBH() {
+        return etBH;
+    }
+    public void setEtBH(String etBH) {
+        this.etBH = etBH;
     }
 }

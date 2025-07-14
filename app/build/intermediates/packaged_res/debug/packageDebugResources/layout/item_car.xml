@@ -6,11 +6,14 @@
     android:layout_margin="8dp"
     app:cardCornerRadius="16dp"
     app:cardElevation="4dp"
-    app:cardBackgroundColor="@color/white">
+    app:cardBackgroundColor="@color/white"
+    android:clickable="true"
+    android:focusable="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/detail"
         android:orientation="vertical">
 
         <!-- ✅ Phần nền xanh: Header + ảnh -->
@@ -18,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@color/mint_green"
+            android:background="@drawable/rounded_image"
             android:padding="5dp">
 
             <!-- Header: Car Name & Delete Icon -->
@@ -36,6 +39,7 @@
                     android:layout_weight="1"
                     android:text="Toyota GT 86"
                     android:textSize="14sp"
+                    android:paddingStart="10dp"
                     android:textStyle="bold"
                     android:textColor="@android:color/black" />
 
@@ -64,7 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="12dp">
+            android:padding="10dp">
 
             <!-- Specifications -->
             <LinearLayout
@@ -72,6 +76,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
+                android:padding="5dp"
                 android:layout_marginBottom="5dp">
 
                 <!-- Engine -->
@@ -157,7 +162,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="$37,612"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:textStyle="bold"
                     android:textColor="@android:color/black" />
 

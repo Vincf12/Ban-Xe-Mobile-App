@@ -1,46 +1,106 @@
 [
     {
-        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-51:\\layout\\car_item.xml",
-        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\layout\\car_item.xml"
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-57:\\layout\\activity_payment.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-60:\\layout\\activity_payment.xml"
     },
     {
-        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-51:\\layout\\fragment_home.xml",
-        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\layout\\fragment_home.xml"
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-57:\\layout\\activity_payment_success.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-60:\\layout\\activity_payment_success.xml"
     },
     {
-        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-51:\\layout\\item_car_make.xml",
-        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\layout\\item_car_make.xml"
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-57:\\layout\\spinner_dropdown_item.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-60:\\layout\\spinner_dropdown_item.xml"
     },
     {
-        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-51:\\layout\\item_car.xml",
-        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\layout\\item_car.xml"
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-57:\\layout\\activity_payment_confirm.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-60:\\layout\\activity_payment_confirm.xml"
     },
     {
-        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-51:\\layout\\activity_add_edit_car.xml",
-        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\layout\\activity_add_edit_car.xml"
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-57:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-60:\\layout\\activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-51:\\layout\\activity_dang_ky.xml",
-        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\layout\\activity_dang_ky.xml"
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-57:\\layout\\item_car.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-60:\\layout\\item_car.xml"
     },
     {
-        "merged": "com.example.carsale.app-mergeDebugResources-51:/layout/item_car_make.xml",
-        "source": "com.example.carsale.app-main-54:/layout/item_car_make.xml"
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-57:\\layout\\activity_sales_car.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-60:\\layout\\activity_sales_car.xml"
     },
     {
-        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-51:\\layout\\activity_main.xml",
-        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\layout\\activity_main.xml"
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-57:\\layout\\activity_detail_car.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-60:\\layout\\activity_detail_car.xml"
     },
     {
-        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-51:\\layout\\activity_add_brand.xml",
-        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\layout\\activity_add_brand.xml"
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-57:\\layout\\nav_header_main.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-60:\\layout\\nav_header_main.xml"
     },
     {
-        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-51:\\layout\\fragment_admin.xml",
-        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\layout\\fragment_admin.xml"
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-57:\\layout\\item_payment_confirm.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-60:\\layout\\item_payment_confirm.xml"
     },
     {
-        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-51:\\layout\\activity_dang_nhap.xml",
-        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-54:\\layout\\activity_dang_nhap.xml"
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-57:\\layout\\activity_profile.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-60:\\layout\\activity_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-57:\\layout\\fragment_admin.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-60:\\layout\\fragment_admin.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-57:\\layout\\activity_add_brand.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-60:\\layout\\activity_add_brand.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-57:\\layout\\fragment_home.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-60:\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "com.example.carsale.app-mergeDebugResources-57:/layout/fragment_admin.xml",
+        "source": "com.example.carsale.app-main-60:/layout/fragment_admin.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-57:\\layout\\spinner_item.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-60:\\layout\\spinner_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-57:\\layout\\activity_dang_ky.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-60:\\layout\\activity_dang_ky.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-57:\\layout\\activity_location.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-60:\\layout\\activity_location.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-57:\\layout\\activity_add_edit_car.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-60:\\layout\\activity_add_edit_car.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-57:\\layout\\item_image_thumbnail.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-60:\\layout\\item_image_thumbnail.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-57:\\layout\\activity_dang_nhap.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-60:\\layout\\activity_dang_nhap.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-57:\\layout\\item_car_make.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-60:\\layout\\item_car_make.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-57:\\layout\\fragment_account.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-60:\\layout\\fragment_account.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-57:\\layout\\activity_reserve.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-60:\\layout\\activity_reserve.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-57:\\layout\\item_province.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-60:\\layout\\item_province.xml"
+    },
+    {
+        "merged": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-mergeDebugResources-57:\\layout\\item_banner.xml",
+        "source": "C:\\Users\\nguye\\.gradle\\daemon\\8.11.1\\com.example.carsale.app-main-60:\\layout\\item_banner.xml"
     }
 ]

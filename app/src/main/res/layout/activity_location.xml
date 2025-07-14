@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        android:background="@color/com_facebook_blue">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:src="@drawable/ic_arrow_back"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:tint="#FFFFFF" />
+
+        <TextView
+            android:text="Chọn Tỉnh/Thành phố"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:gravity="center" />
+
+        <View
+            android:layout_width="24dp"
+            android:layout_height="24dp" />
+    </LinearLayout>
+
+    <!-- Search Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Tìm kiếm tỉnh/thành phố..."
+            android:padding="12dp"
+            android:background="@drawable/rounded_bg"
+            android:drawableStart="@drawable/ic_search"
+            android:drawablePadding="8dp"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btn_save"
+            android:text="Lưu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:padding="12dp"
+            android:background="@drawable/bg_button_call"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- Current Location -->
+    <LinearLayout
+        android:id="@+id/ll_current_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:background="#F5F5F5"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:src="@drawable/ic_location"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:tint="#4CAF50" />
+
+        <TextView
+            android:text="Vị trí hiện tại: "
+            android:layout_marginStart="8dp"
+            android:textSize="14sp"
+            android:textColor="#666666"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_current_location"
+            android:text="Chưa có"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#333333" />
+    </LinearLayout>
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E0E0E0" />
+
+    <!-- Spinner chọn Quận/Huyện -->
+    <Spinner
+        android:id="@+id/spinner_district"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        android:prompt="@string/prompt_district"
+        android:enabled="false" />
+
+    <!-- Spinner chọn Phường/Xã -->
+    <Spinner
+        android:id="@+id/spinner_ward"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        android:prompt="@string/prompt_ward"
+        android:enabled="false" />
+
+    <!-- Province List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_provinces"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp" />
+
+    <!-- Loading Progress -->
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+</LinearLayout> 

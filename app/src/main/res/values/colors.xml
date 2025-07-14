@@ -94,8 +94,22 @@
 
     <!-- Màu nền ripple -->
     <color name="ripple_color">#E3F2FD</color>
-
     <!-- Các màu khác -->
     <color name="transparent">#00000000</color>
     <color name="mint_green">#DFF7EF</color>
+    <color name="menu_background">#F5F1EB</color>
+    <color name="nav_selected">#DEED32</color> <!-- Cam đất -->
+    <color name="nav_unselected">#C8A165</color> <!-- Vàng đồng -->
+
+    <color name="primary_color">#2196F3</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#757575</color>
+    <color name="accent_color">#FF5722</color>
+
+    <color name="surface_primary">#FFFFFF</color>
+    <color name="surface_secondary">#F8F9FA</color>
+    <color name="text_primarys">#212121</color>
+    <color name="text_secondarys">#757575</color>
+    <color name="ripple_colors">#1F009688</color>
+    <color name="primary_colors">#009688</color>
 </resources>

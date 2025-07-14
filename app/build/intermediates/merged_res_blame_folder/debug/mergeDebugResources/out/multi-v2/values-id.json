@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.carsale.app-mergeDebugResources-50:/values-id/values-id.xml",
+            "outputFile": "com.example.carsale.app-mergeDebugResources-56:/values-id/values-id.xml",
             "map": [
                 {
                     "source": "C:\\Users\\nguye\\.gradle\\caches\\8.11.1\\transforms\\70d85fda60241efee2a90c5ba3c0699e\\transformed\\facebook-common-16.1.3\\res\\values-id\\values-id.xml",

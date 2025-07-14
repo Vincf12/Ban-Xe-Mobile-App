@@ -6,10 +6,20 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="12dp"
-    android:background="@drawable/background_home"
+    android:paddingTop="?attr/actionBarSize"
+    android:background="@drawable/background_car"
     tools:context=".AdminFragment">
 
     <!-- Spinner chọn hãng + nút thêm hãng -->
+    <ImageButton
+        android:id="@+id/btnOpenDrawer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_menu_sort_by_size"
+        android:contentDescription="Mở menu"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="8dp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,6 +32,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:background="@color/default_color"
             android:spinnerMode="dropdown" />
 
         <ImageButton
@@ -34,7 +45,6 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:padding="8dp" />
     </LinearLayout>
-
     <!-- Nút thêm xe -->
     <Button
         android:id="@+id/btnAddCar"

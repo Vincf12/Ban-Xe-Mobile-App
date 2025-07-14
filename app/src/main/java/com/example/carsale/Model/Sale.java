@@ -13,6 +13,7 @@ public class Sale {
     private long completedAt;       // dùng khi giao dịch hoàn tất
     private String status;          // pending, completed, cancelled
     private long date;              // ngày bán (hoặc ngày ký hợp đồng)
+    private String warrantyInfo; // Thông tin bảo hành
 
     public Sale() {
         // Bắt buộc có constructor rỗng cho Firestore
@@ -20,7 +21,7 @@ public class Sale {
 
     public Sale(String id, String carId, String buyerId, String sellerId, double salePrice,
                 double commissionRate, double commissionEarned, long createdAt, long updatedAt,
-                long completedAt, String status, long date) {
+                long completedAt, String status, long date, String warrantyInfo) {
         this.id = id;
         this.carId = carId;
         this.buyerId = buyerId;
@@ -33,6 +34,7 @@ public class Sale {
         this.completedAt = completedAt;
         this.status = status;
         this.date = date;
+        this.warrantyInfo = warrantyInfo;
     }
 
     // Getter & Setter
@@ -131,5 +133,12 @@ public class Sale {
 
     public void setDate(long date) {
         this.date = date;
+    }
+
+    public String getWarrantyInfo() {
+        return warrantyInfo;
+    }
+    public void setWarrantyInfo(String warrantyInfo) {
+        this.warrantyInfo = warrantyInfo;
     }
 }

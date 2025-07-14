@@ -14,6 +14,8 @@ import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.carsale.R;
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -26,10 +28,43 @@ public final class ActivityAddEditCarBinding implements ViewBinding {
   public final Button btnSaveCar;
 
   @NonNull
-  public final Button btnSelectImages;
+  public final Button btnSelectColorImages;
+
+  @NonNull
+  public final Chip chipBlack;
+
+  @NonNull
+  public final Chip chipBlue;
+
+  @NonNull
+  public final Chip chipBrown;
+
+  @NonNull
+  public final Chip chipGray;
+
+  @NonNull
+  public final Chip chipGreen;
+
+  @NonNull
+  public final ChipGroup chipGroupColors;
+
+  @NonNull
+  public final Chip chipRed;
+
+  @NonNull
+  public final Chip chipSilver;
+
+  @NonNull
+  public final Chip chipWhite;
+
+  @NonNull
+  public final EditText etBH;
 
   @NonNull
   public final EditText etCarModel;
+
+  @NonNull
+  public final EditText etDepositPrice;
 
   @NonNull
   public final EditText etDescription;
@@ -44,10 +79,16 @@ public final class ActivityAddEditCarBinding implements ViewBinding {
   public final EditText etPrice;
 
   @NonNull
+  public final EditText etQuantity;
+
+  @NonNull
   public final EditText etYear;
 
   @NonNull
   public final LinearLayout layoutImagePreview;
+
+  @NonNull
+  public final LinearLayout layoutSelectedColors;
 
   @NonNull
   public final Spinner spinnerCarMake;
@@ -65,22 +106,40 @@ public final class ActivityAddEditCarBinding implements ViewBinding {
   public final Spinner spinnerTransmission;
 
   private ActivityAddEditCarBinding(@NonNull ScrollView rootView, @NonNull Button btnSaveCar,
-      @NonNull Button btnSelectImages, @NonNull EditText etCarModel,
-      @NonNull EditText etDescription, @NonNull EditText etEngineCapacity,
-      @NonNull EditText etLocation, @NonNull EditText etPrice, @NonNull EditText etYear,
-      @NonNull LinearLayout layoutImagePreview, @NonNull Spinner spinnerCarMake,
-      @NonNull Spinner spinnerCarType, @NonNull Spinner spinnerCondition,
-      @NonNull Spinner spinnerFuelType, @NonNull Spinner spinnerTransmission) {
+      @NonNull Button btnSelectColorImages, @NonNull Chip chipBlack, @NonNull Chip chipBlue,
+      @NonNull Chip chipBrown, @NonNull Chip chipGray, @NonNull Chip chipGreen,
+      @NonNull ChipGroup chipGroupColors, @NonNull Chip chipRed, @NonNull Chip chipSilver,
+      @NonNull Chip chipWhite, @NonNull EditText etBH, @NonNull EditText etCarModel,
+      @NonNull EditText etDepositPrice, @NonNull EditText etDescription,
+      @NonNull EditText etEngineCapacity, @NonNull EditText etLocation, @NonNull EditText etPrice,
+      @NonNull EditText etQuantity, @NonNull EditText etYear,
+      @NonNull LinearLayout layoutImagePreview, @NonNull LinearLayout layoutSelectedColors,
+      @NonNull Spinner spinnerCarMake, @NonNull Spinner spinnerCarType,
+      @NonNull Spinner spinnerCondition, @NonNull Spinner spinnerFuelType,
+      @NonNull Spinner spinnerTransmission) {
     this.rootView = rootView;
     this.btnSaveCar = btnSaveCar;
-    this.btnSelectImages = btnSelectImages;
+    this.btnSelectColorImages = btnSelectColorImages;
+    this.chipBlack = chipBlack;
+    this.chipBlue = chipBlue;
+    this.chipBrown = chipBrown;
+    this.chipGray = chipGray;
+    this.chipGreen = chipGreen;
+    this.chipGroupColors = chipGroupColors;
+    this.chipRed = chipRed;
+    this.chipSilver = chipSilver;
+    this.chipWhite = chipWhite;
+    this.etBH = etBH;
     this.etCarModel = etCarModel;
+    this.etDepositPrice = etDepositPrice;
     this.etDescription = etDescription;
     this.etEngineCapacity = etEngineCapacity;
     this.etLocation = etLocation;
     this.etPrice = etPrice;
+    this.etQuantity = etQuantity;
     this.etYear = etYear;
     this.layoutImagePreview = layoutImagePreview;
+    this.layoutSelectedColors = layoutSelectedColors;
     this.spinnerCarMake = spinnerCarMake;
     this.spinnerCarType = spinnerCarType;
     this.spinnerCondition = spinnerCondition;
@@ -121,15 +180,81 @@ public final class ActivityAddEditCarBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.btnSelectImages;
-      Button btnSelectImages = ViewBindings.findChildViewById(rootView, id);
-      if (btnSelectImages == null) {
+      id = R.id.btnSelectColorImages;
+      Button btnSelectColorImages = ViewBindings.findChildViewById(rootView, id);
+      if (btnSelectColorImages == null) {
+        break missingId;
+      }
+
+      id = R.id.chipBlack;
+      Chip chipBlack = ViewBindings.findChildViewById(rootView, id);
+      if (chipBlack == null) {
+        break missingId;
+      }
+
+      id = R.id.chipBlue;
+      Chip chipBlue = ViewBindings.findChildViewById(rootView, id);
+      if (chipBlue == null) {
+        break missingId;
+      }
+
+      id = R.id.chipBrown;
+      Chip chipBrown = ViewBindings.findChildViewById(rootView, id);
+      if (chipBrown == null) {
+        break missingId;
+      }
+
+      id = R.id.chipGray;
+      Chip chipGray = ViewBindings.findChildViewById(rootView, id);
+      if (chipGray == null) {
+        break missingId;
+      }
+
+      id = R.id.chipGreen;
+      Chip chipGreen = ViewBindings.findChildViewById(rootView, id);
+      if (chipGreen == null) {
+        break missingId;
+      }
+
+      id = R.id.chipGroupColors;
+      ChipGroup chipGroupColors = ViewBindings.findChildViewById(rootView, id);
+      if (chipGroupColors == null) {
+        break missingId;
+      }
+
+      id = R.id.chipRed;
+      Chip chipRed = ViewBindings.findChildViewById(rootView, id);
+      if (chipRed == null) {
+        break missingId;
+      }
+
+      id = R.id.chipSilver;
+      Chip chipSilver = ViewBindings.findChildViewById(rootView, id);
+      if (chipSilver == null) {
+        break missingId;
+      }
+
+      id = R.id.chipWhite;
+      Chip chipWhite = ViewBindings.findChildViewById(rootView, id);
+      if (chipWhite == null) {
+        break missingId;
+      }
+
+      id = R.id.etBH;
+      EditText etBH = ViewBindings.findChildViewById(rootView, id);
+      if (etBH == null) {
         break missingId;
       }
 
       id = R.id.etCarModel;
       EditText etCarModel = ViewBindings.findChildViewById(rootView, id);
       if (etCarModel == null) {
+        break missingId;
+      }
+
+      id = R.id.etDepositPrice;
+      EditText etDepositPrice = ViewBindings.findChildViewById(rootView, id);
+      if (etDepositPrice == null) {
         break missingId;
       }
 
@@ -157,6 +282,12 @@ public final class ActivityAddEditCarBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.etQuantity;
+      EditText etQuantity = ViewBindings.findChildViewById(rootView, id);
+      if (etQuantity == null) {
+        break missingId;
+      }
+
       id = R.id.etYear;
       EditText etYear = ViewBindings.findChildViewById(rootView, id);
       if (etYear == null) {
@@ -166,6 +297,12 @@ public final class ActivityAddEditCarBinding implements ViewBinding {
       id = R.id.layoutImagePreview;
       LinearLayout layoutImagePreview = ViewBindings.findChildViewById(rootView, id);
       if (layoutImagePreview == null) {
+        break missingId;
+      }
+
+      id = R.id.layoutSelectedColors;
+      LinearLayout layoutSelectedColors = ViewBindings.findChildViewById(rootView, id);
+      if (layoutSelectedColors == null) {
         break missingId;
       }
 
@@ -199,10 +336,11 @@ public final class ActivityAddEditCarBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityAddEditCarBinding((ScrollView) rootView, btnSaveCar, btnSelectImages,
-          etCarModel, etDescription, etEngineCapacity, etLocation, etPrice, etYear,
-          layoutImagePreview, spinnerCarMake, spinnerCarType, spinnerCondition, spinnerFuelType,
-          spinnerTransmission);
+      return new ActivityAddEditCarBinding((ScrollView) rootView, btnSaveCar, btnSelectColorImages,
+          chipBlack, chipBlue, chipBrown, chipGray, chipGreen, chipGroupColors, chipRed, chipSilver,
+          chipWhite, etBH, etCarModel, etDepositPrice, etDescription, etEngineCapacity, etLocation,
+          etPrice, etQuantity, etYear, layoutImagePreview, layoutSelectedColors, spinnerCarMake,
+          spinnerCarType, spinnerCondition, spinnerFuelType, spinnerTransmission);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

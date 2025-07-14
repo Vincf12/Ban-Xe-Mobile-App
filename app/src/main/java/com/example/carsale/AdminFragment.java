@@ -2,6 +2,7 @@ package com.example.carsale;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,8 @@ import android.widget.*;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -29,7 +32,7 @@ public class AdminFragment extends Fragment {
     private List<Car> carList = new ArrayList<>();
 
     private Spinner spinnerCarMake;
-    private ImageButton btnAddCarMake;
+    private ImageButton btnAddCarMake, btnOpenDrawer;
     private Button btnAddCar;
 
     private List<String> carMakes = new ArrayList<>();
@@ -37,6 +40,7 @@ public class AdminFragment extends Fragment {
 
     private boolean isAdmin = false;
     private String currentUserId = "";
+    private DrawerLayout drawerLayout;
 
     public AdminFragment() {}
 
@@ -56,6 +60,8 @@ public class AdminFragment extends Fragment {
         spinnerCarMake = view.findViewById(R.id.spinnerCarMake);
         btnAddCarMake = view.findViewById(R.id.btnAddCarMake);
         btnAddCar = view.findViewById(R.id.btnAddCar);
+        btnOpenDrawer = view.findViewById(R.id.btnOpenDrawer);
+        drawerLayout = requireActivity().findViewById(R.id.drawer_layout);
 
         carMakeAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, carMakes);
         spinnerCarMake.setAdapter(carMakeAdapter);
@@ -86,6 +92,12 @@ public class AdminFragment extends Fragment {
             startActivity(intent);
         });
 
+        btnOpenDrawer.setOnClickListener(v -> {
+            if (drawerLayout != null) {
+                drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
+
         adapter = new CarAdapter(getContext(), carList, isAdmin, currentUserId, new CarAdapter.OnCarActionListener() {
             @Override
             public void onEdit(Car car) {
@@ -96,7 +108,12 @@ public class AdminFragment extends Fragment {
 
             @Override
             public void onDelete(Car car) {
-                List<String> imageUrls = car.getImageUrls() != null ? car.getImageUrls() : new ArrayList<>();
+                List<String> imageUrls = new ArrayList<>();
+                if (car.getColorImages() != null) {
+                    for (List<String> urls : car.getColorImages().values()) {
+                        imageUrls.addAll(urls);
+                    }
+                }
                 CarHelper.getInstance().deleteCar(car.getId(), imageUrls, new CarHelper.CarCallback() {
                     @Override
                     public void onSuccess(String message) {
@@ -110,7 +127,19 @@ public class AdminFragment extends Fragment {
                     }
                 });
             }
+
+            @Override
+            public void onCarClick(Car car) {
+                if (car != null) {
+                    Intent intent = new Intent(getActivity(), DetailCarActivity.class);
+                    intent.putExtra("car", car);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(getContext(), "Xe không hợp lệ!", Toast.LENGTH_SHORT).show();
+                }
+            }
         });
+
 
         recyclerView.setAdapter(adapter);
         loadCarMakes();
