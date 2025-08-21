@@ -9,7 +9,7 @@ public class Car implements Serializable {
     private String id;
     private String make;               // Hãng xe (Toyota, Honda, BMW…)
     private String model;              // Tên xe (Camry, Civic…)
-    private int year;                  // Năm sản xuất
+    private Integer year;                  // Năm sản xuất
     private double price;              // Giá bán
     private String condition;          // "Mới" hoặc "Đã qua sử dụng"
     private String carType;            // "Sedan", "SUV", "Bán tải", ...
@@ -32,7 +32,7 @@ public class Car implements Serializable {
     }
 
     // Constructor đầy đủ (tuỳ chọn)
-    public Car(String id, String make, String model, int year, double price, String condition,
+    public Car(String id, String make, String model, Integer year, double price, String condition,
                String carType, String transmission, String fuelType, String engineCapacity,
                String description, String location, String status,
                long createdAt, long updatedAt, String userId,
@@ -84,11 +84,11 @@ public class Car implements Serializable {
         this.model = model;
     }
 
-    public int getYear() {
+    public Integer getYear() {
         return year;
     }
 
-    public void setYear(int year) {
+    public void setYear(Integer year) {
         this.year = year;
     }
 

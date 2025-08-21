@@ -231,6 +231,57 @@ public class SalesHelper {
                 .addOnFailureListener(e -> callback.onError("Lỗi lấy danh sách giao dịch: " + e.getMessage()));
     }
 
+    /**
+     * Lấy danh sách giao dịch theo carId
+     * @param carId ID của xe
+     * @param callback Callback để xử lý kết quả
+     */
+    public void getSalesByCarId(String carId, SalesListCallback callback) {
+        if (carId == null || carId.isEmpty()) {
+            callback.onError("ID xe không hợp lệ");
+            return;
+        }
+
+        db.collection(COLLECTION_SALES)
+                .whereEqualTo("carId", carId)
+                .orderBy("createdAt", Query.Direction.DESCENDING)
+                .get()
+                .addOnSuccessListener(query -> {
+                    List<Sale> sales = new ArrayList<>();
+                    for (QueryDocumentSnapshot doc : query) {
+                        Sale sale = doc.toObject(Sale.class);
+                        sales.add(sale);
+                    }
+                    callback.onSuccess(sales);
+                })
+                .addOnFailureListener(e -> callback.onError("Lỗi lấy danh sách giao dịch: " + e.getMessage()));
+    }
+
+    /**
+     * Kiểm tra xe có đang được đặt cọc hay không
+     * @param carId ID của xe
+     * @param callback Callback để xử lý kết quả
+     */
+    public void isCarReserved(String carId, SaleCallback callback) {
+        if (carId == null || carId.isEmpty()) {
+            callback.onError("ID xe không hợp lệ");
+            return;
+        }
+
+        db.collection(COLLECTION_SALES)
+                .whereEqualTo("carId", carId)
+                .whereEqualTo("status", "pending")
+                .get()
+                .addOnSuccessListener(query -> {
+                    if (!query.isEmpty()) {
+                        callback.onError("Xe đã được đặt cọc, không thể xóa!");
+                    } else {
+                        callback.onSuccess("Xe có thể xóa");
+                    }
+                })
+                .addOnFailureListener(e -> callback.onError("Lỗi kiểm tra trạng thái xe: " + e.getMessage()));
+    }
+
     public void deleteSale(String saleId, SaleCallback callback) {
         if (saleId == null || saleId.isEmpty()) {
             callback.onError("ID giao dịch không hợp lệ");

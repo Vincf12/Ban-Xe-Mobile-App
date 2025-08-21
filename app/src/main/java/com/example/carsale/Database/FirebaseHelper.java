@@ -82,6 +82,7 @@ public class FirebaseHelper {
     private void saveUserToFirestore(String uid, String username, String email, AuthCallback callback) {
         User user = new User(username, email);
         user.setId(uid);
+        user.setAdmin(false); // BỔ SUNG DÒNG NÀY
 
         db.collection("users").document(uid)
                 .set(user)

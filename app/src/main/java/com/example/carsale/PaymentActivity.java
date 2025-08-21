@@ -59,7 +59,7 @@ public class PaymentActivity extends AppCompatActivity {
         btnBack.setOnClickListener(v -> finish());
 
         btnPaid.setOnClickListener(v -> {
-            checkPaymentStatusFirestore();
+            savePaymentToFirestore();
         });
     }
 
@@ -96,7 +96,8 @@ public class PaymentActivity extends AppCompatActivity {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("cars").document(carId).get()
             .addOnSuccessListener(documentSnapshot -> {
-                Integer quantity = documentSnapshot.getLong("quantity") != null ? documentSnapshot.getLong("quantity").intValue() : 0;
+                Long quantityLong = documentSnapshot.getLong("quantity");
+                int quantity = quantityLong != null ? quantityLong.intValue() : 0;
                 if (quantity > 0) {
                     db.collection("cars").document(carId).update("quantity", quantity - 1);
                 }

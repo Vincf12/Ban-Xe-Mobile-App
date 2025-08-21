@@ -1,0 +1,666 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    android:orientation="vertical">
+
+    <!-- Fixed Header -->
+    <LinearLayout
+        android:id="@+id/ll_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:elevation="4dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="16dp">
+
+        <!-- Status Bar Spacer -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="24dp" />
+
+        <!-- Search Bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"
+            android:gravity="center_vertical">
+
+            <!-- Search Input Container -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="@drawable/search_bg"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_search"
+                    app:tint="@color/text_hint"
+                    android:layout_marginEnd="12dp" />
+
+                <EditText
+                    android:id="@+id/et_search"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="Tìm kiếm xe..."
+                    android:textSize="16sp"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_hint"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:imeOptions="actionSearch" />
+
+                <ImageView
+                    android:id="@+id/iv_clear_search"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_close"
+                    app:tint="@color/text_hint"
+                    android:visibility="gone"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="2dp" />
+            </LinearLayout>
+
+            <!-- Filter Button -->
+            <LinearLayout
+                android:id="@+id/btn_filter"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="12dp"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_filter"
+                    app:tint="@color/primary_color" />
+
+                <!-- Filter Count Badge -->
+                <TextView
+                    android:id="@+id/tv_filter_count"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:background="@drawable/badge_bg"
+                    android:text="2"
+                    android:textSize="10sp"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:layout_marginStart="-8dp"
+                    android:layout_marginTop="-8dp"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Quick Filters (Chips) -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:scrollbars="none"
+            android:paddingHorizontal="16dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/chip_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:text="Tất cả"
+                    android:textSize="14sp"
+                    android:textColor="@color/chip_text_selected"
+                    android:background="@drawable/chip_selected_bg"
+                    android:paddingHorizontal="16dp"
+                    android:gravity="center"
+                    android:layout_marginEnd="8dp"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <TextView
+                    android:id="@+id/chip_toyota"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:text="Toyota"
+                    android:textSize="14sp"
+                    android:textColor="@color/chip_text_normal"
+                    android:background="@drawable/chip_normal_bg"
+                    android:paddingHorizontal="16dp"
+                    android:gravity="center"
+                    android:layout_marginEnd="8dp"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <TextView
+                    android:id="@+id/chip_honda"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:text="Honda"
+                    android:textSize="14sp"
+                    android:textColor="@color/chip_text_normal"
+                    android:background="@drawable/chip_normal_bg"
+                    android:paddingHorizontal="16dp"
+                    android:gravity="center"
+                    android:layout_marginEnd="8dp"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <TextView
+                    android:id="@+id/chip_hyundai"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:text="Hyundai"
+                    android:textSize="14sp"
+                    android:textColor="@color/chip_text_normal"
+                    android:background="@drawable/chip_normal_bg"
+                    android:paddingHorizontal="16dp"
+                    android:gravity="center"
+                    android:layout_marginEnd="8dp"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <TextView
+                    android:id="@+id/chip_price_low"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:text="&lt; 500tr"
+                    android:textSize="14sp"
+                    android:textColor="@color/chip_text_normal"
+                    android:background="@drawable/chip_normal_bg"
+                    android:paddingHorizontal="16dp"
+                    android:gravity="center"
+                    android:layout_marginEnd="8dp"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <TextView
+                    android:id="@+id/chip_automatic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:text="Số tự động"
+                    android:textSize="14sp"
+                    android:textColor="@color/chip_text_normal"
+                    android:background="@drawable/chip_normal_bg"
+                    android:paddingHorizontal="16dp"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true" />
+            </LinearLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
+
+    <!-- Main Scrollable Content -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Results Header -->
+            <LinearLayout
+                android:id="@+id/ll_results_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:gravity="center_vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_results_count"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="1,234 kết quả"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_secondary" />
+
+                <LinearLayout
+                    android:id="@+id/btn_sort"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="?attr/selectableItemBackground"
+                    android:padding="8dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sắp xếp"
+                        android:textSize="14sp"
+                        android:textColor="@color/primary_color"
+                        android:layout_marginEnd="4dp" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/ic_sort"
+                        app:tint="@color/primary_color" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Results List -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_search_results"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:clipToPadding="false"
+                android:paddingHorizontal="16dp"
+                android:paddingBottom="80dp" />
+
+            <!-- Empty State -->
+            <LinearLayout
+                android:id="@+id/ll_empty_state"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="48dp"
+                android:layout_marginTop="60dp">
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/ic_empty_car"
+                    app:tint="@color/secondary"
+                    android:alpha="0.6"
+                    android:layout_marginBottom="24dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Không tìm thấy xe phù hợp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:gravity="center"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Thử tìm kiếm với từ khóa khác hoặc điều chỉnh bộ lọc"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_secondary"
+                    android:gravity="center"
+                    android:lineSpacingExtra="2dp" />
+
+                <TextView
+                    android:id="@+id/btn_clear_all_filters"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Xóa tất cả bộ lọc"
+                    android:textSize="14sp"
+                    android:textColor="@color/primary_color"
+                    android:textStyle="bold"
+                    android:layout_marginTop="16dp"
+                    android:padding="8dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <!-- Recent Searches (when empty) -->
+            <LinearLayout
+                android:id="@+id/ll_recent_searches"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tìm kiếm gần đây"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:layout_marginBottom="12dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="12dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/outline_history_24"
+                        app:tint="@color/text_hint"
+                        android:layout_marginEnd="12dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Toyota Vios"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_primary" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/ic_arrow_up_left"
+                        app:tint="@color/text_hint" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="12dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/outline_history_24"
+                        app:tint="@color/text_hint"
+                        android:layout_marginEnd="12dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Honda City số tự động"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_primary" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/ic_arrow_up_left"
+                        app:tint="@color/text_hint" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Loading State -->
+    <LinearLayout
+        android:id="@+id/ll_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@color/loading_overlay"
+        android:visibility="gone"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ProgressBar
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/primary_color"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đang tìm kiếm..."
+            android:textSize="14sp"
+            android:textColor="@color/text_primary" />
+    </LinearLayout>
+
+    <!-- Filter Bottom Sheet Backdrop -->
+    <View
+        android:id="@+id/filter_backdrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backdrop_overlay"
+        android:visibility="gone"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <!-- Filter Bottom Sheet -->
+    <LinearLayout
+        android:id="@+id/bottom_sheet_filter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        android:background="@drawable/bottom_sheet_bg"
+        android:paddingTop="8dp"
+        android:paddingBottom="32dp"
+        android:visibility="gone"
+        android:translationY="400dp">
+
+        <!-- Bottom Sheet Handle -->
+        <View
+            android:layout_width="32dp"
+            android:layout_height="4dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/bottom_sheet_handle"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Filter Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingBottom="16dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Bộ lọc"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary" />
+
+            <TextView
+                android:id="@+id/btn_reset_filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đặt lại"
+                android:textSize="14sp"
+                android:textColor="@color/primary_color"
+                android:padding="8dp"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxHeight="400dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp">
+
+                <!-- Price Range -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Khoảng giá"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:layout_marginBottom="12dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="24dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/input_bg"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="12dp"
+                        android:layout_marginEnd="8dp">
+
+                        <EditText
+                            android:id="@+id/et_price_min"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:hint="Từ"
+                            android:textSize="14sp"
+                            android:inputType="number" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/input_bg"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="12dp"
+                        android:layout_marginStart="8dp">
+
+                        <EditText
+                            android:id="@+id/et_price_max"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:hint="Đến"
+                            android:textSize="14sp"
+                            android:inputType="number" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Brand -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hãng xe"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:layout_marginBottom="12dp" />
+
+                <LinearLayout
+                    android:id="@+id/ll_brand_selector"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/input_bg"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="12dp"
+                    android:layout_marginBottom="24dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:id="@+id/tv_selected_brand"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Chọn hãng xe"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_hint" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/ic_chevron_down"
+                        app:tint="@color/text_hint" />
+                </LinearLayout>
+
+                <!-- Year -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Năm sản xuất"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:layout_marginBottom="12dp" />
+
+                <LinearLayout
+                    android:id="@+id/ll_year_selector"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/input_bg"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="12dp"
+                    android:layout_marginBottom="32dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:id="@+id/tv_selected_year"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Chọn năm sản xuất"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_hint" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/ic_chevron_down"
+                        app:tint="@color/text_hint" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- Apply Button -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="16dp">
+
+            <TextView
+                android:id="@+id/btn_apply_filter"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Áp dụng"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:background="@drawable/button_primary_bg"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

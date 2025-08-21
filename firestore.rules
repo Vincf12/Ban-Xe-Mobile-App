@@ -1,0 +1,52 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    match /cars/{carId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+    
+    match /car_makes/{docId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    match /orders/{orderId} {
+      allow read, write: if request.auth != null &&
+        (isAdmin() || request.auth.uid == resource.data.userId);
+    }
+
+    match /admin_settings/{settingId} {
+      allow read, write: if isAdmin();
+    }
+    
+    match /payments/{paymentId} {
+      allow read, write: if request.auth != null && (
+          request.auth.uid == resource.data.userId || isAdmin());
+    }
+
+    match /sales/{saleId} {
+      allow read, write: if request.auth != null;
+    }
+
+    match /service_bookings/{bookingId} {
+      allow read: if request.auth != null && 
+        (resource.data.userId == request.auth.uid || isAdmin());
+      allow create: if request.auth != null && 
+        request.resource.data.userId == request.auth.uid;
+      allow update: if request.auth != null && isAdmin();
+      allow delete: if request.auth != null && 
+        (resource.data.userId == request.auth.uid && resource.data.status == "pending");
+    }
+
+    function isAdmin(){
+      return request.auth != null &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.admin == true;
+    }
+  }
+} 

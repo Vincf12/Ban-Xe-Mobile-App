@@ -14,6 +14,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.example.carsale.Database.SalesHelper.SaleCallback;
+
 /**
  * Helper class để xử lý các thao tác với collection cars trong Firestore
  */
@@ -61,6 +63,22 @@ public class CarHelper {
      */
     public interface CarDetailCallback {
         void onSuccess(Car car);
+        void onError(String error);
+    }
+
+    /**
+     * Interface callback cho việc lấy danh sách brands
+     */
+    public interface BrandsCallback {
+        void onSuccess(List<String> brands);
+        void onError(String error);
+    }
+
+    /**
+     * Interface callback cho việc lấy danh sách years
+     */
+    public interface YearsCallback {
+        void onSuccess(List<String> years);
         void onError(String error);
     }
 
@@ -160,26 +178,39 @@ public class CarHelper {
             return;
         }
 
-        db.collection(COLLECTION_CARS)
-                .document(carId)
-                .delete()
-                .addOnSuccessListener(aVoid -> {
-                    // Xóa các file ảnh cục bộ
-                    if (imagePaths != null) {
-                        for (String path : imagePaths) {
-                            java.io.File file = new java.io.File(path);
-                            if (file.exists()) {
-                                if (file.delete()) {
-                                    Log.d("CarHelper", "Xóa file ảnh thành công: " + path);
-                                } else {
-                                    Log.w("CarHelper", "Không thể xóa file ảnh: " + path);
+        // Kiểm tra xe có đang được đặt cọc hay không
+        SalesHelper.getInstance().isCarReserved(carId, new SaleCallback() {
+            @Override
+            public void onSuccess(String message) {
+                // Xe không được đặt cọc, có thể xóa
+                db.collection(COLLECTION_CARS)
+                        .document(carId)
+                        .delete()
+                        .addOnSuccessListener(aVoid -> {
+                            // Xóa các file ảnh cục bộ
+                            if (imagePaths != null) {
+                                for (String path : imagePaths) {
+                                    java.io.File file = new java.io.File(path);
+                                    if (file.exists()) {
+                                        if (file.delete()) {
+                                            Log.d("CarHelper", "Xóa file ảnh thành công: " + path);
+                                        } else {
+                                            Log.w("CarHelper", "Không thể xóa file ảnh: " + path);
+                                        }
+                                    }
                                 }
                             }
-                        }
-                    }
-                    callback.onSuccess("Xóa xe thành công!");
-                })
-                .addOnFailureListener(e -> callback.onError("Lỗi xóa xe: " + e.getMessage()));
+                            callback.onSuccess("Xóa xe thành công!");
+                        })
+                        .addOnFailureListener(e -> callback.onError("Lỗi xóa xe: " + e.getMessage()));
+            }
+
+            @Override
+            public void onError(String error) {
+                // Xe đã được đặt cọc, không thể xóa
+                callback.onError(error);
+            }
+        });
     }
 
     /**
@@ -356,5 +387,60 @@ public class CarHelper {
                     callback.onSuccess(cars);
                 })
                 .addOnFailureListener(e -> callback.onError("Lỗi lấy danh sách xe: " + e.getMessage()));
+    }
+
+    /**
+     * Lấy danh sách tất cả brands từ database
+     * @param callback Callback để xử lý kết quả
+     */
+    public void getAllBrands(BrandsCallback callback) {
+        db.collection(COLLECTION_CARS)
+                .get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    List<String> brands = new ArrayList<>();
+                    for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
+                        Car car = document.toObject(Car.class);
+                        if (car != null && car.getMake() != null && !car.getMake().isEmpty()) {
+                            if (!brands.contains(car.getMake())) {
+                                brands.add(car.getMake());
+                            }
+                        }
+                    }
+                    // Sắp xếp theo thứ tự alphabet
+                    brands.sort(String::compareToIgnoreCase);
+                    callback.onSuccess(brands);
+                })
+                .addOnFailureListener(e -> {
+                    Log.e("CarHelper", "Error getting brands: " + e.getMessage());
+                    callback.onError("Lỗi khi lấy danh sách hãng xe: " + e.getMessage());
+                });
+    }
+
+    /**
+     * Lấy danh sách tất cả years từ database
+     * @param callback Callback để xử lý kết quả
+     */
+    public void getAllYears(YearsCallback callback) {
+        db.collection(COLLECTION_CARS)
+                .get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    List<String> years = new ArrayList<>();
+                    for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
+                        Car car = document.toObject(Car.class);
+                        if (car != null && car.getYear() > 0) {
+                            String yearStr = String.valueOf(car.getYear());
+                            if (!years.contains(yearStr)) {
+                                years.add(yearStr);
+                            }
+                        }
+                    }
+                    // Sắp xếp theo thứ tự giảm dần (năm mới nhất trước)
+                    years.sort((a, b) -> Integer.compare(Integer.parseInt(b), Integer.parseInt(a)));
+                    callback.onSuccess(years);
+                })
+                .addOnFailureListener(e -> {
+                    Log.e("CarHelper", "Error getting years: " + e.getMessage());
+                    callback.onError("Lỗi khi lấy danh sách năm sản xuất: " + e.getMessage());
+                });
     }
 }

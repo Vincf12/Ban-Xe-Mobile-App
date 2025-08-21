@@ -88,6 +88,9 @@
         <activity android:name="com.example.carsale.PaymentActivity" />
         <activity android:name="com.example.carsale.PaymentSuccessActivity" />
         <activity android:name="com.example.carsale.PaymentConfirmActivity" />
+        <activity android:name="com.example.carsale.DepositHistoryActivity" />
+        <activity android:name="com.example.carsale.ServiceBookingActivity" />
+        <activity android:name="com.example.carsale.ServiceManagementActivity" />
         <activity
             android:name="com.cloudinary.android.uploadwidget.ui.UploadWidgetActivity"
             android:configChanges="orientation"

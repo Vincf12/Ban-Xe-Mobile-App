@@ -17,6 +17,7 @@ import androidx.core.content.ContextCompat;
 
 import com.bumptech.glide.Glide;
 import com.example.carsale.Database.CarHelper;
+import com.example.carsale.Database.SalesHelper;
 import com.example.carsale.Model.Car;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;

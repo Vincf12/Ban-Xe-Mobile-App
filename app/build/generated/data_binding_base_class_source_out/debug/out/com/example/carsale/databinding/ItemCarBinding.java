@@ -4,7 +4,6 @@ package com.example.carsale.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -27,7 +26,10 @@ public final class ItemCarBinding implements ViewBinding {
   public final ImageButton btDelete;
 
   @NonNull
-  public final Button btnEdit;
+  public final ImageButton btnDelete;
+
+  @NonNull
+  public final ImageButton btnEdit;
 
   @NonNull
   public final LinearLayout detail;
@@ -45,24 +47,26 @@ public final class ItemCarBinding implements ViewBinding {
   public final TextView txtDoors;
 
   @NonNull
-  public final TextView txtFuel;
+  public final TextView txtFuelType;
 
   @NonNull
   public final TextView txtTransmission;
 
   private ItemCarBinding(@NonNull CardView rootView, @NonNull ImageButton btDelete,
-      @NonNull Button btnEdit, @NonNull LinearLayout detail, @NonNull ImageView imgCar,
-      @NonNull TextView txtCarName, @NonNull TextView txtCarPrice, @NonNull TextView txtDoors,
-      @NonNull TextView txtFuel, @NonNull TextView txtTransmission) {
+      @NonNull ImageButton btnDelete, @NonNull ImageButton btnEdit, @NonNull LinearLayout detail,
+      @NonNull ImageView imgCar, @NonNull TextView txtCarName, @NonNull TextView txtCarPrice,
+      @NonNull TextView txtDoors, @NonNull TextView txtFuelType,
+      @NonNull TextView txtTransmission) {
     this.rootView = rootView;
     this.btDelete = btDelete;
+    this.btnDelete = btnDelete;
     this.btnEdit = btnEdit;
     this.detail = detail;
     this.imgCar = imgCar;
     this.txtCarName = txtCarName;
     this.txtCarPrice = txtCarPrice;
     this.txtDoors = txtDoors;
-    this.txtFuel = txtFuel;
+    this.txtFuelType = txtFuelType;
     this.txtTransmission = txtTransmission;
   }
 
@@ -99,8 +103,14 @@ public final class ItemCarBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.btnDelete;
+      ImageButton btnDelete = ViewBindings.findChildViewById(rootView, id);
+      if (btnDelete == null) {
+        break missingId;
+      }
+
       id = R.id.btnEdit;
-      Button btnEdit = ViewBindings.findChildViewById(rootView, id);
+      ImageButton btnEdit = ViewBindings.findChildViewById(rootView, id);
       if (btnEdit == null) {
         break missingId;
       }
@@ -135,9 +145,9 @@ public final class ItemCarBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.txtFuel;
-      TextView txtFuel = ViewBindings.findChildViewById(rootView, id);
-      if (txtFuel == null) {
+      id = R.id.txtFuelType;
+      TextView txtFuelType = ViewBindings.findChildViewById(rootView, id);
+      if (txtFuelType == null) {
         break missingId;
       }
 
@@ -147,8 +157,8 @@ public final class ItemCarBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemCarBinding((CardView) rootView, btDelete, btnEdit, detail, imgCar, txtCarName,
-          txtCarPrice, txtDoors, txtFuel, txtTransmission);
+      return new ItemCarBinding((CardView) rootView, btDelete, btnDelete, btnEdit, detail, imgCar,
+          txtCarName, txtCarPrice, txtDoors, txtFuelType, txtTransmission);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -60,6 +60,9 @@
         <activity android:name=".PaymentActivity" />
         <activity android:name=".PaymentSuccessActivity" />
         <activity android:name=".PaymentConfirmActivity" />
+        <activity android:name=".DepositHistoryActivity"/>
+        <activity android:name=".ServiceBookingActivity" />
+        <activity android:name=".ServiceManagementActivity" />
     </application>
 
 </manifest>

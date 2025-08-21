@@ -1,5 +1,6 @@
 package com.example.carsale;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -38,6 +39,9 @@ public class AccountFragment extends Fragment {
     private ImageView ivLocation;
     private TextView tvUserName;
     private LinearLayout ivProfile;
+    private ImageView ivHistory;
+    private LinearLayout btnLogout;
+    private ImageView services;
     private FirebaseHelper firebaseHelper;
     private FirebaseAuth auth;
 
@@ -81,6 +85,8 @@ public class AccountFragment extends Fragment {
         initViews(view);
         initData();
         setupListeners();
+        
+        // Load user info trước khi hiển thị
         loadUserInfo();
         
         return view;
@@ -90,6 +96,9 @@ public class AccountFragment extends Fragment {
         ivLocation = view.findViewById(R.id.iv_location);
         tvUserName = view.findViewById(R.id.tv_user_name);
         ivProfile = view.findViewById(R.id.iv_profile);
+        ivHistory = view.findViewById(R.id.iv_history);
+        btnLogout = view.findViewById(R.id.btn_logout);
+        services = view.findViewById(R.id.services);
     }
 
     private void initData() {
@@ -115,25 +124,98 @@ public class AccountFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        ivHistory.setOnClickListener(v -> {
+            if (getActivity() != null) {
+                Intent intent = new Intent(getActivity(), DepositHistoryActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnLogout.setOnClickListener(v -> {
+            showLogoutDialog();
+        });
+
+        services.setOnClickListener(v -> {
+            // Check if user is admin
+            FirebaseUser currentUser = auth.getCurrentUser();
+            if (currentUser != null) {
+                firebaseHelper.getUserById(currentUser.getUid(), new FirebaseHelper.OnUserDataListener() {
+                    @Override
+                    public void onSuccess(User user) {
+                        if (getActivity() != null) {
+                            final User finalUser = user;
+                            getActivity().runOnUiThread(() -> {
+                                if (finalUser != null && finalUser.isAdmin()) {
+                                    // Admin: Open service management
+                                    Intent intent = new Intent(getActivity(), ServiceManagementActivity.class);
+                                    startActivity(intent);
+                                } else {
+                                    // User: Open service booking
+                                    Intent intent = new Intent(getActivity(), ServiceBookingActivity.class);
+                                    startActivity(intent);
+                                }
+                            });
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(String error) {
+                        if (getActivity() != null) {
+                            getActivity().runOnUiThread(() -> {
+                                // Default to user booking if can't determine role
+                                Intent intent = new Intent(getActivity(), ServiceBookingActivity.class);
+                                startActivity(intent);
+                            });
+                        }
+                    }
+                });
+            }
+        });
     }
 
     private void loadUserInfo() {
         FirebaseUser currentUser = auth.getCurrentUser();
         if (currentUser != null) {
+            // Hiển thị loading state
+            tvUserName.setText("Đang tải...");
+            
             firebaseHelper.getUserById(currentUser.getUid(), new FirebaseHelper.OnUserDataListener() {
                 @Override
                 public void onSuccess(User user) {
-                    if (user != null && user.getUsername() != null) {
-                        tvUserName.setText(user.getUsername());
+                    if (getActivity() != null) {
+                        final User finalUser = user;
+                        getActivity().runOnUiThread(() -> {
+                            if (finalUser != null && finalUser.getFullname() != null) {
+                                tvUserName.setText(finalUser.getFullname());
+                            } else if (finalUser != null && finalUser.getUsername() != null) {
+                                tvUserName.setText(finalUser.getUsername());
+                            } else {
+                                tvUserName.setText("Người dùng");
+                            }
+                        });
                     }
                 }
 
                 @Override
                 public void onFailure(String error) {
-                    // Handle error
+                    if (getActivity() != null) {
+                        getActivity().runOnUiThread(() -> {
+                            tvUserName.setText("Người dùng");
+                        });
+                    }
                 }
             });
+        } else {
+            tvUserName.setText("Người dùng");
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Refresh user info khi quay lại fragment
+        loadUserInfo();
     }
 
     @Override
@@ -147,6 +229,33 @@ public class AccountFragment extends Fragment {
                     Toast.makeText(getActivity(), "Đã cập nhật vị trí: " + selectedLocation, Toast.LENGTH_SHORT).show();
                 }
             }
+        }
+    }
+
+    private void showLogoutDialog() {
+        new AlertDialog.Builder(requireContext())
+                .setTitle("Đăng xuất")
+                .setMessage("Bạn có chắc chắn muốn đăng xuất?")
+                .setPositiveButton("Đăng xuất", (dialog, which) -> {
+                    performLogout();
+                })
+                .setNegativeButton("Hủy", null)
+                .show();
+    }
+
+    private void performLogout() {
+        // Đăng xuất khỏi Firebase Auth
+        auth.signOut();
+        
+        // Hiển thị thông báo
+        Toast.makeText(requireContext(), "Đã đăng xuất thành công", Toast.LENGTH_SHORT).show();
+        
+        // Chuyển về màn hình đăng nhập
+        if (getActivity() != null) {
+            Intent intent = new Intent(getActivity(), DangNhapActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            getActivity().finish();
         }
     }
 }

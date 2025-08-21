@@ -5,10 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.carsale.R;
@@ -18,10 +18,13 @@ import java.lang.String;
 
 public final class ItemPaymentConfirmBinding implements ViewBinding {
   @NonNull
-  private final LinearLayout rootView;
+  private final CardView rootView;
 
   @NonNull
   public final Button btnConfirm;
+
+  @NonNull
+  public final Button btnDecline;
 
   @NonNull
   public final TextView tvAmount;
@@ -33,22 +36,36 @@ public final class ItemPaymentConfirmBinding implements ViewBinding {
   public final TextView tvContent;
 
   @NonNull
+  public final TextView tvDateTime;
+
+  @NonNull
+  public final TextView tvStatus;
+
+  @NonNull
   public final TextView tvUser;
 
-  private ItemPaymentConfirmBinding(@NonNull LinearLayout rootView, @NonNull Button btnConfirm,
-      @NonNull TextView tvAmount, @NonNull TextView tvCar, @NonNull TextView tvContent,
-      @NonNull TextView tvUser) {
+  @NonNull
+  public final TextView tvUserAvatar;
+
+  private ItemPaymentConfirmBinding(@NonNull CardView rootView, @NonNull Button btnConfirm,
+      @NonNull Button btnDecline, @NonNull TextView tvAmount, @NonNull TextView tvCar,
+      @NonNull TextView tvContent, @NonNull TextView tvDateTime, @NonNull TextView tvStatus,
+      @NonNull TextView tvUser, @NonNull TextView tvUserAvatar) {
     this.rootView = rootView;
     this.btnConfirm = btnConfirm;
+    this.btnDecline = btnDecline;
     this.tvAmount = tvAmount;
     this.tvCar = tvCar;
     this.tvContent = tvContent;
+    this.tvDateTime = tvDateTime;
+    this.tvStatus = tvStatus;
     this.tvUser = tvUser;
+    this.tvUserAvatar = tvUserAvatar;
   }
 
   @Override
   @NonNull
-  public LinearLayout getRoot() {
+  public CardView getRoot() {
     return rootView;
   }
 
@@ -79,6 +96,12 @@ public final class ItemPaymentConfirmBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.btnDecline;
+      Button btnDecline = ViewBindings.findChildViewById(rootView, id);
+      if (btnDecline == null) {
+        break missingId;
+      }
+
       id = R.id.tvAmount;
       TextView tvAmount = ViewBindings.findChildViewById(rootView, id);
       if (tvAmount == null) {
@@ -97,14 +120,32 @@ public final class ItemPaymentConfirmBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tvDateTime;
+      TextView tvDateTime = ViewBindings.findChildViewById(rootView, id);
+      if (tvDateTime == null) {
+        break missingId;
+      }
+
+      id = R.id.tvStatus;
+      TextView tvStatus = ViewBindings.findChildViewById(rootView, id);
+      if (tvStatus == null) {
+        break missingId;
+      }
+
       id = R.id.tvUser;
       TextView tvUser = ViewBindings.findChildViewById(rootView, id);
       if (tvUser == null) {
         break missingId;
       }
 
-      return new ItemPaymentConfirmBinding((LinearLayout) rootView, btnConfirm, tvAmount, tvCar,
-          tvContent, tvUser);
+      id = R.id.tvUserAvatar;
+      TextView tvUserAvatar = ViewBindings.findChildViewById(rootView, id);
+      if (tvUserAvatar == null) {
+        break missingId;
+      }
+
+      return new ItemPaymentConfirmBinding((CardView) rootView, btnConfirm, btnDecline, tvAmount,
+          tvCar, tvContent, tvDateTime, tvStatus, tvUser, tvUserAvatar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

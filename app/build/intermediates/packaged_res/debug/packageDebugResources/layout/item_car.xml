@@ -47,6 +47,7 @@
                     android:id="@+id/btDelete"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
+                    android:visibility="gone"
                     android:src="@drawable/ic_delete"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:contentDescription="Delete car" />
@@ -94,7 +95,7 @@
                         android:src="@drawable/ic_engine" />
 
                     <TextView
-                        android:id="@+id/txtFuel"
+                        android:id="@+id/txtFuelType"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="2.0L"
@@ -149,7 +150,7 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- Price and Edit button -->
+            <!-- Price and Edit/Delete button -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -166,16 +167,21 @@
                     android:textStyle="bold"
                     android:textColor="@android:color/black" />
 
-                <Button
+                <ImageButton
                     android:id="@+id/btnEdit"
-                    android:layout_width="60dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Edit"
-                    android:textSize="10sp"
-                    android:paddingStart="5dp"
-                    android:paddingEnd="5dp"
-                    android:textColor="@android:color/white"
-                    android:backgroundTint="@color/black" />
+                    android:src="@drawable/ic_edit"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Edit car" />
+                <ImageButton
+                    android:id="@+id/btnDelete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_delete"
+                    android:visibility="gone"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Delete car" />
             </LinearLayout>
 
         </LinearLayout>

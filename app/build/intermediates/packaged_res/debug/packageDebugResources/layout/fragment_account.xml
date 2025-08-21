@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:background="#FFFFFF"
+    android:background="@color/background_color"
     android:padding="24dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -105,6 +105,35 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp" />
         </LinearLayout>
+        <!-- Item: history -->
+        <LinearLayout
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/outline_history_24"
+                android:tint="#FFC107"
+                android:layout_width="24dp"
+                android:layout_height="24dp" />
+
+            <TextView
+                android:text="Lịch sử đặt cọc"
+                android:layout_marginStart="16dp"
+                android:textSize="18sp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/iv_history"
+                android:src="@drawable/ic_edit"
+                android:tint="#999999"
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+        </LinearLayout>
 
         <!-- Item 2: Notifications -->
         <LinearLayout
@@ -184,9 +213,17 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/services"
+                android:src="@drawable/ic_edit"
+                android:tint="#999999"
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
         </LinearLayout>
         <!-- Item 5: Log out -->
         <LinearLayout
+            android:id="@+id/btn_logout"
             android:layout_marginBottom="16dp"
             android:orientation="horizontal"
             android:gravity="center_vertical"

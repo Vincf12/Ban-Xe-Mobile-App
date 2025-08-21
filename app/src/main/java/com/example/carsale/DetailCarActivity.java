@@ -150,7 +150,11 @@ public class DetailCarActivity extends AppCompatActivity {
                     imageAdapter.setSelectedPosition(0);
 
                     int quantity = colorQuantities.getOrDefault(selectedColor, 0);
-                    tvQuantity.setText(quantity + " chiếc");
+                    if (quantity <= 0) {
+                        tvQuantity.setText("Hết xe");
+                    } else {
+                        tvQuantity.setText(quantity + " chiếc");
+                    }
                 }
                 @Override
                 public void onNothingSelected(AdapterView<?> parent) {}
@@ -159,11 +163,15 @@ public class DetailCarActivity extends AppCompatActivity {
             String firstColor = colorList.get(0);
             imageUrls = car.getColorImages().get(firstColor);
             int quantity = colorQuantities.getOrDefault(firstColor, 0);
-            tvQuantity.setText(quantity + " chiếc");
+            if (quantity <= 0) {
+                tvQuantity.setText("Hết xe");
+            } else {
+                tvQuantity.setText(quantity + " chiếc");
+            }
         } else {
             imageUrls = Collections.singletonList("https://via.placeholder.com/400x300?text=No+Image");
             spinnerColors.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, new String[]{"Không có màu"}));
-            tvQuantity.setText("0 chiếc");
+            tvQuantity.setText("Hết xe");
         }
         if (imageAdapter == null) {
             imageAdapter = new ImageThumbnailAdapter(imageUrls, position -> {

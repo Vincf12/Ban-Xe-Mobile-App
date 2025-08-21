@@ -6,10 +6,15 @@
         android:iconTint="@color/text_hint"
         android:title="Trang chủ" />
     <item
-        android:id="@+id/nav_settings_admin"
-        android:icon="@drawable/outline_person_24"
+        android:id="@+id/nav_search_admin"
+        android:icon="@drawable/ic_search"
         android:iconTint="@color/text_hint"
-        android:title="Settings" />
+        android:title="Tìm kiếm" />
+    <item
+        android:id="@+id/nav_char_admin"
+        android:icon="@drawable/baseline_bar_chart_24"
+        android:iconTint="@color/text_hint"
+        android:title="Biểu đồ" />
     <item
         android:id="@+id/nav_pay"
         android:icon="@drawable/outline_account_balance_wallet_24"

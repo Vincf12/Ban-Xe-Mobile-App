@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -17,20 +17,42 @@ import java.lang.String;
 
 public final class ActivityPaymentConfirmBinding implements ViewBinding {
   @NonNull
-  private final ScrollView rootView;
+  private final LinearLayout rootView;
+
+  @NonNull
+  public final LinearLayout layoutEmptyState;
 
   @NonNull
   public final LinearLayout layoutPayments;
 
-  private ActivityPaymentConfirmBinding(@NonNull ScrollView rootView,
-      @NonNull LinearLayout layoutPayments) {
+  @NonNull
+  public final TextView tabAll;
+
+  @NonNull
+  public final TextView tabCompleted;
+
+  @NonNull
+  public final TextView tabPending;
+
+  @NonNull
+  public final TextView tvPendingBadge;
+
+  private ActivityPaymentConfirmBinding(@NonNull LinearLayout rootView,
+      @NonNull LinearLayout layoutEmptyState, @NonNull LinearLayout layoutPayments,
+      @NonNull TextView tabAll, @NonNull TextView tabCompleted, @NonNull TextView tabPending,
+      @NonNull TextView tvPendingBadge) {
     this.rootView = rootView;
+    this.layoutEmptyState = layoutEmptyState;
     this.layoutPayments = layoutPayments;
+    this.tabAll = tabAll;
+    this.tabCompleted = tabCompleted;
+    this.tabPending = tabPending;
+    this.tvPendingBadge = tvPendingBadge;
   }
 
   @Override
   @NonNull
-  public ScrollView getRoot() {
+  public LinearLayout getRoot() {
     return rootView;
   }
 
@@ -55,13 +77,44 @@ public final class ActivityPaymentConfirmBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.layoutEmptyState;
+      LinearLayout layoutEmptyState = ViewBindings.findChildViewById(rootView, id);
+      if (layoutEmptyState == null) {
+        break missingId;
+      }
+
       id = R.id.layoutPayments;
       LinearLayout layoutPayments = ViewBindings.findChildViewById(rootView, id);
       if (layoutPayments == null) {
         break missingId;
       }
 
-      return new ActivityPaymentConfirmBinding((ScrollView) rootView, layoutPayments);
+      id = R.id.tabAll;
+      TextView tabAll = ViewBindings.findChildViewById(rootView, id);
+      if (tabAll == null) {
+        break missingId;
+      }
+
+      id = R.id.tabCompleted;
+      TextView tabCompleted = ViewBindings.findChildViewById(rootView, id);
+      if (tabCompleted == null) {
+        break missingId;
+      }
+
+      id = R.id.tabPending;
+      TextView tabPending = ViewBindings.findChildViewById(rootView, id);
+      if (tabPending == null) {
+        break missingId;
+      }
+
+      id = R.id.tvPendingBadge;
+      TextView tvPendingBadge = ViewBindings.findChildViewById(rootView, id);
+      if (tvPendingBadge == null) {
+        break missingId;
+      }
+
+      return new ActivityPaymentConfirmBinding((LinearLayout) rootView, layoutEmptyState,
+          layoutPayments, tabAll, tabCompleted, tabPending, tvPendingBadge);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

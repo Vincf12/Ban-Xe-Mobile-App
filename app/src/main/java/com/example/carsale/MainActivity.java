@@ -3,6 +3,7 @@ package com.example.carsale;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.content.Intent;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void checkUserRoleAndSetupUI() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        Log.d("DEBUG_UID", "Current user UID: " + (user != null ? user.getUid() : "null"));
         if (user == null) {
             Log.w(TAG, "Người dùng chưa đăng nhập.");
             showLoading(false);
@@ -113,13 +115,7 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
             FragmentType type = getFragmentTypeForMenuItem(item.getItemId());
-            if (isAdmin && item.getItemId() == R.id.nav_pay) {
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.nav_host_fragment, new PaymentConfirmFragment())
-                        .commitAllowingStateLoss();
-                updateDrawerToggleVisibility(false);
-                return true;
-            }
+            
             if (type != null) {
                 loadFragment(type);
                 return true;
@@ -138,12 +134,13 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private enum FragmentType { HOME, ADMIN, SEARCH, ACCOUNT, PAY}
+    private enum FragmentType { HOME, ADMIN, SEARCH, ACCOUNT, PAY, CHAR}
 
     private FragmentType getFragmentTypeForMenuItem(int itemId) {
         if (isAdmin) {
             if (itemId == R.id.nav_home_admin) return FragmentType.ADMIN;
-            if (itemId == R.id.nav_settings_admin) return FragmentType.SEARCH;
+            if (itemId == R.id.nav_search_admin) return FragmentType.SEARCH;
+            if (itemId == R.id.nav_char_admin) return FragmentType.CHAR;
             if (itemId == R.id.nav_pay) return  FragmentType.PAY;
             if (itemId == R.id.nav_account_admin) return FragmentType.ACCOUNT;
         } else {
@@ -165,11 +162,19 @@ public class MainActivity extends AppCompatActivity {
                 updateDrawerToggleVisibility(true);
                 break;
             case SEARCH:
-                // replaceFragment(new SettingsFragment());
+                replaceFragment(new SearchFragment());
                 updateDrawerToggleVisibility(false);
                 break;
             case ACCOUNT:
                 replaceFragment(new AccountFragment());
+                updateDrawerToggleVisibility(false);
+                break;
+            case CHAR:
+                replaceFragment(new AdminDashboardFragment());
+                updateDrawerToggleVisibility(false);
+                break;
+            case PAY:
+                replaceFragment(new PaymentConfirmFragment());
                 updateDrawerToggleVisibility(false);
                 break;
         }

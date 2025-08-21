@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:2:1-65:12
-INJECTED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:2:1-65:12
-INJECTED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:2:1-65:12
-INJECTED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:2:1-65:12
+ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:2:1-68:12
+INJECTED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:2:1-68:12
+INJECTED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:2:1-68:12
+INJECTED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:2:1-68:12
 MERGED from [androidx.databinding:viewbinding:8.10.0] C:\Users\nguye\.gradle\caches\8.11.1\transforms\4f989a45c5caf5d5a86ee6c9b4c1b3a8\transformed\viewbinding-8.10.0\AndroidManifest.xml:2:1-7:12
 MERGED from [com.cloudinary:cloudinary-android:2.3.1] C:\Users\nguye\.gradle\caches\8.11.1\transforms\bf3dc6ed858ce479a063cc9e6c6b62ae\transformed\cloudinary-android-2.3.1\AndroidManifest.xml:2:1-9:12
 MERGED from [com.cloudinary:cloudinary-android-ui:2.3.1] C:\Users\nguye\.gradle\caches\8.11.1\transforms\e700417d1be8848066f91fe95f441080\transformed\cloudinary-android-ui-2.3.1\AndroidManifest.xml:2:1-16:12
@@ -98,6 +98,7 @@ MERGED from [com.google.android.gms:play-services-basement:18.5.0] C:\Users\nguy
 MERGED from [androidx.fragment:fragment:1.5.7] C:\Users\nguye\.gradle\caches\8.11.1\transforms\845c83e9223ed4a9e146f300d0b43b25\transformed\fragment-1.5.7\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.activity:activity:1.10.1] C:\Users\nguye\.gradle\caches\8.11.1\transforms\e997718cb611e64740e4aa2d79177dd5\transformed\activity-1.10.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.core:core-splashscreen:1.0.1] C:\Users\nguye\.gradle\caches\8.11.1\transforms\fd1e3fe6c1d40354a910c788511af39c\transformed\core-splashscreen-1.0.1\AndroidManifest.xml:17:1-24:12
+MERGED from [com.github.PhilJay:MPAndroidChart:3.1.0] C:\Users\nguye\.gradle\caches\8.11.1\transforms\faa6e86affd79eff5dea61b02bdb5788\transformed\MPAndroidChart-3.1.0\AndroidManifest.xml:2:1-20:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\nguye\.gradle\caches\8.11.1\transforms\7912f7bdd44d42db0328883d8a96461c\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\nguye\.gradle\caches\8.11.1\transforms\330b109618c52fd15a65ff010c6b0975\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\nguye\.gradle\caches\8.11.1\transforms\2afec994e19f8444d963c36c096eaf9d\transformed\profileinstaller-1.4.0\AndroidManifest.xml:17:1-55:12
@@ -210,8 +211,8 @@ ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:8:5-80
 	android:name
 		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:8:22-77
 application
-ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:10:5-63:19
-INJECTED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:10:5-63:19
+ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:10:5-66:19
+INJECTED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:10:5-66:19
 MERGED from [com.cloudinary:cloudinary-android-ui:2.3.1] C:\Users\nguye\.gradle\caches\8.11.1\transforms\e700417d1be8848066f91fe95f441080\transformed\cloudinary-android-ui-2.3.1\AndroidManifest.xml:9:5-14:19
 MERGED from [com.cloudinary:cloudinary-android-ui:2.3.1] C:\Users\nguye\.gradle\caches\8.11.1\transforms\e700417d1be8848066f91fe95f441080\transformed\cloudinary-android-ui-2.3.1\AndroidManifest.xml:9:5-14:19
 MERGED from [com.cloudinary:cloudinary-android-core:2.3.1] C:\Users\nguye\.gradle\caches\8.11.1\transforms\d96c303930f64897fbb2c28e040868d1\transformed\cloudinary-android-core-2.3.1\AndroidManifest.xml:11:5-20
@@ -426,6 +427,18 @@ activity#com.example.carsale.PaymentConfirmActivity
 ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:62:9-60
 	android:name
 		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:62:19-57
+activity#com.example.carsale.DepositHistoryActivity
+ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:63:9-59
+	android:name
+		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:63:19-57
+activity#com.example.carsale.ServiceBookingActivity
+ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:64:9-60
+	android:name
+		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:64:19-57
+activity#com.example.carsale.ServiceManagementActivity
+ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:65:9-63
+	android:name
+		ADDED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml:65:19-60
 uses-sdk
 INJECTED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\DoAn Car sale\app\src\main\AndroidManifest.xml
@@ -618,6 +631,8 @@ MERGED from [androidx.activity:activity:1.10.1] C:\Users\nguye\.gradle\caches\8.
 MERGED from [androidx.activity:activity:1.10.1] C:\Users\nguye\.gradle\caches\8.11.1\transforms\e997718cb611e64740e4aa2d79177dd5\transformed\activity-1.10.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.core:core-splashscreen:1.0.1] C:\Users\nguye\.gradle\caches\8.11.1\transforms\fd1e3fe6c1d40354a910c788511af39c\transformed\core-splashscreen-1.0.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.core:core-splashscreen:1.0.1] C:\Users\nguye\.gradle\caches\8.11.1\transforms\fd1e3fe6c1d40354a910c788511af39c\transformed\core-splashscreen-1.0.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.github.PhilJay:MPAndroidChart:3.1.0] C:\Users\nguye\.gradle\caches\8.11.1\transforms\faa6e86affd79eff5dea61b02bdb5788\transformed\MPAndroidChart-3.1.0\AndroidManifest.xml:16:5-18:41
+MERGED from [com.github.PhilJay:MPAndroidChart:3.1.0] C:\Users\nguye\.gradle\caches\8.11.1\transforms\faa6e86affd79eff5dea61b02bdb5788\transformed\MPAndroidChart-3.1.0\AndroidManifest.xml:16:5-18:41
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\nguye\.gradle\caches\8.11.1\transforms\7912f7bdd44d42db0328883d8a96461c\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\nguye\.gradle\caches\8.11.1\transforms\7912f7bdd44d42db0328883d8a96461c\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\nguye\.gradle\caches\8.11.1\transforms\330b109618c52fd15a65ff010c6b0975\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44

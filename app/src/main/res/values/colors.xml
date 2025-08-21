@@ -2,7 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="background_color">#CCFFFF</color>
+    <color name="background_color">#E6EAED</color>
     <!-- Màu chính -->
     <color name="primary">#2E86C1</color>
     <color name="primary_dark">#333333</color>
@@ -112,4 +112,47 @@
     <color name="text_secondarys">#757575</color>
     <color name="ripple_colors">#1F009688</color>
     <color name="primary_colors">#009688</color>
+    <color name="red">#FF0000</color>
+    <color name="primary_text_color">#333333</color>
+    <color name="secondary_text_color">#666666</color>
+    <color name="accent_colors">#2196F3</color>
+    <color name="price">#FF5722</color>
+    <!-- Status Colors -->
+    <color name="pending_color">#FF9800</color>
+    <color name="pending_background">#FFF3E0</color>
+    <color name="success_color">#4CAF50</color>
+    <color name="error_color">#F44336</color>
+
+    <!-- Content Colors -->
+    <color name="note_color">#757575</color>
+    <color name="note_text_color">#424242</color>
+    <color name="input_border">#E0E0E0</color>
+    <color name="search_background">#F5F5F5</color>
+
+    <!-- Background Colors -->
+    <color name="background_light">#F8F9FA</color>
+    <color name="background_gray">#F5F5F5</color>
+
+    <!-- Chip Colors -->
+    <color name="chip_text_selected">#FFFFFF</color>
+    <color name="chip_text_normal">#424242</color>
+    <color name="chip_background_selected">#1976D2</color>
+    <color name="chip_background_normal">#F0F0F0</color>
+
+    <!-- Search & Input Colors -->
+    <color name="input_background">#FAFAFA</color>
+    <color name="input_border_focused">#1976D2</color>
+
+    <!-- Filter Colors -->
+    <color name="filter_background">#F8F9FA</color>
+    <color name="filter_border">#E8EAED</color>
+
+    <!-- State Colors -->
+    <color name="loading_overlay">#80FFFFFF</color>
+    <color name="backdrop_overlay">#80000000</color>
+    <color name="empty_state_icon">#E0E0E0</color>
+
+    <!-- Shadow & Elevation -->
+    <color name="shadow_light">#1A000000</color>
+    <color name="shadow_medium">#33000000</color>
 </resources>

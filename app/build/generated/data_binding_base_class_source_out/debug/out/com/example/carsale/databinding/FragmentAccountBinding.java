@@ -21,19 +21,32 @@ public final class FragmentAccountBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
+  public final LinearLayout btnLogout;
+
+  @NonNull
+  public final ImageView ivHistory;
+
+  @NonNull
   public final ImageView ivLocation;
 
   @NonNull
   public final LinearLayout ivProfile;
 
   @NonNull
+  public final ImageView services;
+
+  @NonNull
   public final TextView tvUserName;
 
-  private FragmentAccountBinding(@NonNull LinearLayout rootView, @NonNull ImageView ivLocation,
-      @NonNull LinearLayout ivProfile, @NonNull TextView tvUserName) {
+  private FragmentAccountBinding(@NonNull LinearLayout rootView, @NonNull LinearLayout btnLogout,
+      @NonNull ImageView ivHistory, @NonNull ImageView ivLocation, @NonNull LinearLayout ivProfile,
+      @NonNull ImageView services, @NonNull TextView tvUserName) {
     this.rootView = rootView;
+    this.btnLogout = btnLogout;
+    this.ivHistory = ivHistory;
     this.ivLocation = ivLocation;
     this.ivProfile = ivProfile;
+    this.services = services;
     this.tvUserName = tvUserName;
   }
 
@@ -64,6 +77,18 @@ public final class FragmentAccountBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btn_logout;
+      LinearLayout btnLogout = ViewBindings.findChildViewById(rootView, id);
+      if (btnLogout == null) {
+        break missingId;
+      }
+
+      id = R.id.iv_history;
+      ImageView ivHistory = ViewBindings.findChildViewById(rootView, id);
+      if (ivHistory == null) {
+        break missingId;
+      }
+
       id = R.id.iv_location;
       ImageView ivLocation = ViewBindings.findChildViewById(rootView, id);
       if (ivLocation == null) {
@@ -76,13 +101,20 @@ public final class FragmentAccountBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.services;
+      ImageView services = ViewBindings.findChildViewById(rootView, id);
+      if (services == null) {
+        break missingId;
+      }
+
       id = R.id.tv_user_name;
       TextView tvUserName = ViewBindings.findChildViewById(rootView, id);
       if (tvUserName == null) {
         break missingId;
       }
 
-      return new FragmentAccountBinding((LinearLayout) rootView, ivLocation, ivProfile, tvUserName);
+      return new FragmentAccountBinding((LinearLayout) rootView, btnLogout, ivHistory, ivLocation,
+          ivProfile, services, tvUserName);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
